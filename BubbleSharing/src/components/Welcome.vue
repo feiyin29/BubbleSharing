@@ -1,9 +1,8 @@
 <template>
-  <v-row>
+  <v-row no-gutter>
     <v-col cols="12">
-      <v-row>
-        hi
-        <v-btn variant="outlined"> Button </v-btn>
+      <v-row no-gutter class="tw-text-red-500 ">
+        hi jfioewjfoiejwiofe
       </v-row>
     </v-col>
   </v-row>
