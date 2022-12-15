@@ -1,28 +1,28 @@
 <template>
   <v-app>
-    <v-main class="tw-bg-[#00c97b]">
+    <v-main class="tw-bg-[#5B78FF]">
       <myNav></myNav>
-      <Home />
+      <termService />
       <myfooter/>
     </v-main>
   </v-app>
-  
+    
 </template>
-
+  
 <script>
 import { defineComponent } from 'vue';
-
-// Components
-import Home from '@/components/Home.vue';
+  
+  // Components
+import termService from '@/components/TermsofService.vue';
 import myNav from '@/components/navBar.vue';
 import myfooter from '@/components/footer.vue';
-
 export default defineComponent({
-  name: 'HomeView', 
+  name: 'termView', 
   components: {
-    Home,
+    termService,
     myNav,
     myfooter,
   },
 });
 </script>
+  

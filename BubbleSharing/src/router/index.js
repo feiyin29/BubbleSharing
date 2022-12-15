@@ -21,8 +21,16 @@ const router = createRouter({
       path: '/welcome',
       name: 'welcome',
       component: () => import('../views/WelcomeView.vue')
+    },
+    {
+      path: '/termsofservice',
+      name: 'TermsofService',
+      component: () => import('../views/TermsofServiceView.vue')
     }
-  ]
+  ],
+scrollBehavior(to, from, savedPosition) {
+  return { top: 0 }
+},
 })
 
 export default router
