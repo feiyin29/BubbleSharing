@@ -20,7 +20,7 @@
                 tw-text-[#252525] 
                 Heading1 
                 tw-py-3 mx-16"
-                @click="this.$router.push('/privacy')"
+                @click="this.$router.push('/manage')"
               >
                 Management
               </button>
@@ -40,7 +40,7 @@
                 tw-rounded-md
                 Body3
                 px-12 py-3"
-                @click="this.$router.push('/privacy')"
+                @click="this.$router.push('/login')"
               >
                 Login
               </button>
@@ -49,7 +49,7 @@
                 tw-rounded-md
                 Body3
                 px-10 py-3 ml-4"
-                @click="this.$router.push('/privacy')"
+                @click="this.$router.push('/create')"
               >
                 Sign up
               </button>

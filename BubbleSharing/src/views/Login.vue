@@ -1,13 +1,9 @@
 <template>
   <v-container fluid class="pa-0">
     <v-row no-gutters>
-      <v-col
-        cols="12"
-        style="height: 1024px"
-        class="sheetPadding tw-bg-[url('src/assets/login.png')]"
-      >
+      <v-col cols="12">
         <v-row no-gutters class="pl-11">
-          <v-col cols="6" class="pl-16 pr-16">
+          <v-col cols="8" >
             <router-link to="/">
               <v-img
                 :aspect-ratio="aspectRatio"
@@ -19,33 +15,36 @@
 
             <v-row no-gutter class="headingFont"> Log in your link </v-row>
 
-            <v-row class="mt-16" justify="center">
+            <v-row class="mt-16" >
               <input type="text" placeholder="bubble.sh/Username" />
             </v-row>
 
-            <v-row class="mt-6" justify="center">
+            <v-row class="mt-6" >
               <input type="text" placeholder="password" />
             </v-row>
 
-            <v-row class="mt-16" justify="center">
+            <v-row class="mt-16" >
               <button class="button">Log in</button>
             </v-row>
 
-            <v-row class="mt-16 grayFont" justify="center"> Forgot Password ?</v-row>
+            <v-row class="mt-16 grayFont" style="margin-left: 368px;" > Forgot Password ?</v-row>
 
             <router-link to="/create">
-              <v-row class="mt-6 grayFont" justify="center"
-                >don't have a bubble sharing account? Create one</v-row
-              >
+              <v-row class="mt-6 grayFont" style="margin-left: 259px;" >
+                don't have a bubble sharing account? Create one
+                </v-row>
             </router-link>
 
-            <v-row class="mt-16 grayFont" justify="center">
+            <v-row class="mt-16 grayFont" style="margin-left: 110px;" >
               <p>
                 This site is protected by reCAPTCHA and the
-                <u class="redFont"> Google Privacy Policy.</u> and
-                <u class="redFont"> Terms of Service apply.</u>
+                <router-link to="/privacy"><u class="redFont"> Google Privacy Policy.</u></router-link> and
+                <router-link to="/termsofservice"><u class="redFont"> Terms of Service apply.</u></router-link>
               </p>
             </v-row>
+          </v-col>
+          <v-col cols="4">
+              <img src="../assets/login.png" />
           </v-col>
         </v-row>
       </v-col>
@@ -73,7 +72,7 @@ body {
 
 .headingFont {
   margin-top: 138px;
-  margin-left: 75px;
+  margin-left: 107px;
   font-weight: bold;
   font-size: 48px;
   line-height: 56px;
@@ -111,6 +110,7 @@ body {
   cursor: pointer;
   height: 60px;
   width: 645px;
+  margin-left: 110px;
 }
 
 .button:hover {
@@ -130,6 +130,7 @@ select {
   font-size: 24px;
   line-height: 24px;
   caret-color: #5b78ff;
+  margin-left: 120px;
 }
 
 input[type="text"],
