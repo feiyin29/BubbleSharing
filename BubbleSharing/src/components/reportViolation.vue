@@ -22,6 +22,11 @@
           <v-row no-gutter class="Body1">
             Community Standards: <router-link to="/commustandards"> https://beacons.ai/i/community-standards</router-link>
           </v-row>
+          <v-form
+            ref="form"
+            v-model="valid"
+            lazy-validation
+          >
           <v-row no-gutter class="Body1 mt-6">
             Link to Beacons account with the identified violation <p class="tw-text-[#E93330] pl-1">*</p>
           </v-row>
@@ -77,14 +82,59 @@
               variant="outlined"
             ></v-text-field>
           </v-row>
-          <v-row no-gutter class="">
+          <!-- <v-row no-gutter class="">
             <button class="submitBtn"
               :disabled="!valid"
               @click="add()"
             >
               Submit
             </button>
-          </v-row>
+          </v-row> -->
+          <v-col cols="12" class="d-flex justif-start mt-n3 ml-n6">
+            
+                    <v-dialog
+                        v-model="dialog"
+                        width="600"
+                        >
+                        <template v-slot:activator="{ props }">
+                            <v-btn
+                                :disabled="!valid"
+                                class="submitBtn"
+                                @click="add()"
+                                v-bind="props"
+                            >
+                            Submit
+                            </v-btn>
+                        </template>
+                        <!-- <v-col></v-col>
+                        <v-col cols="5"> -->
+                          <v-card rounded="xl" >
+                              <v-card-text class="text-center my-6">
+                                  <v-icon 
+                                      size="80"
+                                      color="#00C97B"
+                                      class="mt-8"
+                                  >
+                                      mdi-check-circle-outline
+                                  </v-icon>
+                              <div class="text-h5 px-12 pb-8 pt-4">Your reported violation was successful.</div>
+                              </v-card-text>
+                              <v-card-actions  class="justify-center mb-4">
+                              <v-btn 
+                                  color="#E93330" 
+                                  rounded
+                                  @click="submit(dialog)"
+                                  @click.stop="dialog = false"
+                              > 
+                                  Close
+                              </v-btn>
+                              </v-card-actions>
+                          </v-card>
+                      <!-- </v-col>
+                      <v-col></v-col> -->
+                    </v-dialog>
+          </v-col>
+        </v-form>
         </v-col>
       </v-row>
     </v-col>
@@ -101,22 +151,32 @@ export default {
     const Fname = ref('');
     const Lname = ref('');
     const Email = ref('');
+    console.log("name", Fname);
+
     function add(){
-      const input = { link: link.value,
+      const newProduct = { link: link.value,
                            text: text.value,
                            Fname: Fname.value,
                            Lname: Lname.value,
                            Email: Email.value,
-  
                     } 
           this.$refs.form.validate();
+          console.log("input data",newProduct);
     }
 
     return { link, text, Fname, Lname, Email, add }
   },
   data: () => ({  
+    dialog: false,
     valid: true, 
   }),
+  methods: {
+    submit(dialog) {
+      dialog = false;
+      console.log("dialog",dialog);
+      this.$router.push('/');
+    },
+  },
 }
 </script>
 

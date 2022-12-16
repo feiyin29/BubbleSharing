@@ -56,6 +56,38 @@ const router = createRouter({
       name: 'reportViolation',
       component: () => import('../views/reportViolationView.vue')
     }
+    ,
+    {
+      path: '/discover',
+      name: 'discover',
+      component: () => import('../views/Discover.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/Login.vue')
+    },
+    {
+      path: '/create',
+      name: 'create',
+      component: () => import('../views/Create.vue')
+    },
+    {
+      path: '/manage',
+      name: 'manage',
+      component: () => import('../views/Management.vue')
+    },
+    {
+      path: '/feedback',
+      name: 'feedback',
+      component: () => import('../views/feedback.vue')
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: () => import('../views/account.vue')
+    },
+
   ],
 scrollBehavior(to, from, savedPosition) {
   return { top: 0 }
