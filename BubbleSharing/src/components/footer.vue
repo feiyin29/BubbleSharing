@@ -20,6 +20,7 @@
                 tw-text-[#252525] 
                 Heading1 
                 tw-py-3 mx-16"
+                @click="this.$router.push('/privacy')"
               >
                 Management
               </button>
@@ -28,6 +29,7 @@
                 tw-text-[#252525] 
                 Heading1 
                 tw-py-3 mx-16 "
+                @click="this.$router.push('/aboutus')"
               >
                 About Us
               </button>
@@ -38,6 +40,7 @@
                 tw-rounded-md
                 Body3
                 px-12 py-3"
+                @click="this.$router.push('/privacy')"
               >
                 Login
               </button>
@@ -46,6 +49,7 @@
                 tw-rounded-md
                 Body3
                 px-10 py-3 ml-4"
+                @click="this.$router.push('/privacy')"
               >
                 Sign up
               </button>
@@ -71,6 +75,7 @@
                 tw-text-[#252525] 
                 Heading2
                 tw-py-3 mx-6"
+                @click="this.$router.push('/privacy')"
               >
                 Privacy Policy
               </button>
@@ -79,6 +84,7 @@
                 tw-text-[#252525] 
                 Heading2
                 tw-py-3 mx-6"
+                @click="this.$router.push('/commustandards')"
               >
                 Community Standards
               </button>
@@ -87,6 +93,7 @@
                 tw-text-[#252525] 
                 Heading2 
                 tw-py-3 mx-6 "
+                @click="this.$router.push('/cookienotices')"
               >
                 Cookies Notice
               </button>
@@ -95,6 +102,7 @@
                 tw-text-[#252525] 
                 Heading2 
                 tw-py-3 mx-6 "
+                @click="this.$router.push('/reportviolation')"
               >
                 Report violation
               </button>

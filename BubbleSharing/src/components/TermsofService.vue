@@ -4,7 +4,7 @@
       <v-row no-gutter class="ctSheetStyle tw-bg-white tw-border-2 py-14">
         <v-col cols="1"></v-col>
         <v-col cols="10">
-        <!-- Contenet 18 rows -->
+        <!-- Content 18 rows -->
           <v-row no-guter class="Heading1">
             Terms of Service
           </v-row>
