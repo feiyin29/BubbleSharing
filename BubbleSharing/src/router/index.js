@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import welcome from '../views/WelcomeView.vue'
+import mypage from '@/views/MyPageView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,7 +22,7 @@ const router = createRouter({
     {
       path: '/welcome',
       name: 'welcome',
-      component: () => import('../views/WelcomeView.vue')
+      component: welcome,
     },
     {
       path: '/termsofservice',
@@ -41,6 +43,12 @@ const router = createRouter({
       path: '/cookienotices',
       name: 'CookieNotices',
       component: () => import('../views/CookieNoticesView.vue')
+      
+    },
+    {
+      path: '/mypage',
+      name: 'mypage',
+      component: mypage,
     }
     ,
     {

@@ -1,15 +1,15 @@
 <template>
     <Suspense>
-      <welcome></welcome>
+      <my-page></my-page>
       <template #fallback> Loading... </template>
     </Suspense>
   </template>
   
   <script>
-  import Welcome from '../components/Welcome.vue'
+  import MyPage from '@/components/Mypage.vue'
   export default {
     components: {
-      Welcome,
+      MyPage,
     },
   };
   </script>
