@@ -25,6 +25,9 @@ export const useProductStore = defineStore({
       this.account.push(data);
       console.log("out ", this.account);
     },
+    deleteUsername(){
+      this.account.splice(0, 1);  
+    },
     pushData(param) {
       this.products.push(param);
       console.log(this.products);
