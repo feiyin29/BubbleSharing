@@ -34,7 +34,7 @@
                   required
                   tw-text-[#252525] tw-font-bold 
                   py-2 px-6 ml-10 tw-rounded-full"
-                  @click="validate"
+                  @click="validate(store)"
                 >
                   claim your link
                 </button>
@@ -115,13 +115,17 @@ export default {
       ],
   }),
   methods: {
-    async validate () {
+    async validate (store) {
         const { valid } = await this.$refs.form.validate()
 
         if (valid) {
+          if(store.account.length != 0) store.deleteUsername();
           this.addLink();
           console.log("pass");
-        } else this.$router.push('/create');
+        } else {
+          if(store.account.length != 0) store.deleteUsername();
+          this.$router.push('/create');
+        }
       },
   },
 }
