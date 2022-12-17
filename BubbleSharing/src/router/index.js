@@ -87,6 +87,11 @@ const router = createRouter({
       name: 'account',
       component: () => import('../views/account.vue')
     },
+    {
+      path: '/analysis',
+      name: 'analysis',
+      component: () => import('../views/analysis.vue')
+    },
 
   ],
 scrollBehavior(to, from, savedPosition) {
