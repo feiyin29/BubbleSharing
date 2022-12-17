@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main >
+    <v-main class="tw-bg-[#F8F8F8]">
       
       <Home />
       
@@ -13,7 +13,7 @@
 import { defineComponent } from 'vue';
 
 // Components
-import Home from '@/components/account.vue';
+import Home from '@/components/analysis.vue';
 import myNav from '@/components/navBar.vue';
 import myfooter from '@/components/footer.vue';
 

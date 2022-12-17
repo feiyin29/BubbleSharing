@@ -31,13 +31,13 @@
 </script>
 
 <style scoped>
-@import url("http://fonts.googleapis.com/css?family=Roboto%22");
+@import url("http://fonts.googleapis.com/css?family=Roboto");
 body {
   font-family: "Roboto";
-/* background-color: #5B78FF; */
+
 }
 .sheetPadding {
-    padding: 220px 68px 75px;
+  padding: 142px 68px 75px;
 }
 .headingFont {
     font-weight: bold;

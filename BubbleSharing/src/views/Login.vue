@@ -2,8 +2,8 @@
   <v-container fluid class="pa-0">
     <v-row no-gutters>
       <v-col cols="12">
-        <v-row no-gutters class="pl-11">
-          <v-col cols="8" >
+        <v-row no-gutters class="pl-16 ">
+          <v-col cols="7" >
             <router-link to="/">
               <v-img
                 :aspect-ratio="aspectRatio"
@@ -43,8 +43,8 @@
               </p>
             </v-row>
           </v-col>
-          <v-col cols="4">
-              <img src="../assets/login.png" />
+          <v-col cols="5">
+              <img src="../assets/login.png" width="610" />
           </v-col>
         </v-row>
       </v-col>
