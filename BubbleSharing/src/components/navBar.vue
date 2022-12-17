@@ -48,6 +48,7 @@
                   loginBtn
                   Body3
                   "
+                  @click="this.$router.push('/login')"
                 >
                   Login
                 </button>
@@ -55,6 +56,7 @@
                   signBtn
                   Body3
                   ml-3 mr-8"
+                  @click="this.$router.push('/create')"
                 >
                   Sign up
                 </button>
