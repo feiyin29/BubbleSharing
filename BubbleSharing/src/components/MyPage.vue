@@ -120,6 +120,7 @@
                           
                           "
                           @click="addUrlBtn = true"
+                          @click.stop="urlCheck()"
                         >
                           Add
                         </button>
@@ -386,15 +387,19 @@
                               0 Clicks
                             </span>
                           </v-col>
-                          <v-col
+                          <v-col cols="2"
                             class="
                               d-flex justify-end align-center
                             "
                           >
-                            <img 
-                              class="tw-w-[21px] tw-h-[21px]"
-                              src="../assets/binIcon.png"
-                            />
+                            <button
+                              @click="deleteUrlBox()"
+                            >
+                              <img 
+                                class="tw-w-[21px] tw-h-[21px]"
+                                src="../assets/binIcon.png"
+                              />
+                            </button>
                           </v-col>
                         </v-row>
                       </v-col>
@@ -461,25 +466,164 @@
                           textBody3-24
                           d-flex justify-center align-center
                           tw-font-medium
-                          tw-border-4
                         "
                       >
                         Share your BubbleSharing
+                        <button class="
+                          pa-0
+                          tw-absolute
+                          tw-right-[42px]
+                        ">
+                          <img src="../assets/closeIcon.png" width="24" />
+                        </button>
+                      </v-row>
+                      <v-row no-gutters
+                        class="
+                          textBody1-16medium
+                          tw-px-[42px]
+                          tw-pt-[16px]
+                          tw-pb-[4px]
+                        "
+                      >
+                        Get more visitors by sharing your BubbleSharing everywhere.
                       </v-row>
                       <a href="#home"
                         class="
                           d-flex align-center
                         "
                       >
-                        <img src="../assets/socialIcon.png" width="64" />
-                        Add to your socials
+                        <v-col cols="2"
+                          class="pa-0"
+                        >
+                          <img src="../assets/socialIcon.png" width="64" />
+                        </v-col>
+                        <v-col
+                          class="
+                            pa-0
+                            tw-ml-[24px]
+                          "
+                        >
+                          Add to your socials
+                        </v-col>
+                        <v-col cols="2"
+                          class="
+                            pa-0
+                            d-flex justify-end
+                          "
+                        >
+                          <img src="../assets/arrowForwardIcon.png" width="24" />
+                        </v-col>
                       </a>
-                      <a href="#about">
-                        Share my BubbleSharing to..
+                      <a href="#about"
+                        class="
+                          d-flex align-center
+                        "
+                      >
+                        <v-col cols="2"
+                          class="pa-0"
+                        >
+                          <img src="../assets/shareMyBubbleIcon.png" width="64" />
+                        </v-col>
+                        <v-col
+                          class="
+                            pa-0
+                            tw-ml-[24px]
+                          "
+                        >
+                          Share my BubbleSharing to..
+                        </v-col>
+                        <v-col cols="2"
+                          class="
+                            pa-0
+                            d-flex justify-end
+                          "
+                        >
+                          <img src="../assets/arrowForwardIcon.png" width="24" />
+                        </v-col>
                       </a>
-                      <a href="#contact">
-                        Open my BubbleSharing
+                      <a href="#contact"
+                        class="
+                          d-flex align-center
+                          tw-pb-[16px]
+                        "
+                      >
+                        <v-col cols="2"
+                          class="pa-0"
+                        >
+                          <img src="../assets/worldIcon.png" width="64" />
+                        </v-col>
+                        <v-col
+                          class="
+                            pa-0
+                            tw-ml-[24px]
+                          "
+                        >
+                          Open my BubbleSharing
+                        </v-col>
+                        <v-col cols="2"
+                          class="
+                            pa-0
+                            d-flex justify-end
+                          "
+                        >
+                          <img src="../assets/openInIcon.png" width="24" />
+                        </v-col>
                       </a>
+                      <v-row no-gutters
+                        class="
+                          tw-px-[42px]
+                          tw-mx-[42px]
+                          d-flex align-center
+                        "
+                      >
+                        <v-col cols="12" class="
+                        tw-mt-[12px]
+                        ">
+                          <v-row no-gutters 
+                            class="
+                              tw-border
+                              tw-rounded-[10px]
+                              tw-border-[#616161]
+                              d-flex align-center
+                            "
+                          >
+                            <v-col cols="2"
+                              class="
+                                pa-0
+                                tw-my-[14px]
+                                tw-ml-[14px]
+                              "
+                            >
+                              <img src="../assets/logoBlue.png" height="48" />
+                            </v-col>
+                            <v-col
+                              class="
+                                heading3-16
+                                pa-0
+                                tw-my-[14px]
+                              "
+                            >
+                              bubble.sh/username
+                            </v-col>
+                            <v-col cols="2"
+                              class="
+                              textBody3-24
+                                pa-0
+                                tw-my-[14px]
+                                tw-mr-[14px]
+                                d-flex justify-end
+                                hover:tw-underline
+                                hover:tw-underline-offset-8
+                              "
+                            >
+                            <button>
+                              Copy
+                            </button>
+                            </v-col>
+                          </v-row>
+                        </v-col>
+                        
+                      </v-row>
                     </div>
 
 
@@ -631,109 +775,9 @@
                     
                   </v-col>
                   <v-col></v-col>
+
                 </v-row>
-
-
-
-
-
-
-                <!-- screen -->
-                <div
-                  class="
-                    screenContainer
-                  "
-                >
-
-                <v-row no-gutters
-                  class="
-                    d-flex justify-center align-center
-                    tw-pt-[32px]
-                  "
-                >
-                  <div
-                    class="
-                      d-flex justify-center align-center
-                      tw-border-l
-                      tw-border-[#9E9E9E]
-                      tw-w-full
-                    "
-                  >
-                    <!-- <img src="../assets/FirstScreen.png" /> -->
-                    <div
-                      class="
-                        tw-w-3/4
-                      "
-                    >
-                      <v-img 
-                        src="../src/assets/FirstScreen.png" 
-                        class="
-                          screenImg
-                        "
-                      ></v-img>
-                    </div>
-                    
-                  </div>
-                </v-row>
-
-                <!-- title -->
-                <v-row no-gutters
-                  class="
-                    titleBox
-                    d-flex justify-center align-center
-                    
-                  "
-                  v-if="addUrlBtn == true"
-
-                >
-                  <span
-                    v-if="titleCheck == false"
-                    class="textBody1-16
-                    "
-                  >
-                    Title
-                  </span>
-                  <span
-                    v-else if="titleCheck == true"
-                    class="textBody1-16
-                    
-                    "
-                  >
-                    {{title}}
-                  </span>
-                </v-row>
-
-                <!-- img -->
-                <v-row
-                  class="
-                                    innerShadow 
-                                    bg-white 
-                                    tw-rounded-2xl 
-                                    mr-10 
-                                    d-flex 
-                                    justify-center 
-                                    align-center"
-                >
-
-                  <v-img 
-                    v-if="file != null" 
-                    :src="file" 
-                    width="190" 
-                    height="190" 
-                    cover
-                  ></v-img>
-                  <v-icon 
-                    v-else 
-                    size="80" 
-                    color="#e4e4e4" 
-                    class="ma-13"
-                  >
-                    mdi-camera-plus
-                  </v-icon>
-                </v-row>
-
-              </div>
-
+                <!-- end of iPhone screen -->
               </v-col>
               <!-- end of right side -->
 
@@ -751,12 +795,12 @@ import { useProductStore } from "@/stores/products";
 const  { store, updateByEdit } = useProductStore();
 
 
-const addLinkBtn = ref(false);
-const addUrlBtn = ref(false);
-const url = ref('');
+let addLinkBtn = ref(false);
+let addUrlBtn = ref(false);
+let url = ref('');
 const titleBtn = ref(false);
-const title = ref('');
-const titleCheck = ref(false);
+let title = ref('');
+let titleCheck = ref(false);
 
 const urlEditBtn = ref(false);
 const urlEditCheck = ref(false);
@@ -764,7 +808,7 @@ const urlEditCheck = ref(false);
 const file = ref("");
 const countNumber = ref('1')
 
-const image = ref('');
+let image = ref('');
 
 const editTitle = ref('');
 const editImage = ref('');
@@ -773,7 +817,7 @@ const editIndex= ref('');
 
 
 const inputUrl = () => {
-  console.log(url);
+  console.log(url.value);
   console.log(url.value.length);
   if (url.value.length == 0) {
     urlEditCheck.value = false;
@@ -858,16 +902,16 @@ const onFileChange = (e) => {
   if (!files.length) {
     return
   }
-    this.fileName = files[0].name
-    this.createImage(files[0])
+    const fileName = files[0].name
+    createImage(files[0])
 }
 
 const createImage = (file) => {
   var image = new Image()
   var reader = new FileReader()
   reader.onload = (e) => {
-    this.file = e.target.result;
-    this.$emit('change', this.file)
+    file = e.target.result;
+    this.$emit('change', file)
   }
   reader.readAsDataURL(file)
 }
@@ -890,6 +934,23 @@ window.onclick = function(event) {
       }
     }
   }
+}
+
+// delete url box
+const deleteUrlBox = () => {
+  
+  title.value = '';
+  image.value = '';
+  url.value = '';
+  addLinkBtn.value = false;
+  addUrlBtn.value = false;
+  console.log(title);
+  console.log(image);
+  console.log(url);
+  console.log(addLinkBtn.value);
+  console.log(addUrlBtn.value);
+  titleCheck.value = false;
+  urlCheck.value = false;
 }
 
 
@@ -957,12 +1018,26 @@ body {
   letter-spacing: 0px;
   color:#000000;
 }
+.textBody1-16medium {
+  font-weight: medium;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color:#9E9E9E;
+}
 .heading2-24 {
   font-weight: bold;
   font-size: 24px;
   line-height: 32px;
   letter-spacing: -0.25px;
   color:#000000;
+}
+.heading3-16 {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: -0.25px;
+  color:#9E9E9E;
 }
 .textRegular20 {
   font-weight: normal;
