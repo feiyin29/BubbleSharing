@@ -14,42 +14,31 @@
               everyone on the page.
             </v-row>
             <v-row no-gutter class="tw-py-16">
-              <div class="
-                search-box
-                d-flex
-                justify-start
-                align-center
-                tw-bg-[#F8F8F8]
-                tw-rounded-md
-                overflow-hidden
-                tw-p-4
-                hover:tw-bg-[#F3F3F3]
-                focus:tw-ring-2
-                focus:tw-ring-offset-2
-                focus:tw-ring-offset-purple-100
-                focus:tw-border-2
-                "
+              <v-form
+                ref="form"
+                v-model="valid"
+                lazy-validation
               >
-                <input 
+                <v-text-field
+                  variant="solo"
                   placeholder="bubble.sh/yourname"  
-                  v-model="msg" 
-                  class="
-                    tw-h-full   
-                    tw-w-full 
-                    tw-outline-0
-                    tw-pl-3
-                    "
-                >  
-              </div>
-              <button class="
-                tw-bg-[#FFDA52]
-                hover:tw-bg-[#FCCD22]
-                tw-hover:bg-blue-700 
-                tw-text-[#252525] tw-font-bold 
-                py-2 px-6 ml-10 tw-rounded-full"
-              >
-                claim your link
-              </button>
+                  v-model="username"
+                  :rules="nameRules"
+                  class="elevation-0"
+                  width="204"
+                ></v-text-field>
+              </v-form>
+                <button class="
+                  tw-bg-[#FFDA52]
+                  hover:tw-bg-[#FCCD22]
+                  required
+                  tw-text-[#252525] tw-font-bold 
+                  py-2 px-6 ml-10 tw-rounded-full"
+                  @click="validate"
+                >
+                  claim your link
+                </button>
+              
             </v-row>
           </v-col>
         </v-row>
@@ -78,6 +67,7 @@
                 tw-hover:bg-blue-700 
                 tw-text-[#F8F8F8] Heading1 
                 tw-py-4 tw-px-8 mt-11 tw-rounded-full"
+                @click="$router.push('/create')"
               >
                 Get start for free
               </button>
@@ -91,12 +81,50 @@
 
 <script>
 import { ref } from 'vue';
-  export default {
-    data: () => ({
-      model: '',
-    }),
-  }
-  const msg = ref('')
+import { useProductStore } from "@/stores/products";
+
+export default {
+  setup:() => {
+    const store = useProductStore();
+    const username = ref("");
+    const email = ref("");
+    const password = ref("");
+
+    function addLink(){
+      const account = {  
+                        username: username.value ,
+                        email: email.value,
+                        password: password.value,
+                        userLink: "bubble.sh/"+username.value,
+                      }
+      console.log("account data", account);
+      store.addNewAccount(account);
+      this.$router.push('/create');
+    }
+
+    return { store, username, addLink }
+  },
+
+  data: () => ({
+    model: '',
+    inputBox: false,
+    valid: true,
+    nameRules: [
+        v => !!v || '',
+        v => (v && v.length <= 5) || 'Name must be less than 5 characters',
+      ],
+  }),
+  methods: {
+    async validate () {
+        const { valid } = await this.$refs.form.validate()
+
+        if (valid) {
+          this.addLink();
+          console.log("pass");
+        } else this.$router.push('/create');
+      },
+  },
+}
 </script>
 
 <style scoped>
@@ -139,28 +167,8 @@ body {
   font-size: 24px;
   line-height: 24px;
 }
-.loginBtn {
-  background-color: #763AB6;
-  color: #ffffff;
-  border: 3px solid transparent;
-}
-.loginBtn:hover {
-  background-color: #f8f8f8;
-  color: #763AB6;
-  font-weight: bold;
-  border-color: #763AB6;
-  border-width: 3px;
-}
-.signBtn {
-  background-color: #181818;
-  color: #ffffff;
-  border: 3px solid transparent;
-}
-.signBtn:hover {
-  background-color: #f8f8f8;
-  color: #181818;
-  font-weight: bold;
-  border-color: #181818;
-  border-width: 3px;
+.v-text-field{
+  width: 245px;
+  height: 54px;
 }
 </style>

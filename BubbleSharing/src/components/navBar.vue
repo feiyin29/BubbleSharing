@@ -46,7 +46,8 @@
             <v-row no-gutter class="d-flex justify-center">
               <button class="
                   loginBtn
-                  Body3"
+                  Body3
+                  "
                   @click="this.$router.push('/login')"
                 >
                   Login

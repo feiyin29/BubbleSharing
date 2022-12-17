@@ -19,10 +19,14 @@
                 >Choose your bubblesharing username. You can always change it
                 later.</v-row
               >
-              <v-row class="mt-16" >
-                <input type="text" placeholder="bubble.sh/Username" />
+              <v-row class="mt-16">
+                <input
+                  type="text" 
+                  placeholder="bubble.sh/Username" 
+                  v-model="username" 
+                />
               </v-row>
-              <v-row class="mt-6 mb-4" >
+              <v-row class="mt-6 mb-4">
                 <input type="text" placeholder="Email" />
               </v-row>
               <v-row class="tw-text-[#FF6853] explain">
@@ -63,7 +67,59 @@
   </body>
 </template>
 
-<script></script>
+<script>
+import { ref } from 'vue';
+import { useProductStore } from "@/stores/products";
+
+export default {
+  setup:() => {
+    const {store, account} = useProductStore();
+    const username = ref("");
+    const email = ref("");
+    const password = ref("");
+    const cfpassword = ref("");
+
+    console.log("test",account.length);
+
+    if (account.length != 0) username.value = account[0].userLink;
+
+    // console.log("test",account[0].userLink);
+
+    function addLink(){
+      const account = {  
+                        username: username.value ,
+                        email: email.value,
+                        password: password.value,
+                        userLink: "bubble.sh/"+username.value,
+                      }
+      console.log("account data", account);
+      store.addNewAccount(account);
+      this.$router.push('/create');
+    }
+
+    return { store, username, addLink }
+  },
+
+  data: () => ({
+    model: '',
+    valid: true,
+    nameRules: [
+        v => !!v || '',
+        v => (v && v.length <= 5) || 'Name must be less than 5 characters',
+      ],
+  }),
+  methods: {
+    async validate () {
+        const { valid } = await this.$refs.form.validate()
+
+        if (valid) {
+          this.addLink();
+          console.log("pass");
+        } else this.$router.push('/create');
+      },
+  },
+}
+</script>
 
 <style scoped>
 @import url("http://fonts.googleapis.com/css?family=Roboto");

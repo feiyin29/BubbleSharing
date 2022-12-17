@@ -3,6 +3,9 @@ import { ref } from 'vue'
 export const useProductStore = defineStore({
   id: 'products',
   state: () => ({
+    account: [],
+    design: [],
+    Link: [],
     countNumber: 1,
     products: [
       // {
@@ -18,6 +21,10 @@ export const useProductStore = defineStore({
     ],
   }),
   actions: {
+    addNewAccount(data) {
+      this.account.push(data);
+      console.log("out ", this.account);
+    },
     pushData(param) {
       this.products.push(param);
       console.log(this.products);
