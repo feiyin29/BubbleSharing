@@ -1,6 +1,6 @@
 <template>
   <body>
-    <v-container fluid class="pa-0 tw-bg-[#f8f8f8]" v-if="account[0].themeTemplate == 0">
+    <v-container fluid class="pa-0 tw-bg-[#f8f8f8]" v-if="design[0].themeTemplate == 0">
       <v-row no-gutters>
         <v-col cols="12">
           <!-- body content -->
@@ -10,7 +10,7 @@
               <!-- make screen by myself -->
               <!-- if chooseTheme = 0 -->
               <v-row no-gutters
-                v-if="account[0].themeTemplate == 0"
+                v-if="design[0].themeTemplate == 0"
                 class="
                   tw-h-screen
                   tw-pt-[32px]
@@ -104,13 +104,41 @@
                         
                     </div>
                   </v-row>
-                  
+                  <!-- feifeifei -->
                   <!-- profile image -->
                   <v-row no-gutters>
-                    <v-img 
-                      src="../src/assets/greyProfile.png" 
-                      height="100" 
-                    ></v-img>
+                    <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="2" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 133px"
+                                >
+                            <v-img 
+                                v-if="design[0].profileImage != null" 
+                                :src="design[0].profileImage" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+                    </v-col>
                   </v-row>
                   <!-- username -->
                   <v-row no-gutters
@@ -135,12 +163,12 @@
                       tw-pb-[24px]
                     "
                   >
-                    {{bio}}
+                    {{design[0].bio}}
                   </v-row>
 
                   <!-- title box -->
                   <v-row no-gutters
-                    v-for="(item, index) in products" :key="item"
+                    v-for="(item, index) in Link" :key="item"
                     class="
                       tw-pt-[16px]
                       tw-px-[40px]
@@ -148,7 +176,7 @@
                   >
                     <a
                       v-if="item.title == null"
-                      href="products[index].url"
+                      href="Link[index].url"
                       class="textBody1-16
                         tw-bg-[#9229AE]
                         tw-text-[#ffffff]
@@ -164,7 +192,7 @@
                     </a>
                     <a
                       v-else
-                      @click="openLink(products[index].url)"
+                      @click="openLink(Link[index].url)"
                       class="textBody1-16
                         tw-bg-[#9229AE]
                         tw-text-[#ffffff]
@@ -176,7 +204,7 @@
                         tw-drop-shadow-md
                       "
                     >
-                      {{products[index].title}}
+                      {{Link[index].title}}
                     </a>
                   </v-row>
                   <!-- end of title box -->
@@ -208,7 +236,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container fluid class="pa-0 tw-bg-[#f8f8f8]" v-if="account[0].themeTemplate == 1">
+    <v-container fluid class="pa-0 tw-bg-[#f8f8f8]" v-if="design[0].themeTemplate == 1">
       <v-row no-gutters>
         <v-col cols="12">
           <!-- body content -->
@@ -218,7 +246,7 @@
               <!-- make screen by myself -->
               <!-- if chooseTheme = 1 -->
               <v-row no-gutters
-                v-if="account[0].themeTemplate == 1"
+                v-if="design[0].themeTemplate == 1"
                 class="
                   tw-h-screen
                   tw-pt-[32px]
@@ -315,10 +343,38 @@
                   
                   <!-- profile image -->
                   <v-row no-gutters>
-                    <v-img 
-                      src="../src/assets/greyProfile.png" 
-                      height="100" 
-                    ></v-img>
+                    <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="2" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 133px"
+                                >
+                            <v-img 
+                                v-if="design[0].profileImage != null" 
+                                :src="design[0].profileImage" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+                    </v-col>
                   </v-row>
                   <!-- username -->
                   <v-row no-gutters
@@ -343,12 +399,12 @@
                       tw-pb-[24px]
                     "
                   >
-                    {{bio}}
+                    {{design[0].bio}}
                   </v-row>
 
                   <!-- title box -->
                   <v-row no-gutters
-                    v-for="(item, index) in products" :key="item"
+                    v-for="(item, index) in Link" :key="item"
                     class="
                       tw-pt-[16px]
                       tw-px-[40px]
@@ -356,7 +412,7 @@
                   >
                     <a
                       v-if="item.title == null"
-                      href="products[index].url"
+                      href="Link[index].url"
                       class="textBody1-16
                         tw-bg-[#B75555]
                         tw-text-[#ffffff]
@@ -372,7 +428,7 @@
                     </a>
                     <a
                       v-else
-                      @click="openLink(products[index].url)"
+                      @click="openLink(Link[index].url)"
                       class="textBody1-16
                         tw-bg-[#B75555]
                         tw-text-[#ffffff]
@@ -384,7 +440,7 @@
                         tw-drop-shadow-md
                       "
                     >
-                      {{products[index].title}}
+                      {{Link[index].title}}
                     </a>
                   </v-row>
                   <!-- end of title box -->
@@ -416,7 +472,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container fluid class="pa-0 tw-bg-[#f8f8f8]" v-if="account[0].themeTemplate == 2">
+    <v-container fluid class="pa-0 tw-bg-[#f8f8f8]" v-if="design[0].themeTemplate == 2">
       <v-row no-gutters>
         <v-col cols="12">
           <!-- body content -->
@@ -426,7 +482,7 @@
               <!-- make screen by myself -->
               <!-- if chooseTheme = 2 -->
               <v-row no-gutters
-                v-if="account[0].themeTemplate == 2"
+                v-if="design[0].themeTemplate == 2"
                 class="
                   tw-h-screen
                   tw-pt-[32px]
@@ -523,10 +579,38 @@
                   
                   <!-- profile image -->
                   <v-row no-gutters>
-                    <v-img 
-                      src="../src/assets/greyProfile.png" 
-                      height="100" 
-                    ></v-img>
+                    <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="2" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 133px"
+                                >
+                            <v-img 
+                                v-if="design[0].profileImage != null" 
+                                :src="design[0].profileImage" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+                    </v-col>
                   </v-row>
                   <!-- username -->
                   <v-row no-gutters
@@ -540,7 +624,7 @@
                   >
                     @{{account[0].username}} 
                   </v-row>
-                  <!-- bio -->
+                  <!-- design[0].bio -->
                   <v-row no-gutters
                     class="
                       d-flex justify-center align-center
@@ -551,12 +635,12 @@
                       tw-pb-[24px]
                     "
                   >
-                    {{bio}}
+                    {{design[0].bio}}
                   </v-row>
 
                   <!-- title box -->
                   <v-row no-gutters
-                    v-for="(item, index) in products" :key="item"
+                    v-for="(item, index) in Link" :key="item"
                     class="
                       tw-pt-[16px]
                       tw-px-[40px]
@@ -564,7 +648,7 @@
                   >
                     <a
                       v-if="item.title == null"
-                      href="products[index].url"
+                      href="Link[index].url"
                       class="textBody1-16
                         tw-bg-[#FFB650]
                         tw-text-[#ffffff]
@@ -580,7 +664,7 @@
                     </a>
                     <a
                       v-else
-                      @click="openLink(products[index].url)"
+                      @click="openLink(Link[index].url)"
                       class="textBody1-16
                         tw-bg-[#FFB650]
                         tw-text-[#ffffff]
@@ -592,7 +676,7 @@
                         tw-drop-shadow-md
                       "
                     >
-                      {{products[index].title}}
+                      {{Link[index].title}}
                     </a>
                   </v-row>
                   <!-- end of title box -->
@@ -617,14 +701,14 @@
                 <v-col></v-col>
 
               </v-row>
-              <!-- end of account[0].themeTemplate = 2 -->
+              <!-- end of design[0].themeTemplate = 2 -->
             </v-col>
             <v-col></v-col>
           </v-row>
         </v-col>
       </v-row>
     </v-container>
-    <v-container fluid class="pa-0 tw-bg-[#E8EEFF]" v-if="account[0].themeTemplate == 3">
+    <v-container fluid class="pa-0 tw-bg-[#E8EEFF]" v-if="design[0].themeTemplate == 3">
       <v-row no-gutters>
         <v-col cols="12">
           <!-- body content -->
@@ -634,7 +718,7 @@
               <!-- make screen by myself -->
               <!-- if chooseTheme = 3 -->
               <v-row no-gutters
-                v-if="account[0].themeTemplate == 3"
+                v-if="design[0].themeTemplate == 3"
                 class="
                   tw-h-screen
                   tw-pt-[32px]
@@ -731,10 +815,38 @@
                   
                   <!-- profile image -->
                   <v-row no-gutters>
-                    <v-img 
-                      src="../src/assets/greyProfile.png" 
-                      height="100" 
-                    ></v-img>
+                    <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="2" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 133px"
+                                >
+                            <v-img 
+                                v-if="design[0].profileImage != null" 
+                                :src="design[0].profileImage" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+                    </v-col>
                   </v-row>
                   <!-- username -->
                   <v-row no-gutters
@@ -759,12 +871,12 @@
                       tw-pb-[24px]
                     "
                   >
-                    {{bio}}
+                    {{design[0].bio}}
                   </v-row>
 
                   <!-- title box -->
                   <v-row no-gutters
-                    v-for="(item, index) in products" :key="item"
+                    v-for="(item, index) in Link" :key="item"
                     class="
                       tw-pt-[16px]
                       tw-px-[40px]
@@ -772,7 +884,7 @@
                   >
                     <a
                       v-if="item.title == null"
-                      href="products[index].url"
+                      href="Link[index].url"
                       class="textBody1-16
                         tw-bg-[#ffffff]
                         tw-text-[#6087D4]
@@ -788,7 +900,7 @@
                     </a>
                     <a
                       v-else
-                      @click="openLink(products[index].url)"
+                      @click="openLink(Link[index].url)"
                       class="textBody1-16
                         tw-bg-[#ffffff]
                         tw-text-[#6087D4]
@@ -800,7 +912,7 @@
                         tw-drop-shadow-md
                       "
                     >
-                      {{products[index].title}}
+                      {{Link[index].title}}
                     </a>
                   </v-row>
                   <!-- end of title box -->
@@ -825,14 +937,14 @@
                 <v-col></v-col>
 
               </v-row>
-              <!-- end of account[0].themeTemplate = 2 -->
+              <!-- end of design[0].themeTemplate = 2 -->
             </v-col>
             <v-col></v-col>
           </v-row>
         </v-col>
       </v-row>
     </v-container>
-    <v-container fluid class="pa-0 tw-bg-[#E0FAEE]" v-if="account[0].themeTemplate == 4">
+    <v-container fluid class="pa-0 tw-bg-[#E0FAEE]" v-if="design[0].themeTemplate == 4">
       <v-row no-gutters>
         <v-col cols="12">
           <!-- body content -->
@@ -842,7 +954,7 @@
               <!-- make screen by myself -->
               <!-- if chooseTheme = 4 -->
               <v-row no-gutters
-                v-if="account[0].themeTemplate == 4"
+                v-if="design[0].themeTemplate == 4"
                 class="
                   tw-h-screen
                   tw-pt-[32px]
@@ -939,10 +1051,38 @@
                   
                   <!-- profile image -->
                   <v-row no-gutters>
-                    <v-img 
-                      src="../src/assets/greyProfile.png" 
-                      height="100" 
-                    ></v-img>
+                    <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="2" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 133px"
+                                >
+                            <v-img 
+                                v-if="design[0].profileImage != null" 
+                                :src="design[0].profileImage" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+                    </v-col>
                   </v-row>
                   <!-- username -->
                   <v-row no-gutters
@@ -967,12 +1107,12 @@
                       tw-pb-[24px]
                     "
                   >
-                    {{bio}}
+                    {{design[0].bio}}
                   </v-row>
 
                   <!-- title box -->
                   <v-row no-gutters
-                    v-for="(item, index) in products" :key="item"
+                    v-for="(item, index) in Link" :key="item"
                     class="
                       tw-pt-[16px]
                       tw-px-[40px]
@@ -980,7 +1120,7 @@
                   >
                     <a
                       v-if="item.title == null"
-                      href="products[index].url"
+                      href="Link[index].url"
                       class="textBody1-16
                         tw-bg-[#ffffff]
                         tw-text-[#04B8AD]
@@ -996,7 +1136,7 @@
                     </a>
                     <a
                       v-else
-                      @click="openLink(products[index].url)"
+                      @click="openLink(Link[index].url)"
                       class="textBody1-16
                         tw-bg-[#ffffff]
                         tw-text-[#04B8AD]
@@ -1008,7 +1148,7 @@
                         tw-drop-shadow-md
                       "
                     >
-                      {{products[index].title}}
+                      {{Link[index].title}}
                     </a>
                   </v-row>
                   <!-- end of title box -->
@@ -1033,14 +1173,14 @@
                 <v-col></v-col>
 
               </v-row>
-              <!-- end of account[0].themeTemplate = 4 -->
+              <!-- end of design[0].themeTemplate = 4 -->
             </v-col>
             <v-col></v-col>
           </v-row>
         </v-col>
       </v-row>
     </v-container>
-    <v-container fluid class="pa-0 tw-bg-[#FFF5F7]" v-if="account[0].themeTemplate == 5">
+    <v-container fluid class="pa-0 tw-bg-[#FFF5F7]" v-if="design[0].themeTemplate == 5">
       <v-row no-gutters>
         <v-col cols="12">
           <!-- body content -->
@@ -1050,7 +1190,7 @@
               <!-- make screen by myself -->
               <!-- if chooseTheme = 5 -->
               <v-row no-gutters
-                v-if="account[0].themeTemplate == 5"
+                v-if="design[0].themeTemplate == 5"
                 class="
                   tw-h-screen
                   tw-pt-[32px]
@@ -1147,10 +1287,38 @@
                   
                   <!-- profile image -->
                   <v-row no-gutters>
-                    <v-img 
-                      src="../src/assets/greyProfile.png" 
-                      height="100" 
-                    ></v-img>
+                    <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="2" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 133px"
+                                >
+                            <v-img 
+                                v-if="design[0].profileImage != null" 
+                                :src="design[0].profileImage" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+                    </v-col>
                   </v-row>
                   <!-- username -->
                   <v-row no-gutters
@@ -1175,12 +1343,12 @@
                       tw-pb-[24px]
                     "
                   >
-                    {{bio}}
+                    {{design[0].bio}}
                   </v-row>
 
                   <!-- title box -->
                   <v-row no-gutters
-                    v-for="(item, index) in products" :key="item"
+                    v-for="(item, index) in Link" :key="item"
                     class="
                       tw-pt-[16px]
                       tw-px-[40px]
@@ -1188,7 +1356,7 @@
                   >
                     <a
                       v-if="item.title == null"
-                      href="products[index].url"
+                      href="Link[index].url"
                       class="textBody1-16
                         tw-bg-[#FF7A94]
                         tw-text-[#ffffff]
@@ -1204,7 +1372,7 @@
                     </a>
                     <a
                       v-else
-                      @click="openLink(products[index].url)"
+                      @click="openLink(Link[index].url)"
                       class="textBody1-16
                         tw-bg-[#FF7A94]
                         tw-text-[#ffffff]
@@ -1216,7 +1384,7 @@
                         tw-drop-shadow-md
                       "
                     >
-                      {{products[index].title}}
+                      {{Link[index].title}}
                     </a>
                   </v-row>
                   <!-- end of title box -->
@@ -1241,7 +1409,7 @@
                 <v-col></v-col>
 
               </v-row>
-              <!-- end of account[0].themeTemplate = 5 -->
+              <!-- end of design[0].themeTemplate = 5 -->
             </v-col>
             <v-col></v-col>
           </v-row>
@@ -1256,12 +1424,14 @@ import { ref } from "vue";
 import { useProductStore } from "@/stores/products";
 
 
-const  { store, account, theme, setTheme, updateProfile, products } = useProductStore();
+const  { store, account, theme, setTheme, updateProfile, Link, design } = useProductStore();
 
-console.log(account[0].themeTemplate)
+console.log("testtttttt",design[0].profileImage)
 
 const username = ref("")
 const bio = ref("");
+const file = design.profileImage;
+console.log("bubble",design);
 const profileImage = ref("");
 let chooseTheme = ref(0);
 // const useTheme = ref('')
@@ -1330,8 +1500,6 @@ let titleCheck = ref(false);
 
 const urlEditBtn = ref(false);
 const urlEditCheck = ref(false);
-
-const file = ref("");
 const countNumber = ref('1')
 
 const inputImage = () => {
@@ -1562,6 +1730,10 @@ const openLink = (url) => {
 @import url("http://fonts.googleapis.com/css?family=Roboto");
 body {
   font-family: "Roboto";
+}
+.innerShadow{
+    border: 2px solid #e4e4e4;
+    box-shadow: inset 0px 0px 15px 0.5px rgba(231, 231, 231, 0.9);
 }
 .leftNavbar {
   height: 72px;

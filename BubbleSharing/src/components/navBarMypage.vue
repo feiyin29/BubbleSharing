@@ -149,17 +149,18 @@
                 <v-col cols="2"
                   class="
                     pa-0
-                    d-flex justify-end
+                    d-flex justify-end 
                   "
                 >
                   <img src="../assets/arrowForwardIcon.png" width="24" />
                 </v-col>
               </a>
-              <a href="#contact"
-                class="
+              <a
+                class=" tw-border-4
                   d-flex align-center
                   tw-pb-[16px]
                 "
+                @click="this.$router.push('/mybubblesharing')"
               >
                 <v-col cols="2"
                   class="pa-0"

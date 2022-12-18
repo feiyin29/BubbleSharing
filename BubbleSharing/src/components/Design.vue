@@ -7,37 +7,6 @@
 
             <!-- left side -->
             <v-col cols="8">
-              <!-- left nav bar -->
-              <v-row no-gutters
-                class="
-                  leftNavbar
-                  tw-bg-[#C9D7FC]
-                "
-              >
-                <v-col
-                  class="textLeftNavbar
-                    d-flex justify-center align-center
-                    tw-ml-48
-                  "
-                >
-                  My Page
-                </v-col>
-                <v-col
-                  class="textLeftNavbar
-                    d-flex justify-center align-center
-                  "
-                >
-                  Design
-                </v-col>
-                <v-col
-                  class="textLeftNavbar
-                    d-flex justify-center align-center
-                    tw-mr-48
-                  "
-                >
-                  Analytics
-                </v-col>
-              </v-row>
               <!-- body content left side -->
               <v-row no-gutters>
                 <v-col cols="12">
@@ -66,76 +35,55 @@
                         <v-col cols="12">
                           <!-- pick & remove image row -->
                           <v-row no-gutters>
-                            <v-col cols="2">
+                            <v-col cols="12" class="">
                               <!-- profile image display -->
-                              <div
-                                class="
-                                  textDisplay2-48
-                                  tw-w-[123px]
-                                  tw-h-[123px]
-                                  tw-rounded-full
-                                  d-flex
-                                  justify-center
-                                  align-center
-                                  tw-bg-[#60696C]
-                                  tw-text-[#f6f6f6]
-                                "
-                              >
-                                K
-                              </div>
+                              <v-row no-gutters class="">
+                                <v-col cols="2" 
+                                    class="
+                                        innerShadow 
+                                        bg-white 
+                                        tw-rounded-[100px]
+                                        mr-10 
+                                        d-flex 
+                                        justify-center 
+                                        align-center"
+                                        style="height: 133px"
+                                        >
+                                    <v-img 
+                                        v-if="file != null" 
+                                        :src="file" 
+                                        width="123" 
+                                        height="123" 
+                                        cover
+                                        class="tw-rounded-[200px]"
+                                    ></v-img>
+                                    <v-icon 
+                                        v-else
+                                        size="50" 
+                                        color="#e4e4e4" 
+                                        class="ma-13"
+                                    >
+                                      mdi-account
+                                    </v-icon>
+                                </v-col>
+                                <v-col cols="7" class="d-flex flex-column ">
+                                    <v-row no-gutters class="d-flex align-center">
+                                        Change Image
+                                    </v-row>
+                                    <v-row no-gutters class="">
+                                        <input 
+                                            type="file" 
+                                            accept="image/*" 
+                                            ref="file.value" 
+                                            @change="onFileChange"
+                                            class="form-control-file">
+                                    </v-row>
+                                </v-col>
+                          </v-row>
                               <!-- display image -->
-                              <div class="tw-border-4" v-if="preview">
-                                <v-img :src="imgSrc" v-if="imgSrc" ></v-img>
-
-                                
-                                  <v-img :src="preview" class="img-fluid" ></v-img>
-                                  <p class="mb-0">file name: {{ image.name }}</p>
-                                  <p class="mb-0">size: {{ image.size/1024 }}KB</p>
-                                
-                                <!-- <template v-if="preview">
-                                  <img :src="preview" class="img-fluid" />
-                                  <p class="mb-0">file name: {{ image.name }}</p>
-                                  <p class="mb-0">size: {{ image.size/1024 }}KB</p>
-                                </template> -->
-                              </div>
-                              <!-- <img 
-                                    :src="file" 
-                                    width="190" 
-                                    height="190" 
-                                    cover
-                              /> -->
-                              <!-- <v-img 
-                                    :src="file" 
-                                    width="190" 
-                                    height="190" 
-                                    cover
-                              ></v-img> -->
-                            </v-col>
-                            <v-col cols="10"
-                              class="
-                                tw-grid
-                                tw-gap-2.5
-                              "
-                            >
-                              <!-- pick an image btn -->
-                              <!-- <input 
-                                        type="file" 
-                                        accept="image/*" 
-                                        ref="file.value" 
-                                        @change="onFile"
-                                        class="form-control-file"
-                              > -->
-                              <!-- <input 
-                                        type="file" 
-                                        accept="image/*" 
-                                        ref="file.value" 
-                                        @change="onFileChange(file.value)"
-                                        class="form-control-file"
-                              > -->
-                              <!-- <input type="file" @change="onFile" /> -->
-                              <input type="file" accept="image/*" @change="previewImage" class="form-control-file" id="my-file">
-
-                              <v-row no-gutters
+                              
+                              <!-- Pick an image -->
+                              <!-- <v-row no-gutters
                                 class="
                                   d-flex
                                   justify-center
@@ -158,9 +106,9 @@
                                 >
                                   Pick an image
                                 </button>
-                              </v-row>
+                              </v-row> -->
                               <!-- remove btn -->
-                              <v-row no-gutters
+                              <!-- <v-row no-gutters
                                 class="
                                   d-flex
                                   justify-center
@@ -182,7 +130,7 @@
                                 >
                                   Remove
                                 </button>
-                              </v-row>
+                              </v-row> -->
                             </v-col>
                           </v-row>
 
@@ -401,224 +349,6 @@
 
             <!-- right side -->
             <v-col cols="4">
-                <!-- right nav bar -->
-                <v-row no-gutters
-                  class="
-                  rightNavbar
-                  tw-bg-[#FFB0E2]
-                  d-flex justify-center align-center
-                  "
-                >
-                  <v-col cols="4" class="tw-ml-10">
-                    <v-row no-gutters>
-                      <v-col class="d-flex justify-center align-center ">
-                        <img src="../assets/logoBlue.png" width="44.72" />
-                      </v-col>
-                      <v-col class="tw-grid tw-content-center ">
-                        <v-row no-gutters  class="textBody3-16 d-flex align-center">BUBBLE.SH/</v-row>
-                        <v-row no-gutters  class="textBody3-16 d-flex align-center">Username</v-row>
-                      </v-col>
-                    </v-row>
-                  </v-col>
-                  <v-col class="
-                    shareBtnDropdown
-                    d-flex justify-center align-center
-                    tw-ml-10
-                  ">
-                    <button
-                      @click="myShareBtnFunction()"
-                      class="shareBtn
-                        tw-rounded-[10px]
-                      "
-                    >
-                      Share
-                    </button>
-                    <div id="myShareBtnDropdown" 
-                      class="shareBtnDropdown-content
-                      "
-                    
-                    >
-                      <v-row no-gutters
-                        class="
-                          textBody3-24
-                          d-flex justify-center align-center
-                          tw-font-medium
-                        "
-                      >
-                        Share your BubbleSharing
-                        <button class="
-                          pa-0
-                          tw-absolute
-                          tw-right-[42px]
-                        ">
-                          <img src="../assets/closeIcon.png" width="24" />
-                        </button>
-                      </v-row>
-                      <v-row no-gutters
-                        class="
-                          textBody1-16medium
-                          tw-px-[42px]
-                          tw-pt-[16px]
-                          tw-pb-[4px]
-                        "
-                      >
-                        Get more visitors by sharing your BubbleSharing everywhere.
-                      </v-row>
-                      <a href="#home"
-                        class="
-                          d-flex align-center
-                        "
-                      >
-                        <v-col cols="2"
-                          class="pa-0"
-                        >
-                          <img src="../assets/socialIcon.png" width="64" />
-                        </v-col>
-                        <v-col
-                          class="
-                            pa-0
-                            tw-ml-[24px]
-                          "
-                        >
-                          Add to your socials
-                        </v-col>
-                        <v-col cols="2"
-                          class="
-                            pa-0
-                            d-flex justify-end
-                          "
-                        >
-                          <img src="../assets/arrowForwardIcon.png" width="24" />
-                        </v-col>
-                      </a>
-                      <a href="#about"
-                        class="
-                          d-flex align-center
-                        "
-                      >
-                        <v-col cols="2"
-                          class="pa-0"
-                        >
-                          <img src="../assets/shareMyBubbleIcon.png" width="64" />
-                        </v-col>
-                        <v-col
-                          class="
-                            pa-0
-                            tw-ml-[24px]
-                          "
-                        >
-                          Share my BubbleSharing to..
-                        </v-col>
-                        <v-col cols="2"
-                          class="
-                            pa-0
-                            d-flex justify-end
-                          "
-                        >
-                          <img src="../assets/arrowForwardIcon.png" width="24" />
-                        </v-col>
-                      </a>
-                      <a href="#contact"
-                        class="
-                          d-flex align-center
-                          tw-pb-[16px]
-                        "
-                      >
-                        <v-col cols="2"
-                          class="pa-0"
-                        >
-                          <img src="../assets/worldIcon.png" width="64" />
-                        </v-col>
-                        <v-col
-                          class="
-                            pa-0
-                            tw-ml-[24px]
-                          "
-                        >
-                          Open my BubbleSharing
-                        </v-col>
-                        <v-col cols="2"
-                          class="
-                            pa-0
-                            d-flex justify-end
-                          "
-                        >
-                          <img src="../assets/openInIcon.png" width="24" />
-                        </v-col>
-                      </a>
-                      <v-row no-gutters
-                        class="
-                          tw-px-[42px]
-                          tw-mx-[42px]
-                          d-flex align-center
-                        "
-                      >
-                        <v-col cols="12" class="
-                        tw-mt-[12px]
-                        ">
-                          <v-row no-gutters 
-                            class="
-                              tw-border
-                              tw-rounded-[10px]
-                              tw-border-[#616161]
-                              d-flex align-center
-                            "
-                          >
-                            <v-col cols="2"
-                              class="
-                                pa-0
-                                tw-my-[14px]
-                                tw-ml-[14px]
-                              "
-                            >
-                              <img src="../assets/logoBlue.png" height="48" />
-                            </v-col>
-                            <v-col
-                              class="
-                                heading3-16
-                                pa-0
-                                tw-my-[14px]
-                              "
-                            >
-                              bubble.sh/username
-                            </v-col>
-                            <v-col cols="2"
-                              class="
-                              textBody3-24
-                                pa-0
-                                tw-my-[14px]
-                                tw-mr-[14px]
-                                d-flex justify-end
-                                hover:tw-underline
-                                hover:tw-underline-offset-8
-                              "
-                            >
-                            <button>
-                              Copy
-                            </button>
-                            </v-col>
-                          </v-row>
-                        </v-col>
-                        
-                      </v-row>
-                    </div>
-
-
-                  </v-col>
-                  <v-col class="d-flex justify-center align-center">
-                    <v-btn
-                      icon
-                      color="#1339A8"
-                      variant="flat"
-                      size="large"
-                      class="accountBtn"
-                    >
-                      K
-                    </v-btn>
-                  </v-col>
-                </v-row>
-                <!-- end of right nav bar -->
-
 
                 <!-- make screen by myself -->
                 <!-- if chooseTheme = 0 -->
@@ -663,12 +393,38 @@
                       />
                     </v-row>
                     <!-- profile image -->
-                    <v-row no-gutters>
-                      <v-img 
-                        src="../src/assets/greyProfile.png" 
-                        height="100" 
-                      ></v-img>
-                    </v-row>
+                    <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+                    </v-col>
                     <!-- username -->
                     <v-row no-gutters
                       class="
@@ -694,10 +450,9 @@
                     >
                       {{bio}}
                     </v-row>
-
                     <!-- title box -->
-                    <v-row no-gutters
-                      v-for="(item, index) in products" :key="item"
+                    <v-row no-gutters 
+                      v-for="(item, index) in Link " :key="item"
                       class="
                         tw-pt-[16px]
                         tw-px-[40px]
@@ -777,7 +532,7 @@
                           ></v-img>
                           </div>
                         </div> -->
-                        {{products[index].title}}
+                        {{Link[index].title}}
                       </span>
                     </v-row>
                     <!-- end of title box -->
@@ -850,12 +605,38 @@
                       />
                     </v-row>
                     <!-- profile image -->
-                    <v-row no-gutters>
-                      <v-img 
-                        src="../src/assets/greyProfile.png" 
-                        height="100" 
-                      ></v-img>
-                    </v-row>
+                    <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+                    </v-col>
                     <!-- username -->
                     <v-row no-gutters
                       class="
@@ -884,7 +665,7 @@
 
                     <!-- title box -->
                     <v-row no-gutters
-                      v-for="(item, index) in products" :key="item"
+                      v-for="(item, index) in Link" :key="item"
                       class="
                         tw-pt-[16px]
                         tw-px-[40px]
@@ -919,7 +700,7 @@
                           tw-drop-shadow-md
                         "
                       >
-                        {{products[index].title}}
+                        {{Link[index].title}}
                       </span>
                     </v-row>
                     <!-- end of title box -->
@@ -989,12 +770,38 @@
                       />
                     </v-row>
                     <!-- profile image -->
-                    <v-row no-gutters>
-                      <v-img 
-                        src="../src/assets/greyProfile.png" 
-                        height="100" 
-                      ></v-img>
-                    </v-row>
+                    <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+                    </v-col>
                     <!-- username -->
                     <v-row no-gutters
                       class="
@@ -1023,7 +830,7 @@
 
                     <!-- title box -->
                     <v-row no-gutters
-                      v-for="(item, index) in products" :key="item"
+                      v-for="(item, index) in Link" :key="item"
                       class="
                         tw-pt-[16px]
                         tw-px-[40px]
@@ -1058,7 +865,7 @@
                           tw-drop-shadow-md
                         "
                       >
-                        {{products[index].title}}
+                        {{Link[index].title}}
                       </span>
                     </v-row>
                     <!-- end of title box -->
@@ -1128,12 +935,38 @@
                       />
                     </v-row>
                     <!-- profile image -->
-                    <v-row no-gutters>
-                      <v-img 
-                        src="../src/assets/greyProfile.png" 
-                        height="100" 
-                      ></v-img>
-                    </v-row>
+                    <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+                    </v-col>
                     <!-- username -->
                     <v-row no-gutters
                       class="
@@ -1162,7 +995,7 @@
 
                     <!-- title box -->
                     <v-row no-gutters
-                      v-for="(item, index) in products" :key="item"
+                      v-for="(item, index) in Link" :key="item"
                       class="
                         tw-pt-[16px]
                         tw-px-[40px]
@@ -1197,7 +1030,7 @@
                           tw-drop-shadow-md
                         "
                       >
-                        {{products[index].title}}
+                        {{Link[index].title}}
                       </span>
                     </v-row>
                     <!-- end of title box -->
@@ -1267,12 +1100,38 @@
                       />
                     </v-row>
                     <!-- profile image -->
-                    <v-row no-gutters>
-                      <v-img 
-                        src="../src/assets/greyProfile.png" 
-                        height="100" 
-                      ></v-img>
-                    </v-row>
+                    <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+                    </v-col>
                     <!-- username -->
                     <v-row no-gutters
                       class="
@@ -1301,7 +1160,7 @@
 
                     <!-- title box -->
                     <v-row no-gutters
-                      v-for="(item, index) in products" :key="item"
+                      v-for="(item, index) in Link" :key="item"
                       class="
                         tw-pt-[16px]
                         tw-px-[40px]
@@ -1336,7 +1195,7 @@
                           tw-drop-shadow-md
                         "
                       >
-                        {{products[index].title}}
+                        {{Link[index].title}}
                       </span>
                     </v-row>
                     <!-- end of title box -->
@@ -1406,12 +1265,38 @@
                       />
                     </v-row>
                     <!-- profile image -->
-                    <v-row no-gutters>
-                      <v-img 
-                        src="../src/assets/greyProfile.png" 
-                        height="100" 
-                      ></v-img>
-                    </v-row>
+                    <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+                    </v-col>
                     <!-- username -->
                     <v-row no-gutters
                       class="
@@ -1440,7 +1325,7 @@
 
                     <!-- title box -->
                     <v-row no-gutters
-                      v-for="(item, index) in products" :key="item"
+                      v-for="(item, index) in Link" :key="item"
                       class="
                         tw-pt-[16px]
                         tw-px-[40px]
@@ -1475,7 +1360,7 @@
                           tw-drop-shadow-md
                         "
                       >
-                        {{products[index].title}}
+                        {{Link[index].title}}
                       </span>
                     </v-row>
                     <!-- end of title box -->
@@ -1508,36 +1393,27 @@
 
 
           </v-row>
-
-
-
-
-
         </v-col>
       </v-row>
+      
     </v-container>
   </body>
 </template>
   
-<script setup>
+<script >
 import { ref } from "vue";
 import { useProductStore } from "@/stores/products";
 
-
-const  { store, account, theme, setTheme, updateProfile, products } = useProductStore();
-console.log(account[0].username)
-console.log("produxts[0].title", products[0].title)
-
-const username = ref("")
+export default {
+    setup:() => {
+const  { store, account, theme, setTheme, updateProfile, Link } = useProductStore();
+const username = ref("");
+const file = ref();
 const bio = ref("");
-const profileImage = ref("");
 let chooseTheme = ref(0);
-// const useTheme = ref('')
-
 let bgColor = ref('');
 let ssBar = ref('');
 let share = ref('');
-let profileImg = ref('');
 let usernameColor = ref('');
 let bioColor = ref('');
 let btnColor = ref('');
@@ -1545,8 +1421,6 @@ let textBtnColor = ref('');
 let logo = ref('');
 let bar = ref('');
 
-
-console.log(chooseTheme)
 const sentTheme = () => {
   console.log("click", chooseTheme)
   console.log("chooseTheme.value", chooseTheme.value)
@@ -1566,28 +1440,17 @@ const sentTheme = () => {
   logo = useTheme.logo
   bar = useTheme.bar
 }
-
 function editProfile(){
   console.log("chooseTheme", chooseTheme.value)
       const editAccount = {  
         username: account[0].username,
         bio: bio.value,
-        profileImage: profileImage.value,
+        profileImage: file,
         themeTemplate: chooseTheme.value,
-                        // username: username.value ,
-                        // email: email.value,
-                        // password: password.value,
-                        // userLink: "bubble.sh/"+username.value,
                       }
       console.log("account data", editAccount);
       updateProfile(editAccount);
-      // store.addNewAccount(account);
-      // this.$router.push('/create');
     }
-
-
-
-// console.log(store.countNumber);
 
 let addLinkBtn = ref(false);
 let addUrlBtn = ref(false);
@@ -1595,20 +1458,9 @@ let url = ref('');
 const titleBtn = ref(false);
 let title = ref('');
 let titleCheck = ref(false);
-
 const urlEditBtn = ref(false);
 const urlEditCheck = ref(false);
-
-const file = ref("");
 const countNumber = ref('1')
-
-const inputImage = () => {
-  console.log(file)
-}
-
-
-
-
 const inputUrl = () => {
   console.log(url.value);
   console.log(url.value.length);
@@ -1638,143 +1490,6 @@ const inputTitle = () => {
   }
 }
 
-// const dataUrl = ref({
-//     show: false,
-//     item: {
-//       name: '', 
-//       image: '',
-//       index: null,
-//     }
-//   });
-const addedProduct = () => {
-  console.log(title)
-  console.log(image)
-  console.log(url)
-  store.pushData({ title: title, image: image, url:url })
-}
-
-// const updateItem = async () => {
-//     const item = {
-//       title: editTitle, 
-//       image: editImage,
-//       url: editUrl,
-//       index: editIndex,
-//     }
-//     updateByEdit(item)
-//     // editDialog.value.show = false
-//   }
-
-// const callDialog = async (item, index) => {
-//   editDialog.value.show = true
-//   editDialog.value.item = item
-//   editImage.value = editDialog.value.item.image
-//   editName.value = editDialog.value.item.name
-//   editPrice.value = editDialog.value.item.price
-//   editEach.value = editDialog.value.item.each
-//   editCategory.value = editDialog.value.item.category
-//   editIndex.value = index
-// }
-
-
-
-
-const dataUrl = ref([]);
-
-// const showData = () => {
-//   console.log(dataUrl)
-// }
-
-const incrementNumber = () => {
-  countNumber.value++;
-  console.log(countNumber.value);
-}
-
-// onFileChange(e) {
-//   let files = e.target.files || e.dataTransfer.files;
-//   if (!files.length) {
-//       return
-//   }
-//   this.fileName = files[0].name
-//   this.createImage(files[0])
-// },
-// createImage(file) {
-//   var image = new Image()
-//   var reader = new FileReader()
-//   reader.onload = (e) => {
-//       this.file = e.target.result;
-//       this.$emit('change', this.file)
-//   }
-//   reader.readAsDataURL(file)
-// },
-let imgSrc = ref('');
-const onFile = (e) => {
-      const files = e.target.files
-      if (!files.length) return
-
-      const reader = new FileReader()
-      reader.readAsDataURL(files[0])
-      reader.onload = () => (imgSrc = reader.result)
-      console.log(imgSrc)
-    }
-const onFileChange = (e) => {
-  let files = e.target.files || e.dataTransfer.files;
-  if (!files.length) {
-    return
-  }
-    // const fileName = files[0].name
-    createImage(files[0])
-}
-
-const createImage = (file) => {
-  var image = new Image()
-  var reader = new FileReader()
-  reader.onload = (e) => {
-    file = e.target.result;
-    this.$emit('change', file)
-  }
-  reader.readAsDataURL(file)
-}
-
-let preview = null
-let image = null
-      // preview_list: [],
-      // image_list: []
-
-
-    const previewImage = (event) => {
-      var input = event.target;
-      if (input.files) {
-        var reader = new FileReader();
-        reader.onload = (e) => {
-          preview = e.target.result;
-        }
-        image=input.files[0];
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-    const previewMultiImage = (event) => {
-      var input = event.target;
-      var count = input.files.length;
-      var index = 0;
-      if (input.files) {
-        while(count --) {
-          var reader = new FileReader();
-          reader.onload = (e) => {
-            this.preview_list.push(e.target.result);
-          }
-          this.image_list.push(input.files[index]);
-          reader.readAsDataURL(input.files[index]);
-          index ++;
-        }
-      }
-    }
-    const reset = () => {
-      this.image = null;
-      this.preview = null;
-      this.image_list = [];
-      this.preview_list = [];
-    }
-
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 const myShareBtnFunction = () => {
@@ -1794,9 +1509,37 @@ window.onclick = function(event) {
   }
 }
 
+  return { file,
+    store, account, theme, setTheme, updateProfile, Link,
+    username, bio, chooseTheme, bgColor, ssBar, share, usernameColor, 
+    bioColor, btnColor, textBtnColor, logo, bar, sentTheme, editProfile,
+    addLinkBtn, addUrlBtn, url, titleBtn, title, titleCheck, urlEditBtn,
+    urlEditCheck, countNumber, inputUrl, inputTitle, myShareBtnFunction,
+  }
+},
+methods: {
+        onFileChange(e) {
+            let files = e.target.files || e.dataTransfer.files;
+            if (!files.length) {
+                return
+            }
+            this.fileName = files[0].name
+            this.createImage(files[0])
+            console.log("onFile",files);
+        },
+        createImage(file) {
+            var image = new Image()
+            var reader = new FileReader()
 
-
-
+            reader.onload = (e) => {
+                this.file = e.target.result;
+                this.$emit('change', this.file)
+            }
+            reader.readAsDataURL(file)
+            console.log("creatFile",file);
+        },
+    },
+  }
 
 </script>
   
@@ -1804,6 +1547,10 @@ window.onclick = function(event) {
 @import url("http://fonts.googleapis.com/css?family=Roboto");
 body {
   font-family: "Roboto";
+}
+.innerShadow{
+    border: 2px solid #e4e4e4;
+    box-shadow: inset 0px 0px 15px 0.5px rgba(231, 231, 231, 0.9);
 }
 .leftNavbar {
   height: 72px;

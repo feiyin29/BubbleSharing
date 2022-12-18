@@ -7,8 +7,18 @@ export const useProductStore = defineStore({
       username: "esus",
       email: "email.value",
       password: "password.value",
-      cfpassword: "cfpassword.value",}
-    design: [{username: 'EverythingShop', bio: 'hey', themeTemplate: '5', userLink: 'bubble.sh/bimbiim'},],
+      cfpassword: "cfpassword.value",
+      userLink: 'bubble.sh/bimbiim',
+    }],
+    design: [
+      {
+        username: 'EverythingShop', 
+        bio: 'hey',
+        profileImage: null,
+        themeTemplate: '0', 
+        
+    }
+  ],
     Link: [],
     countNumber: 1,
     products: [
@@ -136,12 +146,13 @@ export const useProductStore = defineStore({
     },
     updateProfile(item) {
       console.log("item",item)
-      const find = this.account.find((each, index) => {
+      const find = this.design.find((each, index) => {
         console.log("index", index)
         console.log("item.username", item.username)
         console.log("item.bio", item.bio)
         console.log("item.profileImage", item.profileImage)
         console.log("item.themeTemplate", item.themeTemplate)
+        console.log("UD item.themeTemplate", item.themeTemplate)
 
         if (true) return each
 
@@ -153,12 +164,12 @@ export const useProductStore = defineStore({
       console.log("find", find)
       find.username = item.username
       find.bio = item.bio
-      find.profileImage = item.profileImage
+      find.profileImage = item.profileImage.value
       find.themeTemplate = item.themeTemplate
-
+      console.log("find af", find)
       // this.account[0].push(themeTemplate: item.themeTemplate);
       // this.account.push('jojo');
-      console.log("this.account", this.account)
+      console.log("this.account", this.design)
 
       // this.account.push(item);
       // console.log("this.account + item", this.account)

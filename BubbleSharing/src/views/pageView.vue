@@ -1,6 +1,6 @@
 <template>
     <v-app>
-      <v-main class="tw-bg-[#ffffff]">
+      <v-main class="tw-bg-[#f8f8f8]">
         <myNav></myNav>
         <mypage />
       </v-main>

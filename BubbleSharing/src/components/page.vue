@@ -29,7 +29,7 @@
                     tw-border-2
                     px-4 py-2
                     "
-                
+                color="#f8f8f8"
                 rounded="xl"
                 height="550"
                 width="100%"
@@ -377,24 +377,12 @@ export default {
     const url = ref("Url");
     const editBtn = false;
 
-    const dataInput = async (item, index) => {
-      const Link = {  
-        seq: item.index,
-        title: titleInput.value ,
-        url: urlInput.value,
-        img: item.img,
-        click: click.value,
-      }
-    
-    }
-
     const dt = {
       title: title.value,
       url: url.value,
       click: 0,
     }
-
-
+    
     function edit(item, index){
       item.editBtn = !item.editBtn;
       this.title = item.title; 
