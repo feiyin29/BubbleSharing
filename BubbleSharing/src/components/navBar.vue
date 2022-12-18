@@ -56,7 +56,7 @@
                   signBtn
                   Body3
                   ml-3 mr-8"
-                  @click="this.$router.push('/create')"
+                  @click="signup(store)"
                 >
                   Sign up
                 </button>
@@ -67,9 +67,25 @@
   </v-container>
 </template>
 
-<script setup>
+<script>
+import { ref } from 'vue';
+import { useProductStore } from "@/stores/products";
 
+export default {
+  setup:() => {
+    const store = useProductStore();
+    return { store }
+  },
+
+  methods: {
+    signup(store) {
+          if(store.account.length != 0) store.deleteUsername();
+          this.$router.push('/create');
+      },
+  },
+}
 </script>
+
 <style scoped>
 .barSheetStyle {
   width: 1304px;

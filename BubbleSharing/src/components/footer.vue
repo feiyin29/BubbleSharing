@@ -49,7 +49,7 @@
                 tw-rounded-md
                 Body3
                 px-10 py-3 ml-4"
-                @click="this.$router.push('/create')"
+                @click="signup(store)"
               >
                 Sign up
               </button>
@@ -116,7 +116,22 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+import { useProductStore } from "@/stores/products";
 
+export default {
+  setup:() => {
+    const store = useProductStore();
+    return { store }
+  },
+
+  methods: {
+    signup(store) {
+          if(store.account.length != 0) store.deleteUsername();
+          this.$router.push('/create');
+      },
+  },
+}
 </script>
 
 <style scoped>

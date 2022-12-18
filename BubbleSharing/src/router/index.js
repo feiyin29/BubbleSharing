@@ -41,6 +41,17 @@ const router = createRouter({
       path: '/cookienotices',
       name: 'CookieNotices',
       component: () => import('../views/CookieNoticesView.vue')
+      
+    },
+    {
+      path: '/mypage',
+      name: 'mypage',
+      component: mypage,
+    },
+    {
+      path: '/page',
+      name: 'page',
+      component: () => import('../views/pageView.vue')
     }
     ,
     {

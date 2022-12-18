@@ -7,46 +7,43 @@ export const useProductStore = defineStore({
     design: [],
     Link: [],
     countNumber: 1,
-    products: [
-      // {
-      //   title: "Pencil",
-      //   image: 'src/assets/pencil.png',
-      //   url: 'www.google.com',
-      // },
-      // {
-      //   title: "Eraser",
-      //   image: 'src/assets/eraser.png',
-      //   url: 'www.youtube.com',
-      // },
-    ],
+    
   }),
   actions: {
     addNewAccount(data) {
       this.account.push(data);
       console.log("out ", this.account);
     },
+    addNewLink(Link){
+      this.Link.push(Link);
+      console.log("Link pinia ", this.Link);
+    },
     deleteUsername(){
       this.account.splice(0, 1);  
     },
-    pushData(param) {
-      this.products.push(param);
-      console.log(this.products);
+    deleteLink(index){
+      this.Link.splice(index, 1);  
     },
-    incrementNumber() {
-      this.countNumber++;
-      console.log(this.countNumber);
-    },
-    updateByEdit(item) {
-      const find = this.products.find((each, index) => {
-        console.log(index)
-        console.log(item.index)
 
-        if (index == item.index.value) return each
+    updateByEdit(item,seq) {
+      
+      const find = this.Link.find((each, index) => {
+        // console.log("update",index)
+        console.log("update item",item)
+        console.log("item sq",seq)
+        
+        if (index == seq) return each
       })
-      find.title = item.title.value
-      find.image = item.image.value
-      find.url = item.url.value
-      this.products.splice(item.index.value, 1, find)
+
+      console.log("find",find)
+      console.log("udE find tt",item.title);
+
+      find.title = item.title
+      find.url = item.url
+
+      this.Link.splice(seq, 1, find)
+      console.log("udE find",find);
+      console.log("udE Link",this.Link);
     },
     
   },
