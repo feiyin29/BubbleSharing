@@ -107,6 +107,7 @@ export default {
         email: email.value,
         password: password.value,
         cfpassword: cfpassword.value,
+        userLink: "bubble.sh/" + username.value,
       };
 
       console.log("account data", account);
