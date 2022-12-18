@@ -80,7 +80,8 @@ export default {
     const password = ref("");
     const cfpassword = ref("");
 
-    console.log("test",account.length);
+    
+    /*console.log("test", account.length);
 
     if (account.length != 0) username.value = account[0].userLink;
 
@@ -98,7 +99,26 @@ export default {
       this.$router.push('/create');
     }
 
-    return { store, username, addLink }
+    return { store, username, addLink }; */
+
+    function create(store) {
+      const account = {
+        username: username.value,
+        email: email.value,
+        password: password.value,
+        cfpassword: cfpassword.value,
+      };
+
+      console.log("account data", account);
+      // this.$refs.form.validate();
+      store.addNewAccount(account);
+      for (var v = 0; v < this.$refs.form.length; v++) {
+        this.$refs.form[v].validate();
+      }
+      this.$router.push("/page");
+      console.log(account.username);
+    }
+    return { store, username, email, password, cfpassword, create };
   },
 
   data: () => ({

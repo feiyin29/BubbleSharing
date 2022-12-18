@@ -3,7 +3,12 @@ import { ref } from 'vue'
 export const useProductStore = defineStore({
   id: 'products',
   state: () => ({
-    account: [],
+    account: [{
+      username: "esus",
+      email: "email.value",
+      password: "password.value",
+      cfpassword: "cfpassword.value",}
+    ],
     design: [],
     Link: [],
     countNumber: 1,
