@@ -622,14 +622,16 @@
                           </v-col>
                         </v-row>
                       </v-col>
-                      
                     </v-row>
                   </div>
-
-
                 </v-col>
-                <v-col class="d-flex justify-center align-center">
+                <v-col class="
+                  accountBtnDropdown
+                  d-flex 
+                  justify-center 
+                  align-center">
                   <v-btn
+                    @click="myAccountBtnFunction()"
                     icon
                     color="#1339A8"
                     variant="flat"
@@ -638,6 +640,100 @@
                   >
                     K
                   </v-btn>
+                  <!-- account dropdown content -->
+                  <div id="myAccountBtnDropdown" 
+                    class="accountBtnDropdown-content
+                    "
+                  >
+                    <v-row no-gutters
+                      class="
+                        textBody3-24
+                        d-flex justify-center align-center
+                        tw-font-medium
+                        tw-px-[28px]
+                      "
+                    >
+                      <v-col cols="2" class="">
+                        <v-img :src="design[0].profileImage" cover></v-img>
+                      </v-col>
+                      <v-col cols="10">
+                        <v-row no-gutters>
+                          @{{ account[0].username }}
+                        </v-row>
+                        <v-row no-gutters>
+                          {{ account[0].userLink }}
+                        </v-row>
+                      </v-col>
+                    </v-row>
+                    <v-row no-gutters
+                      class="
+                        textBody1-16medium
+                        tw-px-[28px]
+                        tw-pt-[16px]
+                        tw-pb-[4px]
+                      "
+                    >
+                      Account
+                    </v-row>
+                    <a 
+                      class="
+                        d-flex align-center
+                      "
+                    >
+                      <v-col cols="1"
+                        class="pa-0"
+                      >
+                        <img src="../assets/accountNavBar.png" width="20" />
+                      </v-col>
+                      <v-col
+                        class="
+                          pa-0
+                          tw-ml-[24px]
+                        "
+                      >
+                        My account
+                      </v-col>
+                    </a>
+                    <a 
+                      class="
+                        d-flex align-center
+                      "
+                    >
+                      <v-col cols="1"
+                        class="pa-0"
+                      >
+                        <img src="../assets/submitNavBar.png" width="20" />
+                      </v-col>
+                      <v-col
+                        class="
+                          pa-0
+                          tw-ml-[24px]
+                        "
+                      >
+                        Submit feedback
+                      </v-col>
+                    </a>
+                    <a 
+                      class="
+                        d-flex align-center
+                        tw-pb-[16px]
+                      "
+                    >
+                      <v-col cols="1"
+                        class="pa-0"
+                      >
+                        <img src="../assets/logoutNavBar.png" width="20" />
+                      </v-col>
+                      <v-col
+                        class="
+                          pa-0
+                          tw-ml-[24px]
+                        "
+                      >
+                        Log out
+                      </v-col>
+                    </a>
+                  </div>
                 </v-col>
               </v-row>
               <!-- end of right nav bar -->
@@ -793,7 +889,9 @@
 import { ref } from "vue";
 import { useProductStore } from "@/stores/products";
 
-const  { store, updateByEdit } = useProductStore();
+const  { store, updateByEdit, account, design } = useProductStore();
+
+console.log("store.account", account)
 
 
 
@@ -918,6 +1016,7 @@ const createImage = (file) => {
   reader.readAsDataURL(file)
 }
 
+// share button
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 const myShareBtnFunction = () => {
@@ -928,6 +1027,26 @@ const myShareBtnFunction = () => {
 window.onclick = function(event) {
   if (!event.target.matches('.shareBtn')) {
     var dropdowns = document.getElementsByClassName("shareBtnDropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+// account button
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+const myAccountBtnFunction = () => {
+  document.getElementById("myAccountBtnDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.accountBtn')) {
+    var dropdowns = document.getElementsByClassName("accountBtnDropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
@@ -1216,6 +1335,44 @@ input[type=textUrl]:focus {
 
 .shareBtnDropdown a:hover {background-color: #ededed;}
 
+.show {display: block;}
+
+.accountBtnDropdown {
+  position: relative;
+  display: inline-block;
+}
+.accountBtnDropdown-content {
+  display: none;
+  position: absolute;
+  top: 120%;
+  right: 20%;
+  background-color: #f8f8f8;
+  width: 350px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border: 1px solid black;
+  border-radius: 40px;
+  padding-top: 52px;
+  padding-bottom: 52px;
+}
+
+.accountBtnDropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  padding-left: 28px;
+  padding-right: 28px;
+
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.25px;
+  color:#161616;
+
+}
+.accountBtnDropdown a:hover {background-color: #ededed;}
 .show {display: block;}
   
 </style>
