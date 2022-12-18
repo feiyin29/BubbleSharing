@@ -6,13 +6,13 @@
         <v-row no-gutters
           class="
             leftNavbar
-            tw-bg-[#C9D7FC]
+            tw-bg-[#C9D7FC] 
+            d-flex justify-center
           "
         >
-          <v-col
+          <v-col cols="3"
             class="textLeftNavbar
               d-flex justify-center align-center
-              tw-ml-48
             "
 
           >
@@ -23,8 +23,8 @@
               My Page
             </button>
           </v-col>
-          <v-col
-            class="textLeftNavbar
+          <v-col cols="3"
+            class="textLeftNavbar 
               d-flex justify-center align-center
             "
           >
@@ -35,19 +35,7 @@
               Design
             </button>
           </v-col>
-          <v-col
-            class="textLeftNavbar
-              d-flex justify-center align-center
-              tw-mr-48
-            "
-          >
-            <button
-              class="navBtn"
-              @click="this.$router.push('/anlytics')"
-            >
-              Analytics
-            </button>
-          </v-col>
+          
         </v-row>
       </v-col>
       <v-col cols="4" class="pa-0">
@@ -65,7 +53,7 @@
               </v-col>
               <v-col class="tw-grid tw-content-center ">
                 <v-row no-gutters  class="textBody3-16 d-flex align-center">BUBBLE.SH/</v-row>
-                <v-row no-gutters  class="textBody3-16 d-flex align-center">Username</v-row>
+                <v-row no-gutters  class="textBody3-16 d-flex align-center"> {{account[0].username}} </v-row>
               </v-col>
             </v-row>
           </v-col>
@@ -272,7 +260,29 @@
   </body>
 </template>
 
-<script></script>
+<script setup>
+import { useProductStore } from "@/stores/products";
+
+const {store, account} = useProductStore();
+console.log("store test",account[0].username);
+const myShareBtnFunction = () => {
+  document.getElementById("myShareBtnDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.shareBtn')) {
+    var dropdowns = document.getElementsByClassName("shareBtnDropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
 
 
 <style scoped>

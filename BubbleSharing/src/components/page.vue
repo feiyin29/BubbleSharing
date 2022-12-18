@@ -127,7 +127,7 @@
                                       class="tw-w-[21px] tw-h-[21px] tw-mr-[7px]"
                                       src="../assets/statIcon.png"
                                     />
-                                    {{click}} Clicks
+                                    {{item.click}} Clicks
                                   </v-row>
                                 </v-col>
                                 <v-col cols="4" >

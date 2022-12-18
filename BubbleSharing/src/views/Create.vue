@@ -152,7 +152,7 @@ export default {
       for (var v = 0; v < this.$refs.form.length; v++) {
         this.$refs.form[v].validate();
       }
-      /*this.$router.push("/create");*/
+      this.$router.push("/page");
       console.log(account.username);
     }
     return { store, username, email, password, cfpassword, create };
