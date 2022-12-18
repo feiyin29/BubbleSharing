@@ -436,7 +436,6 @@
                     <div id="myShareBtnDropdown" 
                       class="shareBtnDropdown-content
                       "
-                    
                     >
                       <v-row no-gutters
                         class="
@@ -602,8 +601,6 @@
                         
                       </v-row>
                     </div>
-
-
                   </v-col>
                   <v-col class="d-flex justify-center align-center">
                     <v-btn
@@ -806,7 +803,6 @@
 
                 </v-row>
                 <!-- end of chooseTheme = 0 -->
-                <!-- end of iPhone screen -->
 
                 <!-- if chooseTheme = 1 -->
                 <v-row no-gutters
@@ -1450,8 +1446,8 @@
                       <span
                         v-if="item.title == null"
                         class="textBody1-16
-                          tw-bg-[#ffffff]
-                          tw-text-[#FF7A94]
+                          tw-bg-[#FF7A94]
+                          tw-text-[#ffffff]
                           tw-rounded-full
                           tw-w-full
                           d-flex justify-center align-center
@@ -1465,8 +1461,8 @@
                       <span
                         v-else 
                         class="textBody1-16
-                          tw-bg-[#ffffff]
-                          tw-text-[#FF7A94]
+                          tw-bg-[#FF7A94]
+                          tw-text-[#ffffff]
                           tw-rounded-full
                           tw-w-full
                           d-flex justify-center align-center
@@ -1502,17 +1498,9 @@
                   <v-col></v-col>
                 </v-row>
                 <!-- end of chooseTheme = 5 -->
-                
             </v-col>
             <!-- end of right side -->
-
-
           </v-row>
-
-
-
-
-
         </v-col>
       </v-row>
     </v-container>

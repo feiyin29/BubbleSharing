@@ -3,11 +3,16 @@ import { ref } from 'vue'
 export const useProductStore = defineStore({
   id: 'products',
   state: () => ({
-    account: [
-      {username: 'EverythingShop', bio: 'hey', themeTemplate: '5', userLink: 'bubble.sh/bimbiim'},
+    account: [{
+      username: "esus",
+      email: "email.value",
+      password: "password.value",
+      cfpassword: "cfpassword.value",
+      userLink: "bubble.sh/princess"
+    }
     ],
-    design: [],
-    Link: [],
+    design: [{username: 'PrincessShop', bio: 'hey', themeTemplate: '0', profileImage: 'src/assets/FirstScreen.png'},],
+    Link: [{title: 'no', url: 'nonono'},],
     countNumber: 1,
     products: [
       {

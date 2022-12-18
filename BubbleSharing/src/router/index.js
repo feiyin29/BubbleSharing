@@ -76,6 +76,11 @@ const router = createRouter({
       name: 'mybubblesharing',
       component: () => import('../views/MyBubbleSharingView.vue')
     },
+    {
+      path: '/page',
+      name: 'page',
+      component: () => import('../views/pageView.vue')
+    },
 
   ],
 scrollBehavior(to, from, savedPosition) {
