@@ -22,7 +22,8 @@ const router = createRouter({
     {
       path: '/welcome',
       name: 'welcome',
-      component: welcome,
+      component: () => import('../views/WelcomeView.vue'),
+      // component: welcome,
     },
     {
       path: '/termsofservice',
@@ -48,20 +49,14 @@ const router = createRouter({
     {
       path: '/mypage',
       name: 'mypage',
-      component: mypage,
+      component: () => import('../views/MyPageView.vue'),
+      // component: mypage,
     },
-    {
-      path: '/page',
-      name: 'page',
-      component: () => import('../views/pageView.vue')
-    }
-    ,
     {
       path: '/reportviolation',
       name: 'reportViolation',
       component: () => import('../views/reportViolationView.vue')
-    }
-    ,
+    },
     {
       path: '/discover',
       name: 'discover',
@@ -96,6 +91,16 @@ const router = createRouter({
       path: '/analysis',
       name: 'analysis',
       component: () => import('../views/analysis.vue')
+    },
+    {
+      path: '/design',
+      name: 'design',
+      component: () => import('../views/designView.vue')
+    },
+    {
+      path: '/mybubblesharing',
+      name: 'mybubblesharing',
+      component: () => import('../views/MyBubbleSharingView.vue')
     },
 
   ],
