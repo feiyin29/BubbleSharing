@@ -1,124 +1,195 @@
 <template>
-  <body>
-    <v-container fluid class="pa-0">
-      <v-row no-gutters>
-        <v-col cols="12">
-          <v-row no-gutters class="pl-11">
-            <v-col cols="8" class="">
-              <router-link to="/">
-                <v-img
-                  :aspect-ratio="aspectRatio"
-                  :width="120"
-                  class="marginlogo"
-                  src="src/assets/logo.png"
-                ></v-img>
-              </router-link>
+  <v-container fluid class="pa-0">
+    <v-row no-gutter class="sheetPadding">
+      <v-col cols="8" class="pa-0">
+        <v-row>
+          <router-link to="/">
+            <v-img
+              :aspect-ratio="aspectRatio"
+              :width="120"
+              class="marginlogo"
+              src="src/assets/logo.png"
+            ></v-img>
+          </router-link>
+        </v-row>
 
-              <v-row no-gutter class="headingFont"> Creater your account </v-row>
-              <v-row class="explain mt-4 tw-text-[#898989]"
-                >Choose your bubblesharing username. You can always change it
-                later.</v-row
-              >
-              <v-row class="mt-16">
-                <input
-                  type="text" 
-                  placeholder="bubble.sh/Username" 
-                  v-model="username" 
-                />
-              </v-row>
-              <v-row class="mt-6 mb-4">
-                <input type="text" placeholder="Email" />
-              </v-row>
-              <v-row class="tw-text-[#FF6853] explain">
-                Choose a strong password with a number to ensure your account is secure.
-              </v-row>
-              <v-row class="mt-3" >
-                <input type="text" placeholder="Password" />
-              </v-row>
-              <v-row class="mt-6" >
-                <input type="text" placeholder="Confirm Password" />
-              </v-row>
+        <v-row no-gutters class="contentPadding">
+          <v-col cols="12" no-gutter class="headingFont pa-0">
+            Creater your account
+          </v-col>
+          <v-col cols="12" class="pa-0 explain tw-text-[#898989]">
+            Choose your bubblesharing username. You can always change it later.
+          </v-col>
+          <v-from ref="form" v-model="valid" lazy-validation>
+            <v-col cols="12" class="mt-10 pa-0">
+              <v-text-field
+                placeholder="bubble.sh/Username"
+                v-model="username"
+                :rules="nameRules"
+                variant="outlined"
+                required
+              ></v-text-field>
+            </v-col>
 
-              <v-row class="mt-16 explainBold" style="margin-left: 107px;">
-                <p class="tw-text-[#898989]">
-                  By clicking Create account, you agree to Bubble sharing’s
-                  <router-link to="/termsofservice"><u class="tw-text-[#FF6853]"> Terms and Conditions </u></router-link>
-                   , confirm you <br> have read our <router-link to="/privacy"><u class="tw-text-[#FF6853]">Privacy Notice.</u></router-link> You may
-                  receive offers, news and updates from us.
-                </p>
-              </v-row>
+            <v-col cols="12" class="pa-0">
+              <v-text-field
+                placeholder="Email"
+                v-model="email"
+                :rules="emailRules"
+                variant="outlined"
+                required
+              ></v-text-field>
+            </v-col>
 
-              <v-row class="mt-16" >
-                <button class="button">Create account</button>
-              </v-row>
-              <router-link to="/login">
-                <v-row class="mt-7 toLogin tw-text-[#FF6853]" style="margin-left: 321px;" >
-                  Already have an account ?</v-row
+            <v-col class="tw-text-[#FF6853] explain pa-0">
+              Choose a strong password with a number to ensure your account is secure.
+            </v-col>
+
+            <v-col cols="12" class="mt-3 pa-0">
+              <v-text-field
+                placeholder="Password"
+                v-model="password"
+                :rules="passwordRules"
+                variant="outlined"
+                required
+                :type="show ? 'text' : 'password'"
+                :append-inner-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append-inner="show = !show"
+              ></v-text-field>
+            </v-col>
+
+            <v-col cols="12" class="pa-0">
+              <v-text-field
+                placeholder="Confirm Password"
+                v-model="cfpassword"
+                :rules="cfpasswordRules"
+                variant="outlined"
+                required
+                :type="showcf ? 'text' : 'password'"
+                :append-inner-icon="showcf ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append-inner="showcf = !showcf"
+              ></v-text-field>
+            </v-col>
+
+            <v-col class="mt-3 explainBold pa-0">
+              <p class="tw-text-[#898989]">
+                By clicking Create account, you agree to Bubble sharing’s
+                <router-link to="/termsofservice"
+                  ><u class="tw-text-[#FF6853]"> Terms and Conditions </u></router-link
                 >
-              </router-link>
+                , confirm you <br />
+                have read our
+                <router-link to="/privacy"
+                  ><u class="tw-text-[#FF6853]">Privacy Notice.</u></router-link
+                >
+                You may receive offers, news and updates from us.
+              </p>
             </v-col>
-            <v-col cols="4">
-              <img src="../assets/create.png" />
+
+            <v-col cols="12" class="mt-10 pa-0">
+              <button class="button" @click="create(store)">Create account</button>
             </v-col>
-          </v-row>
-        </v-col>
-      </v-row>
-    </v-container>
-  </body>
+          </v-from>
+          <v-col
+            cols="12"
+            class="mt-7 toLogin tw-text-[#FF6853]"
+            style="margin-left: 211px"
+          >
+            <router-link to="/login">Already have an account ?</router-link>
+          </v-col>
+        </v-row>
+      </v-col>
+      <v-col cols="4" class="pa-0">
+        <img src="../assets/create.png" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from "vue";
 import { useProductStore } from "@/stores/products";
 
 export default {
-  setup:() => {
-    const {store, account} = useProductStore();
+  setup: () => {
+    const store = useProductStore();
     const username = ref("");
     const email = ref("");
     const password = ref("");
     const cfpassword = ref("");
 
-    console.log("test",account.length);
+    /*console.log("test", account.length);
 
     if (account.length != 0) username.value = account[0].userLink;
 
     // console.log("test",account[0].userLink);
 
-    function addLink(){
-      const account = {  
-                        username: username.value ,
-                        email: email.value,
-                        password: password.value,
-                        userLink: "bubble.sh/"+username.value,
-                      }
+    function addLink() {
+      const account = {
+        username: username.value,
+        email: email.value,
+        password: password.value,
+        userLink: "bubble.sh/" + username.value,
+      };
       console.log("account data", account);
       store.addNewAccount(account);
-      this.$router.push('/create');
+      this.$router.push("/create");
     }
 
-    return { store, username, addLink }
+    return { store, username, addLink }; */
+
+    function create(store) {
+      const account = {
+        username: username.value,
+        email: email.value,
+        password: password.value,
+        cfpassword: cfpassword.value,
+      };
+
+      console.log("account data", account);
+      // this.$refs.form.validate();
+      store.addNewAccount(account);
+      for (var v = 0; v < this.$refs.form.length; v++) {
+        this.$refs.form[v].validate();
+      }
+      /*this.$router.push("/create");*/
+      console.log(account.username);
+    }
+    return { store, username, email, password, cfpassword, create };
   },
 
   data: () => ({
-    model: '',
+    show: false,
+    showcf: false,
     valid: true,
+    model: "",
     nameRules: [
-        v => !!v || '',
-        v => (v && v.length <= 5) || 'Name must be less than 5 characters',
-      ],
+      (v) => !!v || "",
+      (v) => (v && v.length <= 5) || "Name must be less than 5 characters",
+    ],
+    email: "",
+    emailRules: [
+      (v) => !!v || "E-mail is required",
+      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+    ],
+    password: "",
+    cfpassword: "",
+    passwordRules: [
+      (v) => !!v || "Password is required",
+      (v) => (v && v.length >= 5) || "Password must have 5+ characters",
+      (v) => /(?=.*\d)/.test(v) || "Must have one number",
+    ],
+    cfpasswordRules: [(v) => !!v || "Confirm password"],
   }),
-  methods: {
-    async validate () {
-        const { valid } = await this.$refs.form.validate()
 
-        if (valid) {
-          this.addLink();
-          console.log("pass");
-        } else this.$router.push('/create');
-      },
+  methods: {
+    async validate(store) {
+      const { valid } = await this.$refs.form.validate();
+
+      if (valid) alert("Form is valid");
+    },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -129,7 +200,11 @@ body {
 }
 
 .sheetPadding {
-  padding: 220px 68px 75px;
+  padding: 0px 0px 0px 68px;
+}
+
+.contentPadding {
+  padding: 0px 109px 0px 109px;
 }
 
 .marginlogo {
@@ -139,7 +214,6 @@ body {
 
 .headingFont {
   margin-top: 60px;
-  margin-left: 107px;
   font-weight: bold;
   font-size: 48px;
   line-height: 56px;
@@ -148,7 +222,6 @@ body {
 }
 
 .explain {
-  margin-left: 107px;
   font-weight: bold;
   font-size: 16px;
   line-height: 24px;
@@ -156,7 +229,6 @@ body {
 }
 
 .explainBold {
-  margin-left: 24px;
   font-weight: medium;
   font-size: 16px;
   line-height: 24px;
@@ -164,7 +236,6 @@ body {
 }
 
 .toLogin {
-  margin-left: 24px;
   font-weight: bold;
   font-size: 18px;
   line-height: 26px;
@@ -183,31 +254,9 @@ body {
   cursor: pointer;
   height: 60px;
   width: 645px;
-  margin-left: 107px;
 }
 
 .button:hover {
   background-color: #e03965;
-}
-
-input[type="text"],
-select {
-  height: 51px;
-  width: 645px;
-  padding: 20px;
-  display: inline-block;
-  border: 1px solid #5b78ff;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-weight: medium;
-  font-size: 24px;
-  line-height: 24px;
-  caret-color: #5b78ff;
-  margin-left: 120px;
-}
-
-input[type="text"],
-select:focus {
-  border: 1px solid #5b78ff;
 }
 </style>

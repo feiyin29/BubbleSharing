@@ -6,7 +6,7 @@
           <v-row no-gutters class="pl-11" >
             <v-col cols="7" >
           <v-row v-row no-gutter class="headingFont">
-                The easiest place to 
+                The easiest place to <br>
                 update and share <br> 
                 your content
             </v-row>

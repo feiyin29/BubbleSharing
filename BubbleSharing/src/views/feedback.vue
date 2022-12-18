@@ -18,7 +18,7 @@
 
       <v-dialog v-model="dialog" width="357">
         <v-card>
-          <v-card-actions :height="30" class="pa-0">
+          <v-card-actions  class="pa-0">
             <v-spacer class="pa-0"></v-spacer>
             <v-btn
               rounded="pill"
@@ -29,7 +29,7 @@
               >X</v-btn
             >
           </v-card-actions>
-          <v-card-text :height="109" :width="357" class="popup">
+          <v-card-text :height="109" :width="357" class="popup pa-0 mb-5">
             Send Feedbck Success!
           </v-card-text>
         </v-card>

@@ -1,58 +1,155 @@
 <template>
   <v-container fluid class="pa-0">
-    <v-row no-gutters>
-      <v-col cols="12">
-        <v-row no-gutters class="pl-16 ">
-          <v-col cols="7" >
-            <router-link to="/">
-              <v-img
-                :aspect-ratio="aspectRatio"
-                :width="120"
-                class="marginlogo"
-                src="src/assets/logo.png"
-              ></v-img>
-            </router-link>
+    <v-row no-gutter class="sheetPadding">
+      <v-col cols="8" class="pa-0">
+        <v-row>
+          <router-link to="/">
+            <v-img
+              :aspect-ratio="aspectRatio"
+              :width="120"
+              class="marginlogo"
+              src="src/assets/logo.png"
+            ></v-img>
+          </router-link>
+        </v-row>
 
-            <v-row no-gutter class="headingFont"> Log in your link </v-row>
+        <v-row no-gutters class="contentPadding">
+          <v-col cols="12" no-gutter class="headingFont pa-0"> Log in your link </v-col>
+          <v-from ref="form" v-model="valid" lazy-validation>
+            <v-col cols="12" class="mt-16 pa-0">
+              <v-text-field
+                placeholder="bubble.sh/Username"
+                v-model="username"
+                :rules="nameRules"
+                variant="outlined"
+                required
+              ></v-text-field>
+            </v-col>
 
-            <v-row class="mt-16" >
-              <input type="text" placeholder="bubble.sh/Username" />
-            </v-row>
+            <v-col cols="12" class="pa-0">
+              <v-text-field
+                placeholder="Password"
+                v-model="password"
+                :rules="passwordRules"
+                variant="outlined"
+                required
+                :type="show ? 'text' : 'password'"
+                :append-inner-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append-inner="show = !show"
+              ></v-text-field>
+            </v-col>
 
-            <v-row class="mt-6" >
-              <input type="text" placeholder="password" />
-            </v-row>
+            <v-col cols="12" class="mt-10 pa-0">
+              <button class="button" @click="create()">Login</button>
+            </v-col>
+          </v-from>
 
-            <v-row class="mt-16" >
-              <button class="button">Log in</button>
-            </v-row>
-
-            <v-row class="mt-16 grayFont" style="margin-left: 368px;" > Forgot Password ?</v-row>
-
-            <router-link to="/create">
-              <v-row class="mt-6 grayFont" style="margin-left: 259px;" >
-                don't have a bubble sharing account? Create one
-                </v-row>
-            </router-link>
-
-            <v-row class="mt-16 grayFont" style="margin-left: 110px;" >
-              <p>
-                This site is protected by reCAPTCHA and the
-                <router-link to="/privacy"><u class="redFont"> Google Privacy Policy.</u></router-link> and
-                <router-link to="/termsofservice"><u class="redFont"> Terms of Service apply.</u></router-link>
-              </p>
-            </v-row>
+          <v-col cols="12" class="mt-10 explain pa-0" style="margin-left: 258px">
+            Forgot Password?
           </v-col>
-          <v-col cols="5">
-              <img src="../assets/login.png" width="610" />
+          <v-col cols="12" class="mt-5 explain pa-0" style="margin-left: 149px">
+            <router-link to="/create">
+              don't have a bubble sharing account? Create one
+            </router-link>
+          </v-col>
+          <v-col cols="12" class="mt-16 explainBold pa-0">
+            <p>
+              This site is protected by reCAPTCHA and the
+              <router-link to="/privacy"
+                ><u class="tw-text-[#B10000]"> Google Privacy Policy.</u></router-link
+              >
+              and
+              <router-link to="/termsofservice"
+                ><u class="tw-text-[#B10000]"> Terms of Service apply.</u></router-link
+              >
+            </p>
           </v-col>
         </v-row>
+      </v-col>
+      <v-col cols="4" class="pa-0">
+        <img src="../assets/login.png" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
-<script setup></script>
+<script>
+import { ref } from "vue";
+import { useProductStore } from "@/stores/products";
+
+export default {
+  setup: () => {
+    const store = useProductStore();
+    const username = ref("");
+    const password = ref("");
+    /*console.log("test", account.length);
+
+    if (account.length != 0) username.value = account[0].userLink;
+
+    // console.log("test",account[0].userLink);
+
+    function addLink() {
+      const account = {
+        username: username.value,
+        email: email.value,
+        password: password.value,
+        userLink: "bubble.sh/" + username.value,
+      };
+      console.log("account data", account);
+      store.addNewAccount(account);
+      this.$router.push("/create");
+    }
+
+    return { store, username, addLink }; */
+
+    function create() {
+      const account = {
+        username: username.value,
+        password: password.value,
+      };
+
+      console.log("account data", account);
+      // this.$refs.form.validate();
+      store.addNewAccount(account);
+      for (var v = 0; v < this.$refs.form.length; v++) {
+        this.$refs.form[v].validate();
+      }
+      /*this.$router.push("/create");*/
+      console.log(account.username);
+      this.$router.push("/");
+    }
+    return { store, username, password, create };
+  },
+
+  data: () => ({
+    show: false,
+    showcf: false,
+    valid: true,
+    model: "",
+    nameRules: [
+      (v) => !!v || "",
+      (v) => (v && v.length <= 5) || "Name must be less than 5 characters",
+    ],
+    password: "",
+    cfpassword: "",
+    passwordRules: [
+      (v) => !!v || "Password is required",
+      (v) => (v && v.length >= 5) || "Password must have 5+ characters",
+      (v) => /(?=.*\d)/.test(v) || "Must have one number",
+    ],
+  }),
+  /* methods: {
+    async validate() {
+      const { valid } = await this.$refs.form.validate();
+
+      /*if (valid) {
+        this.addLink();
+        console.log("pass");
+      } else this.$router.push("/create");
+    },
+  },*/
+};
+</script>
 
 <style scoped>
 @import url("http://fonts.googleapis.com/css?family=Roboto");
@@ -62,7 +159,14 @@ body {
 }
 
 .sheetPadding {
-  padding: 220px 68px 75px;
+  padding: 0px 0px 0px 68px;
+}
+
+.contentPadding {
+  padding: 0px 46px 0px 109px;
+}
+.Padding {
+  padding: 0px 109px 0px 109px;
 }
 
 .marginlogo {
@@ -71,8 +175,7 @@ body {
 }
 
 .headingFont {
-  margin-top: 138px;
-  margin-left: 107px;
+  margin-top: 60px;
   font-weight: bold;
   font-size: 48px;
   line-height: 56px;
@@ -80,22 +183,24 @@ body {
   color: #282828;
 }
 
-.grayFont {
-  text-align: center;
-  font-weight: medium;
+.explain {
   font-size: 16px;
   line-height: 24px;
   color: #757575;
 }
 
-.redFont {
-  text-align: center;
+.explainBold {
   font-weight: medium;
   font-size: 16px;
   line-height: 24px;
-  text-decoration-line: underline;
-  text-decoration-color: #b10000;
-  color: #b10000;
+  letter-spacing: 0px;
+}
+
+.toLogin {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.25px;
 }
 
 .button {
@@ -110,31 +215,9 @@ body {
   cursor: pointer;
   height: 60px;
   width: 645px;
-  margin-left: 110px;
 }
 
 .button:hover {
   background-color: #e03965;
-}
-
-input[type="text"],
-select {
-  height: 51px;
-  width: 645px;
-  padding: 20px;
-  display: inline-block;
-  border: 1px solid #5b78ff;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-weight: medium;
-  font-size: 24px;
-  line-height: 24px;
-  caret-color: #5b78ff;
-  margin-left: 120px;
-}
-
-input[type="text"],
-select:focus {
-  border: 1px solid #5b78ff;
 }
 </style>
