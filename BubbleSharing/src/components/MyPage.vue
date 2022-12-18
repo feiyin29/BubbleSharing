@@ -7,6 +7,7 @@
 
               <!-- left side -->
               <v-col cols="8">
+              <!-- nav bar -->
                 <v-row no-gutters
                   class="
                     leftNavbar
@@ -37,6 +38,7 @@
                     Analytics
                   </v-col>
                 </v-row>
+                <!-- Body -->
                 <v-row no-gutters 
                   class="tw-pt-[61px]"
                   v-if="addLinkBtn == false" 
@@ -651,7 +653,7 @@
                   "
                 >
                   <v-col class="
-                  tw-border-l
+                      tw-border-l
                       tw-border-[#9E9E9E]
                   "></v-col>
                   <v-col cols="10"

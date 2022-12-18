@@ -49,6 +49,11 @@ const router = createRouter({
       path: '/mypage',
       name: 'mypage',
       component: mypage,
+    },
+    {
+      path: '/page',
+      name: 'page',
+      component: () => import('../views/pageView.vue')
     }
     ,
     {
