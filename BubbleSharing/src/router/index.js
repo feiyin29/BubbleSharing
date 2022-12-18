@@ -22,14 +22,65 @@ const router = createRouter({
     {
       path: '/welcome',
       name: 'welcome',
-      component: welcome,
+      component: () => import('../views/WelcomeView.vue'),
+      // component: welcome,
     },
     {
       path: '/mypage',
       name: 'mypage',
-      component: mypage,
-    }
-  ]
+      component: () => import('../views/MyPageView.vue'),
+      // component: mypage,
+    },
+    {
+      path: '/reportviolation',
+      name: 'reportViolation',
+      component: () => import('../views/reportViolationView.vue')
+    },
+    {
+      path: '/discover',
+      name: 'discover',
+      component: () => import('../views/Discover.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/Login.vue')
+    },
+    {
+      path: '/create',
+      name: 'create',
+      component: () => import('../views/Create.vue')
+    },
+    {
+      path: '/manage',
+      name: 'manage',
+      component: () => import('../views/Management.vue')
+    },
+    {
+      path: '/feedback',
+      name: 'feedback',
+      component: () => import('../views/feedback.vue')
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: () => import('../views/account.vue')
+    },
+    {
+      path: '/design',
+      name: 'design',
+      component: () => import('../views/designView.vue')
+    },
+    {
+      path: '/mybubblesharing',
+      name: 'mybubblesharing',
+      component: () => import('../views/MyBubbleSharingView.vue')
+    },
+
+  ],
+scrollBehavior(to, from, savedPosition) {
+  return { top: 0 }
+},
 })
 
 export default router
