@@ -62,7 +62,7 @@
               <v-text-field
                 placeholder="Confirm Password"
                 v-model="cfpassword"
-                :rules="cfpasswordRules"
+                :rules="[cfpasswordRules, passwordMatch]"
                 variant="outlined"
                 required
                 :type="showcf ? 'text' : 'password'"
@@ -176,11 +176,17 @@ export default {
     cfpassword: "",
     passwordRules: [
       (v) => !!v || "Password is required",
-      (v) => (v && v.length >= 5) || "Password must have 5+ characters",
+      (v) => (v && v.length >= 5) || "Please enter at least 5 characters",
       (v) => /(?=.*\d)/.test(v) || "Must have one number",
     ],
     cfpasswordRules: [(v) => !!v || "Confirm password"],
   }),
+
+  computed: {
+    passwordMatch() {
+      return () => this.password === this.cfpassword || "Password must match";
+    },
+  },
 
   methods: {
     async validate(store) {
