@@ -1225,21 +1225,10 @@ export default {
     const url = ref("Url");
     const file = ref(store.design[0].profileImage);
     const editBtn = false;
-    console.log("hellooooo",store.design[0].themeTemplate);
+    // console.log("hellooooo",store.design[0].themeTemplate);
     let chooseTheme = 0;
     const themeTemplate = store.design[0].themeTemplate
     chooseTheme = themeTemplate
-
-    const dataInput = async (item, index) => {
-      const Link = {  
-        seq: item.index,
-        title: titleInput.value ,
-        url: urlInput.value,
-        img: item.img,
-        click: click.value,
-      }
-    
-    }
 
     const dt = {
       title: title.value,
@@ -1252,11 +1241,11 @@ export default {
       item.editBtn = !item.editBtn;
       this.title = item.title; 
       this.url = item.url; 
-      console.log("edit func",item.editBtn);
-      console.log("edit func item", item);
-      console.log("edit func item tt", item.title);
-      console.log("edit func tt", this.title);
-      console.log("edit func url", this.url);
+      // console.log("edit func",item.editBtn);
+      // console.log("edit func item", item);
+      // console.log("edit func item tt", item.title);
+      // console.log("edit func tt", this.title);
+      // console.log("edit func url", this.url);
     }
 
     function save(item, index){

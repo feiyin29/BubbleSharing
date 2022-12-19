@@ -1455,11 +1455,11 @@ import { useProductStore } from "@/stores/products";
 
 export default {
   setup:() => {
-      const  { store, account, theme, setTheme, updateProfile, Link } = useProductStore();
+      const  { store, account, theme, setTheme, updateProfile, Link, design } = useProductStore();
       const username = ref("");
-      const file = ref();
-      const bio = ref("");
-      let chooseTheme = ref(0);
+      const file = ref(design[0].profileImage);
+      const bio = ref(design[0].bio);
+      let chooseTheme = ref(design[0].themeTemplate);
       let bgColor = ref('');
       let ssBar = ref('');
       let share = ref('');

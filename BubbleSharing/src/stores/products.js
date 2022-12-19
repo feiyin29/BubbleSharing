@@ -4,14 +4,14 @@ export const useProductStore = defineStore({
   id: 'products',
   state: () => ({
     account: [{
-      username: "princess",
+      username: "username",
       email: "email.value",
       password: "password.value",
       cfpassword: "cfpassword.value",
-      userLink: "bubble.sh/princess"
+      userLink: ""
     }
     ],
-    design: [{username: 'PrincessShop', bio: 'hey', themeTemplate: '0', 
+    design: [{username: 'PrincessShop', bio: '', themeTemplate: '0', 
       // profileImage: 'src/assets/FirstScreen.png'
     },],
     Link: [],

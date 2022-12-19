@@ -50,8 +50,8 @@ export default {
   setup: () => {
     const { store, account, updateAccount } = useProductStore();
 
-    const username = ref("");
-    const email = ref("");
+    const username = ref(account[0].username);
+    const email = ref(account[0].email);
 
     function update() {
       const editAccount = {

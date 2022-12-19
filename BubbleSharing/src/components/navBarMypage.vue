@@ -459,6 +459,7 @@ const myShareBtnFunction = () => {
   document.getElementById("myShareBtnDropdown").classList.toggle("show");
 }
 
+console.log("navvvvvvv",account[0].userLink);
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.shareBtn')) {
