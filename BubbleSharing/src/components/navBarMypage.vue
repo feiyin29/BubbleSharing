@@ -285,6 +285,7 @@
               "
             >
               <v-img 
+                @click="myAccountBtnFunction()"
                 v-if="design[0].profileImage != null" 
                 :src="design[0].profileImage" 
                 width="64" 
