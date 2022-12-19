@@ -192,7 +192,7 @@
                     </a>
                     <a
                       v-else
-                      @click="openLink(Link[index].url)"
+                      @click="openLink(Link[index].url,index)"
                       class="textBody1-16
                         tw-bg-[#9229AE]
                         tw-text-[#ffffff]
@@ -219,9 +219,11 @@
                       tw-text-[24px]
                     "
                   >
-                    <span class="tw-pb-4">
+                    <button
+                      @click="this.$router.push('/page')" 
+                      class="tw-pb-4">
                       bubble sharing
-                    </span>
+                    </button>
                   </v-row>
 
                   
@@ -428,7 +430,7 @@
                     </a>
                     <a
                       v-else
-                      @click="openLink(Link[index].url)"
+                      @click="openLink(Link[index].url, index)"
                       class="textBody1-16
                         tw-bg-[#B75555]
                         tw-text-[#ffffff]
@@ -455,9 +457,11 @@
                       tw-text-[24px]
                     "
                   >
-                    <span class="tw-pb-4">
+                  <button
+                      @click="this.$router.push('/page')" 
+                      class="tw-pb-4">
                       bubble sharing
-                    </span>
+                    </button>
                   </v-row>
 
                   
@@ -664,7 +668,7 @@
                     </a>
                     <a
                       v-else
-                      @click="openLink(Link[index].url)"
+                      @click="openLink(Link[index].url, index)"
                       class="textBody1-16
                         tw-bg-[#FFB650]
                         tw-text-[#ffffff]
@@ -691,9 +695,11 @@
                       tw-text-[24px]
                     "
                   >
-                    <span class="tw-pb-4">
+                  <button
+                      @click="this.$router.push('/page')" 
+                      class="tw-pb-4">
                       bubble sharing
-                    </span>
+                    </button>
                   </v-row>
 
                   
@@ -900,7 +906,7 @@
                     </a>
                     <a
                       v-else
-                      @click="openLink(Link[index].url)"
+                      @click="openLink(Link[index].url, index)"
                       class="textBody1-16
                         tw-bg-[#ffffff]
                         tw-text-[#6087D4]
@@ -927,9 +933,11 @@
                       tw-text-[24px]
                     "
                   >
-                    <span class="tw-pb-4">
+                  <button
+                      @click="this.$router.push('/page')" 
+                      class="tw-pb-4">
                       bubble sharing
-                    </span>
+                    </button>
                   </v-row>
 
                   
@@ -1136,7 +1144,7 @@
                     </a>
                     <a
                       v-else
-                      @click="openLink(Link[index].url)"
+                      @click="openLink(Link[index].url, index)"
                       class="textBody1-16
                         tw-bg-[#ffffff]
                         tw-text-[#04B8AD]
@@ -1163,9 +1171,11 @@
                       tw-text-[24px]
                     "
                   >
-                    <span class="tw-pb-4">
+                  <button
+                      @click="this.$router.push('/page')" 
+                      class="tw-pb-4">
                       bubble sharing
-                    </span>
+                    </button>
                   </v-row>
 
                   
@@ -1372,7 +1382,7 @@
                     </a>
                     <a
                       v-else
-                      @click="openLink(Link[index].url)"
+                      @click="openLink(Link[index].url, index)"
                       class="textBody1-16
                         tw-bg-[#FF7A94]
                         tw-text-[#ffffff]
@@ -1399,9 +1409,11 @@
                       tw-text-[24px]
                     "
                   >
-                    <span class="tw-pb-4">
+                  <button
+                      @click="this.$router.push('/page')" 
+                      class="tw-pb-4">
                       bubble sharing
-                    </span>
+                    </button>
                   </v-row>
 
                   
@@ -1424,7 +1436,7 @@ import { ref } from "vue";
 import { useProductStore } from "@/stores/products";
 
 
-const  { store, account, theme, setTheme, updateProfile, Link, design } = useProductStore();
+const  { store, account, theme, setTheme, updateProfile, Link, design,updateClick } = useProductStore();
 
 console.log("testtttttt",design[0].profileImage)
 
@@ -1715,7 +1727,11 @@ const outFunc = () => {
 
 // window.open(textLinkElement[0].href);
 
-const openLink = (url) => {
+const openLink = (url,index) => {
+  let click = Link[index].click+1;
+  console.log("clickclick",Link[index].click);
+  console.log("clickclickkkkkkkk",click);
+  updateClick(click,index);
   console.log(url)
   window.open(url);
 }
