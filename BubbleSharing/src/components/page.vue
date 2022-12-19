@@ -29,7 +29,7 @@
                     tw-border-2
                     px-4 py-2
                     "
-                color="#f8f8f8" 
+                
                 rounded="xl"
                 height="550"
                 width="100%"
