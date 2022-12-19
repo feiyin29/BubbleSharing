@@ -118,13 +118,13 @@ export default {
     const password = ref("");
     const cfpassword = ref("");
 
-    /*console.log("test", account.length);
+    //console.log("test", account.length);
 
-    if (account.length != 0) username.value = account[0].userLink;
+    if (store.account.length != 0) username.value = store.account[0].userLink;
 
-    // console.log("test",account[0].userLink);
+    console.log("test", store.account[0].userLink);
 
-    function addLink() {
+    /*function addLink() {
       const account = {
         username: username.value,
         email: email.value,
@@ -132,11 +132,11 @@ export default {
         userLink: "bubble.sh/" + username.value,
       };
       console.log("account data", account);
-      store.addNewAccount(account);
+      account.addNewAccount(account);
       this.$router.push("/create");
     }
 
-    return { store, username, addLink }; */
+    // return { store, username, addLink }; */
 
     function create(store) {
       const account = {
@@ -144,7 +144,6 @@ export default {
         email: email.value,
         password: password.value,
         cfpassword: cfpassword.value,
-        userLink: "bubble.sh/" + username.value,
       };
 
       console.log("account data", account);
@@ -153,8 +152,8 @@ export default {
       for (var v = 0; v < this.$refs.form.length; v++) {
         this.$refs.form[v].validate();
       }
-      this.$router.push("/page");
       console.log(account.username);
+      this.$router.push("/welcome");
     }
     return { store, username, email, password, cfpassword, create };
   },
