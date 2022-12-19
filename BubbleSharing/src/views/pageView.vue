@@ -1,10 +1,13 @@
 <template>
+  <Suspense>
     <v-app>
       <v-main class="tw-bg-[#f8f8f8]">
         <myNav></myNav>
         <mypage />
       </v-main>
     </v-app>
+    <template #fallback> Loading... </template>
+  </Suspense>
 </template>
   
 <script>

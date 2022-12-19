@@ -14,7 +14,7 @@ export const useProductStore = defineStore({
     design: [{username: 'PrincessShop', bio: 'hey', themeTemplate: '0', 
       // profileImage: 'src/assets/FirstScreen.png'
     },],
-    Link: [{title: 'no', url: 'nonono'},],
+    Link: [],
     countNumber: 1,
     products: [
       {
