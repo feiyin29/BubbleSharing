@@ -1029,7 +1029,7 @@
 
               
             </v-col>
-
+          </v-row>
           <!-- if chooseTheme = 5 -->
           <v-row no-gutters
             v-if="chooseTheme == 5"
