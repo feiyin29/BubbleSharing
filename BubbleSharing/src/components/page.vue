@@ -270,9 +270,9 @@
                   height="24" 
                 />
               </v-row>
+              <!-- feifeifei -->
               <!-- profile image -->
-              <v-row no-gutters>
-                    <v-col cols="12">
+              <v-col cols="12">
                       <v-row no-gutters class="ml-10  d-flex justify-center">
                         <v-col cols="4" 
                             class="
@@ -283,11 +283,11 @@
                                 d-flex 
                                 justify-center 
                                 align-center"
-                                style="height: 133px"
+                                style="height: 119px"
                                 >
                             <v-img 
-                                v-if="store.design[0].profileImage != null" 
-                                :src="store.design[0].profileImage" 
+                                v-if="file != null" 
+                                :src="file" 
                                 width="123" 
                                 height="123" 
                                 cover
@@ -303,8 +303,7 @@
                             </v-icon>
                         </v-col>
                       </v-row>
-                    </v-col>
-                  </v-row>
+              </v-col>
               <!-- username -->
               <v-row no-gutters
                 class="
@@ -321,7 +320,7 @@
               <v-row no-gutters
                 class="
                   d-flex justify-center align-center
-                  tw-text-[#f6f6f6]
+                  tw-text-[#616161]
                   tw-font-medium
                   tw-text-[16px]
                   tw-pt-[6px]
@@ -436,8 +435,7 @@
                 />
               </v-row>
               <!-- profile image -->
-              <v-row no-gutters>
-                    <v-col cols="12">
+              <v-col cols="12">
                       <v-row no-gutters class="ml-10  d-flex justify-center">
                         <v-col cols="4" 
                             class="
@@ -448,11 +446,11 @@
                                 d-flex 
                                 justify-center 
                                 align-center"
-                                style="height: 133px"
+                                style="height: 119px"
                                 >
                             <v-img 
-                                v-if="store.design[0].profileImage != null" 
-                                :src="store.design[0].profileImage" 
+                                v-if="file != null" 
+                                :src="file" 
                                 width="123" 
                                 height="123" 
                                 cover
@@ -468,786 +466,7 @@
                             </v-icon>
                         </v-col>
                       </v-row>
-                    </v-col>
-                  </v-row>
-              <!-- username -->
-              <v-row no-gutters
-                class="
-                  d-flex justify-center align-center
-                  tw-text-[#B75555]
-                  tw-font-bold
-                  tw-text-2xl
-                  tw-pt-[19px]
-                "
-              >
-              </v-row>
-
-              <!-- title box -->
-              <v-row no-gutters
-                class="
-                  tw-pt-[16px]
-                @{{store.account[0].username}} 
-              </v-row>
-              <!-- bio -->
-              <v-row no-gutters
-                class="
-                  d-flex justify-center align-center
-                  tw-text-[#616161]
-                  tw-font-medium
-                  tw-text-[16px]
-                  tw-pt-[6px]
-                  tw-pb-[24px]
-                "
-              >
-                {{store.design[0].bio}}
-                v-for="item in store.Link" :key="item"
-                  tw-px-[40px]
-                "
-              >
-                <span
-                  v-if="item.title == null"
-                  class="textBody1-16
-                    tw-bg-[#B75555]
-                    tw-text-[#ffffff]
-                    tw-rounded-full
-                    tw-w-full
-                    d-flex justify-center align-center
-                    tw-px-4
-                    tw-py-3
-                    tw-drop-shadow-md
-                  "
-                >
-                  Title
-                </span>
-                <span
-                  v-else 
-                  class="textBody1-16
-                    tw-bg-[#B75555]
-                    tw-text-[#ffffff]
-                    tw-rounded-full
-                    tw-w-full
-                    d-flex justify-center align-center
-                    tw-px-4
-                    tw-py-3
-                    tw-drop-shadow-md
-                  "
-                >
-                  {{item.title}}
-                </span>
-              </v-row>
-              <!-- end of title box -->
-
-              <!-- buble sharing & line home buttom iPhone -->
-              <v-row no-gutters
-                class="
-                  tw-absolute tw-inset-x-0 tw-bottom-0
-                  d-flex justify-center align-center
-                  tw-font-bold
-                  tw-text-[#B75555]
-                  tw-text-[24px]
-                "
-              >
-                <span class="tw-pb-4">
-                  bubble sharing
-                </span>
-                <img 
-                  src="../assets/blackBar.png" 
-                />
-              </v-row>
-            </v-col>
-            <v-col></v-col>
-          </v-row>
-          <!-- end of chooseTheme = 1 -->
-
-          <!-- if chooseTheme = 2 -->
-          <v-row no-gutters
-            v-if="chooseTheme == 2"
-            class="
-              tw-h-[50.75rem]
-              tw-pt-[32px]
-            "
-          >
-            <v-col class="
-              tw-border-l
-              tw-border-[#9E9E9E]
-            "></v-col>
-            <v-col cols="10"
-              class="
-                tw-bg-[#f8f8f8]
-                tw-rounded-[40px]
-                tw-relative
-                tw-border-2
-                tw-border-[#616161]
-                
-              "
-            >
-              <!-- ssbar -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/blackSsBar.png" 
-                ></v-img>
-              </v-row>
-              <!-- share btn -->
-              <v-row no-gutters
-                class="
-                  tw-pt-[40px]
-                  tw-pr-[36px]
-                  tw-flex tw-justify-end
-                "
-              >
-                <img 
-                  src="../assets/greyShare.png" 
-                  height="24" 
-                />
-              </v-row>
-              <!-- profile image -->
-              <v-row no-gutters>
-                    <v-col cols="12">
-                      <v-row no-gutters class="ml-10  d-flex justify-center">
-                        <v-col cols="4" 
-                            class="
-                                innerShadow 
-                                bg-white 
-                                tw-rounded-[200px]
-                                mr-10 
-                                d-flex 
-                                justify-center 
-                                align-center"
-                                style="height: 133px"
-                                >
-                            <v-img 
-                                v-if="store.design[0].profileImage != null" 
-                                :src="store.design[0].profileImage" 
-                                width="123" 
-                                height="123" 
-                                cover
-                                class="tw-rounded-[200px]"
-                            ></v-img>
-                            <v-icon 
-                                v-else 
-                                size="60" 
-                                color="#e4e4e4" 
-                                class="ma-13"
-                            >
-                              mdi-account
-                            </v-icon>
-                        </v-col>
-                      </v-row>
-                    </v-col>
-                  </v-row>
-              <!-- username -->
-              <v-row no-gutters
-                class="
-                  d-flex justify-center align-center
-                  tw-text-[#FFB650]
-                  tw-font-bold
-                  tw-text-2xl
-                  tw-pt-[19px]
-                "
-              >
-                @{{store.account[0].username}} 
-              </v-row>
-              <!-- bio -->
-              <v-row no-gutters
-                class="
-                  d-flex justify-center align-center
-                  tw-text-[#616161]
-                  tw-font-medium
-                  tw-text-[16px]
-                  tw-pt-[6px]
-                  tw-pb-[24px]
-                "
-              >
-                {{store.design[0].bio}}
-              </v-row>
-
-              <!-- title box -->
-              <v-row no-gutters
-                v-for="item in store.Link" :key="item"
-                class="
-                  tw-pt-[16px]
-                  tw-px-[40px]
-                "
-              >
-                <span
-                  v-if="item.title == null"
-                  class="textBody1-16
-                    tw-bg-[#FFB650]
-                    tw-text-[#ffffff]
-                    tw-rounded-full
-                    tw-w-full
-                    d-flex justify-center align-center
-                    tw-px-4
-                    tw-py-3
-                    tw-drop-shadow-md
-                  "
-                >
-                  Title
-                </span>
-                <span
-                  v-else 
-                  class="textBody1-16
-                    tw-bg-[#FFB650]
-                    tw-text-[#ffffff]
-                    tw-rounded-full
-                    tw-w-full
-                    d-flex justify-center align-center
-                    tw-px-4
-                    tw-py-3
-                    tw-drop-shadow-md
-                  "
-                >
-                  {{item.title}}
-                </span>
-              </v-row>
-              <!-- end of title box -->
-
-              <!-- buble sharing & line home buttom iPhone -->
-              <v-row no-gutters
-                class="
-                  tw-absolute tw-inset-x-0 tw-bottom-0
-                  d-flex justify-center align-center
-                  tw-font-bold
-                  tw-text-[#FFB650]
-                  tw-text-[24px]
-                "
-              >
-                <span class="tw-pb-4">
-                  bubble sharing
-                </span>
-                <img 
-                  src="../assets/blackBar.png" 
-                />
-              </v-row>
-            </v-col>
-            <v-col></v-col>
-          </v-row>
-          <!-- end of chooseTheme = 2 -->
-
-          <!-- if chooseTheme = 3 -->
-          <v-row no-gutters
-            v-if="chooseTheme == 3"
-            class="
-              tw-h-[50.75rem]
-              tw-pt-[32px]
-            "
-          >
-            <v-col class="
-              tw-border-l
-              tw-border-[#9E9E9E]
-            "></v-col>
-            <v-col cols="10"
-              class="
-                tw-bg-[#E8EEFF]
-                tw-rounded-[40px]
-                tw-relative
-                tw-border-2
-                tw-border-[#616161]
-                
-              "
-            >
-              <!-- ssbar -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/blackSsBar.png" 
-                ></v-img>
-              </v-row>
-              <!-- share btn -->
-              <v-row no-gutters
-                class="
-                  tw-pt-[40px]
-                  tw-pr-[36px]
-                  tw-flex tw-justify-end
-                "
-              >
-                <img 
-                  src="../assets/greyShare.png" 
-                  height="24" 
-                />
-              </v-row>
-              <!-- profile image -->
-              <v-row no-gutters>
-                    <v-col cols="12">
-                      <v-row no-gutters class="ml-10  d-flex justify-center">
-                        <v-col cols="4" 
-                            class="
-                                innerShadow 
-                                bg-white 
-                                tw-rounded-[200px]
-                                mr-10 
-                                d-flex 
-                                justify-center 
-                                align-center"
-                                style="height: 133px"
-                                >
-                            <v-img 
-                                v-if="store.design[0].profileImage != null" 
-                                :src="store.design[0].profileImage" 
-                                width="123" 
-                                height="123" 
-                                cover
-                                class="tw-rounded-[200px]"
-                            ></v-img>
-                            <v-icon 
-                                v-else 
-                                size="60" 
-                                color="#e4e4e4" 
-                                class="ma-13"
-                            >
-                              mdi-account
-                            </v-icon>
-                        </v-col>
-                      </v-row>
-                    </v-col>
-                  </v-row>
-              <!-- username -->
-              <v-row no-gutters
-                class="
-                  d-flex justify-center align-center
-                  tw-text-[#6087D4]
-                  tw-font-bold
-                  tw-text-2xl
-                  tw-pt-[19px]
-                "
-              >
-                @{{store.account[0].username}} 
-              </v-row>
-              <!-- bio -->
-              <v-row no-gutters
-                class="
-                  d-flex justify-center align-center
-                  tw-text-[#616161]
-                  tw-font-medium
-                  tw-text-[16px]
-                  tw-pt-[6px]
-                  tw-pb-[24px]
-                "
-              >
-                {{store.design[0].bio}}
-              </v-row>
-
-              <!-- title box -->
-              <v-row no-gutters
-                v-for="item in store.Link" :key="item"
-                class="
-                  tw-pt-[16px]
-                  tw-px-[40px]
-                "
-              >
-                <span
-                  class="textBody1-16
-                    tw-rounded-full
-                    tw-w-full
-                    d-flex justify-center align-center
-                    tw-px-4
-                    tw-py-3
-                  "
-                >
-                  Title
-                </span>
-                <span
-                  class="textBody1-16
-                    tw-rounded-full
-                    tw-w-full
-                    d-flex justify-center align-center
-                    tw-px-4
-                    tw-py-3
-                  "
-                >
-                </span>
-              </v-row>
-              <!-- end of title box -->
-
-              <!-- buble sharing & line home buttom iPhone -->
-              <v-row no-gutters
-                class="
-                  tw-absolute tw-inset-x-0 tw-bottom-0
-                  d-flex justify-center align-center
-                  tw-font-bold
-                  tw-text-[24px]
-                "
-              >
-                <span class="tw-pb-4">
-                  bubble sharing
-                </span>
-                <img 
-                />
-              </v-row>
-                  v-if="item.title == null"
-                    tw-bg-[#9229AE]
-                    tw-text-[#ffffff]
-                    tw-drop-shadow-md
-                  v-else 
-                    tw-bg-[#9229AE]
-                    tw-text-[#ffffff]
-                    tw-drop-shadow-md
-                  {{item.title}}
-                  tw-text-[#9229AE]
-                  src="../assets/blackBar.png" 
-            </v-col>
-            <v-col></v-col>
-          </v-row>
-          <!-- end of chooseTheme = 3 -->
-
-          <!-- if chooseTheme = 4 -->
-          <v-row no-gutters
-            v-if="chooseTheme == 4"
-            class="
-              tw-h-[50.75rem]
-              tw-pt-[32px]
-            "
-          >
-            <v-col class="
-              tw-border-l
-              tw-border-[#9E9E9E]
-            "></v-col>
-            <v-col cols="10"
-              class="
-                tw-bg-[#E0FAEE]
-                tw-rounded-[40px]
-                tw-relative
-                tw-border-2
-                tw-border-[#616161]
-                
-              "
-            >
-              <!-- ssbar -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/blackSsBar.png" 
-                ></v-img>
-              </v-row>
-              <!-- share btn -->
-              <v-row no-gutters
-                class="
-                  tw-pt-[40px]
-                  tw-pr-[36px]
-                  tw-flex tw-justify-end
-                "
-              >
-                <img 
-                  src="../assets/greyShare.png" 
-                  height="24" 
-                />
-              </v-row>
-              <!-- profile image -->
-              <v-row no-gutters>
-                    <v-col cols="12">
-                      <v-row no-gutters class="ml-10  d-flex justify-center">
-                        <v-col cols="4" 
-                            class="
-                                innerShadow 
-                                bg-white 
-                                tw-rounded-[200px]
-                                mr-10 
-                                d-flex 
-                                justify-center 
-                                align-center"
-                                style="height: 133px"
-                                >
-                            <v-img 
-                                v-if="store.design[0].profileImage != null" 
-                                :src="store.design[0].profileImage" 
-                                width="123" 
-                                height="123" 
-                                cover
-                                class="tw-rounded-[200px]"
-                            ></v-img>
-                            <v-icon 
-                                v-else 
-                                size="60" 
-                                color="#e4e4e4" 
-                                class="ma-13"
-                            >
-                              mdi-account
-                            </v-icon>
-                        </v-col>
-                      </v-row>
-                    </v-col>
-                  </v-row>
-              <!-- username -->
-              <v-row no-gutters
-                class="
-                  d-flex justify-center align-center
-                  tw-text-[#04B8AD]
-                  tw-font-bold
-                  tw-text-2xl
-                  tw-pt-[19px]
-                "
-              >
-                @{{store.account[0].username}} 
-              </v-row>
-              <!-- bio -->
-              <v-row no-gutters
-                class="
-                  d-flex justify-center align-center
-                  tw-text-[#616161]
-                  tw-font-medium
-                  tw-text-[16px]
-                  tw-pt-[6px]
-                  tw-pb-[24px]
-                "
-              >
-                {{store.design[0].bio}}
-              </v-row>
-
-              <!-- title box -->
-              <v-row no-gutters
-                v-for="item in store.Link" :key="item"
-                class="
-                  tw-pt-[16px]
-                  tw-px-[40px]
-                "
-              >
-                <span
-                  v-if="item.title == null"
-                  class="textBody1-16
-                    tw-bg-[#ffffff]
-                    tw-text-[#04B8AD]
-                    tw-rounded-full
-                    tw-w-full
-                    d-flex justify-center align-center
-                    tw-px-4
-                    tw-py-3
-                    tw-drop-shadow-md
-                  "
-                >
-                  Title
-                </span>
-                <span
-                  v-else 
-                  class="textBody1-16
-                    tw-bg-[#ffffff]
-                    tw-text-[#04B8AD]
-                    tw-rounded-full
-                    tw-w-full
-                    d-flex justify-center align-center
-                    tw-px-4
-                    tw-py-3
-                    tw-drop-shadow-md
-                  "
-                >
-                  {{item.title}}
-                </span>
-              </v-row>
-              <!-- end of title box -->
-
-              
-            </v-col>
-          </v-row>
-          <!-- if chooseTheme = 5 -->
-          <v-row no-gutters
-            v-if="chooseTheme == 5"
-            class="
-              tw-h-[50.75rem]
-              tw-pt-[32px]
-            "
-          >
-            <v-col class="
-              tw-border-l
-              tw-border-[#9E9E9E]
-            "></v-col>
-            <v-col cols="10"
-              class="
-                tw-bg-[#FFF5F7]
-                tw-rounded-[40px]
-                tw-relative
-                tw-border-2
-                tw-border-[#616161]
-                
-              "
-            >
-              <!-- ssbar -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/blackSsBar.png" 
-                ></v-img>
-              </v-row>
-              <!-- share btn -->
-              <v-row no-gutters
-                class="
-                  tw-pt-[40px]
-                  tw-pr-[36px]
-                  tw-flex tw-justify-end
-                "
-              >
-                <img 
-                  src="../assets/greyShare.png" 
-                  height="24" 
-                />
-              </v-row>
-              <!-- profile image -->
-              <v-row no-gutters>
-                    <v-col cols="12">
-                      <v-row no-gutters class="ml-10  d-flex justify-center">
-                        <v-col cols="4" 
-                            class="
-                                innerShadow 
-                                bg-white 
-                                tw-rounded-[200px]
-                                mr-10 
-                                d-flex 
-                                justify-center 
-                                align-center"
-                                style="height: 133px"
-                                >
-                            <v-img 
-                                v-if="store.design[0].profileImage != null" 
-                                :src="store.design[0].profileImage" 
-                                width="123" 
-                                height="123" 
-                                cover
-                                class="tw-rounded-[200px]"
-                            ></v-img>
-                            <v-icon 
-                                v-else 
-                                size="60" 
-                                color="#e4e4e4" 
-                                class="ma-13"
-                            >
-                              mdi-account
-                            </v-icon>
-                        </v-col>
-                      </v-row>
-                    </v-col>
-                  </v-row>
-              <!-- username -->
-              <v-row no-gutters
-                class="
-                  d-flex justify-center align-center
-                  tw-text-[#FF7A94]
-                  tw-font-bold
-                  tw-text-2xl
-                  tw-pt-[19px]
-                "
-              >
-                @{{store.account[0].username}} 
-              </v-row>
-              <!-- bio -->
-              <v-row no-gutters
-                class="
-                  d-flex justify-center align-center
-                  tw-text-[#616161]
-                  tw-font-medium
-                  tw-text-[16px]
-                  tw-pt-[6px]
-                  tw-pb-[24px]
-                "
-              >
-                {{store.design[0].bio}}
-              </v-row>
-
-              <!-- title box -->
-              <v-row no-gutters
-                v-for="item in store.Link" :key="item"
-                class="
-                  tw-pt-[16px]
-                  tw-px-[40px]
-                "
-              >
-                <span
-                  v-if="item.title == null"
-                  class="textBody1-16
-                    tw-bg-[#FF7A94]
-                    tw-text-[#ffffff]
-                    tw-rounded-full
-                    tw-w-full
-                    d-flex justify-center align-center
-                    tw-px-4
-                    tw-py-3
-                    tw-drop-shadow-md
-                  "
-                >
-                  Title
-                </span>
-                <span
-                  v-else 
-                  class="textBody1-16
-                    tw-bg-[#FF7A94]
-                    tw-text-[#ffffff]
-                    tw-rounded-full
-                    tw-w-full
-                    d-flex justify-center align-center
-                    tw-px-4
-                    tw-py-3
-                    tw-drop-shadow-md
-                  "
-                >
-                  {{item.title}}
-                </span>
-              </v-row>
-              <!-- end of title box -->
-
-              <!-- buble sharing & line home buttom iPhone -->
-              <v-row no-gutters
-                class="
-                  tw-absolute tw-inset-x-0 tw-bottom-0
-                  d-flex justify-center align-center
-                  tw-font-bold
-                  tw-text-[#FF7A94]
-                  tw-text-[24px]
-                "
-              >
-                <span class="tw-pb-4">
-                  bubble sharing
-                </span>
-                <img 
-                  src="../assets/blackBar.png" 
-                />
-              </v-row>
-            </v-col>
-            <v-col></v-col>
-          </v-row>
-          <!-- end of chooseTheme = 0 -->
-
-          <!-- if chooseTheme = 1 -->
-          <v-row no-gutters
-            v-if="chooseTheme == 1"
-            class="
-              tw-h-[50.75rem]
-              tw-pt-[32px]
-            "
-          >
-            <v-col class="
-              tw-border-l
-              tw-border-[#9E9E9E]
-            "></v-col>
-            <v-col cols="10"
-              class="
-                tw-bg-[#f8f8f8]
-                tw-rounded-[40px]
-                tw-relative
-                tw-border-2
-                tw-border-[#616161]
-                
-              "
-            >
-              <!-- ssbar -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/blackSsBar.png" 
-                ></v-img>
-              </v-row>
-              <!-- share btn -->
-              <v-row no-gutters
-                class="
-                  tw-pt-[40px]
-                  tw-pr-[36px]
-                  tw-flex tw-justify-end
-                "
-              >
-                <img 
-                  src="../assets/greyShare.png" 
-                  height="24" 
-                />
-              </v-row>
-              <!-- profile image -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/greyProfile.png" 
-                  height="100" 
-                ></v-img>
-              </v-row>
+              </v-col>
               <!-- username -->
               <v-row no-gutters
                 class="
@@ -1379,12 +598,38 @@
                 />
               </v-row>
               <!-- profile image -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/greyProfile.png" 
-                  height="100" 
-                ></v-img>
-              </v-row>
+              <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+              </v-col>
               <!-- username -->
               <v-row no-gutters
                 class="
@@ -1516,12 +761,38 @@
                 />
               </v-row>
               <!-- profile image -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/greyProfile.png" 
-                  height="100" 
-                ></v-img>
-              </v-row>
+              <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+              </v-col>
               <!-- username -->
               <v-row no-gutters
                 class="
@@ -1653,12 +924,38 @@
                 />
               </v-row>
               <!-- profile image -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/greyProfile.png" 
-                  height="100" 
-                ></v-img>
-              </v-row>
+              <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+              </v-col>
               <!-- username -->
               <v-row no-gutters
                 class="
@@ -1790,12 +1087,38 @@
                 />
               </v-row>
               <!-- profile image -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/greyProfile.png" 
-                  height="100" 
-                ></v-img>
-              </v-row>
+              <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+              </v-col>
               <!-- username -->
               <v-row no-gutters
                 class="
@@ -1886,6 +1209,7 @@
           <!-- end of chooseTheme = 5 -->
         </v-col>
         
+        
       </v-row>
     </v-container>
   </body>
@@ -1899,24 +1223,9 @@ export default {
     const store = useProductStore();
     const title = ref("Title");
     const url = ref("Url");
-    const file = ref();
+    const file = ref(store.design[0].profileImage);
     const editBtn = false;
     console.log("hellooooo",store.design[0].themeTemplate);
-    let chooseTheme = 0;
-    const themeTemplate = store.design[0].themeTemplate
-    chooseTheme = themeTemplate
-
-    const dataInput = async (item, index) => {
-      const Link = {  
-        seq: item.index,
-        title: titleInput.value ,
-        url: urlInput.value,
-        img: item.img,
-        click: click.value,
-      }
-    
-    }
-
     let chooseTheme = 0;
     const themeTemplate = store.design[0].themeTemplate
     chooseTheme = themeTemplate
