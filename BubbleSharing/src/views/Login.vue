@@ -116,7 +116,7 @@ export default {
       }
       /*this.$router.push("/create");*/
       console.log(account.username);
-      this.$router.push("/");
+      this.$router.push("/page");
     }
     return { store, username, password, create };
   },
@@ -127,14 +127,14 @@ export default {
     valid: true,
     model: "",
     nameRules: [
-      (v) => !!v || "",
-      (v) => (v && v.length <= 5) || "Name must be less than 5 characters",
+      (v) => !!v || "Username is required",
+      //  (v) => (v && v.length <= 5) || "Name must be less than 5 characters",
     ],
     password: "",
     cfpassword: "",
     passwordRules: [
       (v) => !!v || "Password is required",
-      (v) => (v && v.length >= 5) || "Password must have 5+ characters",
+      (v) => (v && v.length >= 5) || "Please enter at least 5 characters",
       (v) => /(?=.*\d)/.test(v) || "Must have one number",
     ],
   }),
