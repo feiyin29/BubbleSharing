@@ -29,7 +29,7 @@
                     tw-border-2
                     px-4 py-2
                     "
-                color="#f8f8f8"
+                
                 rounded="xl"
                 height="550"
                 width="100%"
@@ -225,33 +225,39 @@
             </v-col>
           </v-row>
         </v-col>
+
         <!-- body right -->
-        <!-- iphone -->
-        <v-col cols="4" 
-          class="
-            tw-border-l
-            tw-border-[#9E9E9E]"
-        >
+        <!-- new iPhone -->
+        <v-col cols="4">
+          <!-- if chooseTheme = 0 -->
           <v-row no-gutters
+            v-if="chooseTheme == 0"
             class="
-              d-flex justify-center
               tw-h-[50.75rem]
               tw-pt-[32px]
             "
           >
+            <v-col class="
+              tw-border-l
+              tw-border-[#9E9E9E]
+            "></v-col>
             <v-col cols="10"
               class="
-                tw-bg-[#04021D]
-                tw-text-[#f6f6f6]
+                tw-bg-[#f8f8f8]
                 tw-rounded-[40px]
                 tw-relative
+                tw-border-2
+                tw-border-[#616161]
+                
               "
             >
+              <!-- ssbar -->
               <v-row no-gutters>
                 <v-img 
-                  src="../src/assets/StatusBar.png" 
+                  src="../src/assets/blackSsBar.png" 
                 ></v-img>
               </v-row>
+              <!-- share btn -->
               <v-row no-gutters
                 class="
                   tw-pt-[40px]
@@ -260,80 +266,80 @@
                 "
               >
                 <img 
-                  src="../assets/shareIcon.png" 
+                  src="../assets/greyShare.png" 
                   height="24" 
                 />
               </v-row>
+              <!-- profile image -->
               <v-row no-gutters>
                 <v-img 
-                  src="../src/assets/accountPic.png" 
+                  src="../src/assets/greyProfile.png" 
                   height="100" 
                 ></v-img>
               </v-row>
+              <!-- username -->
               <v-row no-gutters
                 class="
                   d-flex justify-center align-center
-                  tw-text-[#f6f6f6]
-                  tw-font-medium
+                  tw-text-[#9229AE]
+                  tw-font-bold
                   tw-text-2xl
                   tw-pt-[19px]
                 "
               >
-                @username
+                @{{store.account[0].username}} 
+              </v-row>
+              <!-- bio -->
+              <v-row no-gutters
+                class="
+                  d-flex justify-center align-center
+                  tw-text-[#616161]
+                  tw-font-medium
+                  tw-text-[16px]
+                  tw-pt-[6px]
+                  tw-pb-[24px]
+                "
+              >
+                {{store.design[0].bio}}
               </v-row>
 
               <!-- title box -->
               <v-row no-gutters
-                v-if="addUrlBtn == true"
+                v-for="item in store.Link" :key="item"
                 class="
-                  tw-pt-[30px]
+                  tw-pt-[16px]
                   tw-px-[40px]
                 "
               >
-                  <!--img  -->
-                  <v-img 
-                    v-if="file != null" 
-                    :src="file" 
-                    width="50" 
-                    height="50" 
-                    cover
-                  ></v-img>
-                  <v-icon 
-                              v-else 
-                              size="80" 
-                              color="#e4e4e4" 
-                              class="ma-13"
-                          >
-                              mdi-camera-plus
-                          </v-icon>
-                <!-- title url -->
                 <span
-                  v-if="titleCheck == false"
+                  v-if="item.title == null"
                   class="textBody1-16
-                    tw-bg-[#f6f6f6]
-                    tw-text-[#161616]
+                    tw-bg-[#9229AE]
+                    tw-text-[#ffffff]
                     tw-rounded-full
                     tw-w-full
                     d-flex justify-center align-center
                     tw-px-4
                     tw-py-3
+                    tw-drop-shadow-md
                   "
                 >
                   Title
                 </span>
                 <span
-                  v-else if="titleCheck == true"
+                  v-else 
                   class="textBody1-16
-                    tw-bg-[#f6f6f6]
-                    tw-text-[#161616]
+                    tw-bg-[#9229AE]
+                    tw-text-[#ffffff]
                     tw-rounded-full
                     tw-w-full
                     d-flex justify-center align-center
                     tw-px-4
                     tw-py-3
+                    tw-drop-shadow-md
                   "
                 >
-                  {{title}}
+                  {{item.title}}
                 </span>
               </v-row>
               <!-- end of title box -->
@@ -344,7 +350,7 @@
                   tw-absolute tw-inset-x-0 tw-bottom-0
                   d-flex justify-center align-center
                   tw-font-bold
-                  tw-text-[#f6f6f6]
+                  tw-text-[#9229AE]
                   tw-text-[24px]
                 "
               >
@@ -352,14 +358,698 @@
                   bubble sharing
                 </span>
                 <img 
-                  src="../assets/iPhoneX.png" 
+                  src="../assets/blackBar.png" 
                 />
               </v-row>
-
-              
             </v-col>
-
+            <v-col></v-col>
           </v-row>
+          <!-- end of chooseTheme = 0 -->
+
+          <!-- if chooseTheme = 1 -->
+          <v-row no-gutters
+            v-if="chooseTheme == 1"
+            class="
+              tw-h-[50.75rem]
+              tw-pt-[32px]
+            "
+          >
+            <v-col class="
+              tw-border-l
+              tw-border-[#9E9E9E]
+            "></v-col>
+            <v-col cols="10"
+              class="
+                tw-bg-[#f8f8f8]
+                tw-rounded-[40px]
+                tw-relative
+                tw-border-2
+                tw-border-[#616161]
+                
+              "
+            >
+              <!-- ssbar -->
+              <v-row no-gutters>
+                <v-img 
+                  src="../src/assets/blackSsBar.png" 
+                ></v-img>
+              </v-row>
+              <!-- share btn -->
+              <v-row no-gutters
+                class="
+                  tw-pt-[40px]
+                  tw-pr-[36px]
+                  tw-flex tw-justify-end
+                "
+              >
+                <img 
+                  src="../assets/greyShare.png" 
+                  height="24" 
+                />
+              </v-row>
+              <!-- profile image -->
+              <v-row no-gutters>
+                <v-img 
+                  src="../src/assets/greyProfile.png" 
+                  height="100" 
+                ></v-img>
+              </v-row>
+              <!-- username -->
+              <v-row no-gutters
+                class="
+                  d-flex justify-center align-center
+                  tw-text-[#B75555]
+                  tw-font-bold
+                  tw-text-2xl
+                  tw-pt-[19px]
+                "
+              >
+                @{{store.account[0].username}} 
+              </v-row>
+              <!-- bio -->
+              <v-row no-gutters
+                class="
+                  d-flex justify-center align-center
+                  tw-text-[#616161]
+                  tw-font-medium
+                  tw-text-[16px]
+                  tw-pt-[6px]
+                  tw-pb-[24px]
+                "
+              >
+                {{store.design[0].bio}}
+              </v-row>
+
+              <!-- title box -->
+              <v-row no-gutters
+                v-for="item in store.Link" :key="item"
+                class="
+                  tw-pt-[16px]
+                  tw-px-[40px]
+                "
+              >
+                <span
+                  v-if="item.title == null"
+                  class="textBody1-16
+                    tw-bg-[#B75555]
+                    tw-text-[#ffffff]
+                    tw-rounded-full
+                    tw-w-full
+                    d-flex justify-center align-center
+                    tw-px-4
+                    tw-py-3
+                    tw-drop-shadow-md
+                  "
+                >
+                  Title
+                </span>
+                <span
+                  v-else 
+                  class="textBody1-16
+                    tw-bg-[#B75555]
+                    tw-text-[#ffffff]
+                    tw-rounded-full
+                    tw-w-full
+                    d-flex justify-center align-center
+                    tw-px-4
+                    tw-py-3
+                    tw-drop-shadow-md
+                  "
+                >
+                  {{item.title}}
+                </span>
+              </v-row>
+              <!-- end of title box -->
+
+              <!-- buble sharing & line home buttom iPhone -->
+              <v-row no-gutters
+                class="
+                  tw-absolute tw-inset-x-0 tw-bottom-0
+                  d-flex justify-center align-center
+                  tw-font-bold
+                  tw-text-[#B75555]
+                  tw-text-[24px]
+                "
+              >
+                <span class="tw-pb-4">
+                  bubble sharing
+                </span>
+                <img 
+                  src="../assets/blackBar.png" 
+                />
+              </v-row>
+            </v-col>
+            <v-col></v-col>
+          </v-row>
+          <!-- end of chooseTheme = 1 -->
+
+          <!-- if chooseTheme = 2 -->
+          <v-row no-gutters
+            v-if="chooseTheme == 2"
+            class="
+              tw-h-[50.75rem]
+              tw-pt-[32px]
+            "
+          >
+            <v-col class="
+              tw-border-l
+              tw-border-[#9E9E9E]
+            "></v-col>
+            <v-col cols="10"
+              class="
+                tw-bg-[#f8f8f8]
+                tw-rounded-[40px]
+                tw-relative
+                tw-border-2
+                tw-border-[#616161]
+                
+              "
+            >
+              <!-- ssbar -->
+              <v-row no-gutters>
+                <v-img 
+                  src="../src/assets/blackSsBar.png" 
+                ></v-img>
+              </v-row>
+              <!-- share btn -->
+              <v-row no-gutters
+                class="
+                  tw-pt-[40px]
+                  tw-pr-[36px]
+                  tw-flex tw-justify-end
+                "
+              >
+                <img 
+                  src="../assets/greyShare.png" 
+                  height="24" 
+                />
+              </v-row>
+              <!-- profile image -->
+              <v-row no-gutters>
+                <v-img 
+                  src="../src/assets/greyProfile.png" 
+                  height="100" 
+                ></v-img>
+              </v-row>
+              <!-- username -->
+              <v-row no-gutters
+                class="
+                  d-flex justify-center align-center
+                  tw-text-[#FFB650]
+                  tw-font-bold
+                  tw-text-2xl
+                  tw-pt-[19px]
+                "
+              >
+                @{{store.account[0].username}} 
+              </v-row>
+              <!-- bio -->
+              <v-row no-gutters
+                class="
+                  d-flex justify-center align-center
+                  tw-text-[#616161]
+                  tw-font-medium
+                  tw-text-[16px]
+                  tw-pt-[6px]
+                  tw-pb-[24px]
+                "
+              >
+                {{store.design[0].bio}}
+              </v-row>
+
+              <!-- title box -->
+              <v-row no-gutters
+                v-for="item in store.Link" :key="item"
+                class="
+                  tw-pt-[16px]
+                  tw-px-[40px]
+                "
+              >
+                <span
+                  v-if="item.title == null"
+                  class="textBody1-16
+                    tw-bg-[#FFB650]
+                    tw-text-[#ffffff]
+                    tw-rounded-full
+                    tw-w-full
+                    d-flex justify-center align-center
+                    tw-px-4
+                    tw-py-3
+                    tw-drop-shadow-md
+                  "
+                >
+                  Title
+                </span>
+                <span
+                  v-else 
+                  class="textBody1-16
+                    tw-bg-[#FFB650]
+                    tw-text-[#ffffff]
+                    tw-rounded-full
+                    tw-w-full
+                    d-flex justify-center align-center
+                    tw-px-4
+                    tw-py-3
+                    tw-drop-shadow-md
+                  "
+                >
+                  {{item.title}}
+                </span>
+              </v-row>
+              <!-- end of title box -->
+
+              <!-- buble sharing & line home buttom iPhone -->
+              <v-row no-gutters
+                class="
+                  tw-absolute tw-inset-x-0 tw-bottom-0
+                  d-flex justify-center align-center
+                  tw-font-bold
+                  tw-text-[#FFB650]
+                  tw-text-[24px]
+                "
+              >
+                <span class="tw-pb-4">
+                  bubble sharing
+                </span>
+                <img 
+                  src="../assets/blackBar.png" 
+                />
+              </v-row>
+            </v-col>
+            <v-col></v-col>
+          </v-row>
+          <!-- end of chooseTheme = 2 -->
+
+          <!-- if chooseTheme = 3 -->
+          <v-row no-gutters
+            v-if="chooseTheme == 3"
+            class="
+              tw-h-[50.75rem]
+              tw-pt-[32px]
+            "
+          >
+            <v-col class="
+              tw-border-l
+              tw-border-[#9E9E9E]
+            "></v-col>
+            <v-col cols="10"
+              class="
+                tw-bg-[#E8EEFF]
+                tw-rounded-[40px]
+                tw-relative
+                tw-border-2
+                tw-border-[#616161]
+                
+              "
+            >
+              <!-- ssbar -->
+              <v-row no-gutters>
+                <v-img 
+                  src="../src/assets/blackSsBar.png" 
+                ></v-img>
+              </v-row>
+              <!-- share btn -->
+              <v-row no-gutters
+                class="
+                  tw-pt-[40px]
+                  tw-pr-[36px]
+                  tw-flex tw-justify-end
+                "
+              >
+                <img 
+                  src="../assets/greyShare.png" 
+                  height="24" 
+                />
+              </v-row>
+              <!-- profile image -->
+              <v-row no-gutters>
+                <v-img 
+                  src="../src/assets/greyProfile.png" 
+                  height="100" 
+                ></v-img>
+              </v-row>
+              <!-- username -->
+              <v-row no-gutters
+                class="
+                  d-flex justify-center align-center
+                  tw-text-[#6087D4]
+                  tw-font-bold
+                  tw-text-2xl
+                  tw-pt-[19px]
+                "
+              >
+                @{{store.account[0].username}} 
+              </v-row>
+              <!-- bio -->
+              <v-row no-gutters
+                class="
+                  d-flex justify-center align-center
+                  tw-text-[#616161]
+                  tw-font-medium
+                  tw-text-[16px]
+                  tw-pt-[6px]
+                  tw-pb-[24px]
+                "
+              >
+                {{store.design[0].bio}}
+              </v-row>
+
+              <!-- title box -->
+              <v-row no-gutters
+                v-for="item in store.Link" :key="item"
+                class="
+                  tw-pt-[16px]
+                  tw-px-[40px]
+                "
+              >
+                <span
+                  v-if="item.title == null"
+                  class="textBody1-16
+                    tw-bg-[#ffffff]
+                    tw-text-[#6087D4]
+                    tw-rounded-full
+                    tw-w-full
+                    d-flex justify-center align-center
+                    tw-px-4
+                    tw-py-3
+                    tw-drop-shadow-md
+                  "
+                >
+                  Title
+                </span>
+                <span
+                  v-else 
+                  class="textBody1-16
+                    tw-bg-[#ffffff]
+                    tw-text-[#6087D4]
+                    tw-rounded-full
+                    tw-w-full
+                    d-flex justify-center align-center
+                    tw-px-4
+                    tw-py-3
+                    tw-drop-shadow-md
+                  "
+                >
+                  {{item.title}}
+                </span>
+              </v-row>
+              <!-- end of title box -->
+
+              <!-- buble sharing & line home buttom iPhone -->
+              <v-row no-gutters
+                class="
+                  tw-absolute tw-inset-x-0 tw-bottom-0
+                  d-flex justify-center align-center
+                  tw-font-bold
+                  tw-text-[#6087D4]
+                  tw-text-[24px]
+                "
+              >
+                <span class="tw-pb-4">
+                  bubble sharing
+                </span>
+                <img 
+                  src="../assets/blackBar.png" 
+                />
+              </v-row>
+            </v-col>
+            <v-col></v-col>
+          </v-row>
+          <!-- end of chooseTheme = 3 -->
+
+          <!-- if chooseTheme = 4 -->
+          <v-row no-gutters
+            v-if="chooseTheme == 4"
+            class="
+              tw-h-[50.75rem]
+              tw-pt-[32px]
+            "
+          >
+            <v-col class="
+              tw-border-l
+              tw-border-[#9E9E9E]
+            "></v-col>
+            <v-col cols="10"
+              class="
+                tw-bg-[#E0FAEE]
+                tw-rounded-[40px]
+                tw-relative
+                tw-border-2
+                tw-border-[#616161]
+                
+              "
+            >
+              <!-- ssbar -->
+              <v-row no-gutters>
+                <v-img 
+                  src="../src/assets/blackSsBar.png" 
+                ></v-img>
+              </v-row>
+              <!-- share btn -->
+              <v-row no-gutters
+                class="
+                  tw-pt-[40px]
+                  tw-pr-[36px]
+                  tw-flex tw-justify-end
+                "
+              >
+                <img 
+                  src="../assets/greyShare.png" 
+                  height="24" 
+                />
+              </v-row>
+              <!-- profile image -->
+              <v-row no-gutters>
+                <v-img 
+                  src="../src/assets/greyProfile.png" 
+                  height="100" 
+                ></v-img>
+              </v-row>
+              <!-- username -->
+              <v-row no-gutters
+                class="
+                  d-flex justify-center align-center
+                  tw-text-[#04B8AD]
+                  tw-font-bold
+                  tw-text-2xl
+                  tw-pt-[19px]
+                "
+              >
+                @{{store.account[0].username}} 
+              </v-row>
+              <!-- bio -->
+              <v-row no-gutters
+                class="
+                  d-flex justify-center align-center
+                  tw-text-[#616161]
+                  tw-font-medium
+                  tw-text-[16px]
+                  tw-pt-[6px]
+                  tw-pb-[24px]
+                "
+              >
+                {{store.design[0].bio}}
+              </v-row>
+
+              <!-- title box -->
+              <v-row no-gutters
+                v-for="item in store.Link" :key="item"
+                class="
+                  tw-pt-[16px]
+                  tw-px-[40px]
+                "
+              >
+                <span
+                  v-if="item.title == null"
+                  class="textBody1-16
+                    tw-bg-[#ffffff]
+                    tw-text-[#04B8AD]
+                    tw-rounded-full
+                    tw-w-full
+                    d-flex justify-center align-center
+                    tw-px-4
+                    tw-py-3
+                    tw-drop-shadow-md
+                  "
+                >
+                  Title
+                </span>
+                <span
+                  v-else 
+                  class="textBody1-16
+                    tw-bg-[#ffffff]
+                    tw-text-[#04B8AD]
+                    tw-rounded-full
+                    tw-w-full
+                    d-flex justify-center align-center
+                    tw-px-4
+                    tw-py-3
+                    tw-drop-shadow-md
+                  "
+                >
+                  {{item.title}}
+                </span>
+              </v-row>
+              <!-- end of title box -->
+
+              <!-- buble sharing & line home buttom iPhone -->
+              <v-row no-gutters
+                class="
+                  tw-absolute tw-inset-x-0 tw-bottom-0
+                  d-flex justify-center align-center
+                  tw-font-bold
+                  tw-text-[#04B8AD]
+                  tw-text-[24px]
+                "
+              >
+                <span class="tw-pb-4">
+                  bubble sharing
+                </span>
+                <img 
+                  src="../assets/blackBar.png" 
+                />
+              </v-row>
+            </v-col>
+            <v-col></v-col>
+          </v-row>
+          <!-- end of chooseTheme = 4 -->
+
+          <!-- if chooseTheme = 5 -->
+          <v-row no-gutters
+            v-if="chooseTheme == 5"
+            class="
+              tw-h-[50.75rem]
+              tw-pt-[32px]
+            "
+          >
+            <v-col class="
+              tw-border-l
+              tw-border-[#9E9E9E]
+            "></v-col>
+            <v-col cols="10"
+              class="
+                tw-bg-[#FFF5F7]
+                tw-rounded-[40px]
+                tw-relative
+                tw-border-2
+                tw-border-[#616161]
+                
+              "
+            >
+              <!-- ssbar -->
+              <v-row no-gutters>
+                <v-img 
+                  src="../src/assets/blackSsBar.png" 
+                ></v-img>
+              </v-row>
+              <!-- share btn -->
+              <v-row no-gutters
+                class="
+                  tw-pt-[40px]
+                  tw-pr-[36px]
+                  tw-flex tw-justify-end
+                "
+              >
+                <img 
+                  src="../assets/greyShare.png" 
+                  height="24" 
+                />
+              </v-row>
+              <!-- profile image -->
+              <v-row no-gutters>
+                <v-img 
+                  src="../src/assets/greyProfile.png" 
+                  height="100" 
+                ></v-img>
+              </v-row>
+              <!-- username -->
+              <v-row no-gutters
+                class="
+                  d-flex justify-center align-center
+                  tw-text-[#FF7A94]
+                  tw-font-bold
+                  tw-text-2xl
+                  tw-pt-[19px]
+                "
+              >
+                @{{store.account[0].username}} 
+              </v-row>
+              <!-- bio -->
+              <v-row no-gutters
+                class="
+                  d-flex justify-center align-center
+                  tw-text-[#616161]
+                  tw-font-medium
+                  tw-text-[16px]
+                  tw-pt-[6px]
+                  tw-pb-[24px]
+                "
+              >
+                {{store.design[0].bio}}
+              </v-row>
+
+              <!-- title box -->
+              <v-row no-gutters
+                v-for="item in store.Link" :key="item"
+                class="
+                  tw-pt-[16px]
+                  tw-px-[40px]
+                "
+              >
+                <span
+                  v-if="item.title == null"
+                  class="textBody1-16
+                    tw-bg-[#FF7A94]
+                    tw-text-[#ffffff]
+                    tw-rounded-full
+                    tw-w-full
+                    d-flex justify-center align-center
+                    tw-px-4
+                    tw-py-3
+                    tw-drop-shadow-md
+                  "
+                >
+                  Title
+                </span>
+                <span
+                  v-else 
+                  class="textBody1-16
+                    tw-bg-[#FF7A94]
+                    tw-text-[#ffffff]
+                    tw-rounded-full
+                    tw-w-full
+                    d-flex justify-center align-center
+                    tw-px-4
+                    tw-py-3
+                    tw-drop-shadow-md
+                  "
+                >
+                  {{item.title}}
+                </span>
+              </v-row>
+              <!-- end of title box -->
+
+              <!-- buble sharing & line home buttom iPhone -->
+              <v-row no-gutters
+                class="
+                  tw-absolute tw-inset-x-0 tw-bottom-0
+                  d-flex justify-center align-center
+                  tw-font-bold
+                  tw-text-[#FF7A94]
+                  tw-text-[24px]
+                "
+              >
+                <span class="tw-pb-4">
+                  bubble sharing
+                </span>
+                <img 
+                  src="../assets/blackBar.png" 
+                />
+              </v-row>
+            </v-col>
+            <v-col></v-col>
+          </v-row>
+          <!-- end of chooseTheme = 5 -->
         </v-col>
         
       </v-row>
@@ -377,12 +1067,28 @@ export default {
     const url = ref("Url");
     const editBtn = false;
 
+    let chooseTheme = 0;
+    const themeTemplate = store.design[0].themeTemplate
+    chooseTheme = themeTemplate
+
+    const dataInput = async (item, index) => {
+      const Link = {  
+        seq: item.index,
+        title: titleInput.value ,
+        url: urlInput.value,
+        img: item.img,
+        click: click.value,
+      }
+    
+    }
+
     const dt = {
       title: title.value,
       url: url.value,
       click: 0,
     }
-    
+
+
     function edit(item, index){
       item.editBtn = !item.editBtn;
       this.title = item.title; 
@@ -415,7 +1121,7 @@ export default {
       // console.log("add Link",dt.title);
     }
 
-    return { store, dt, addLink, edit, save }
+    return { store, dt, addLink, edit, save, chooseTheme }
   },
   methods:{
 
@@ -514,8 +1220,8 @@ body {
   font-weight: bold;
   font-size: 16px;
   line-height: 24px;
-  letter-spacing: 0px;
-  color:#000000;
+  letter-spacing: 1.5px;
+  /* color:#000000; */
 }
 .textBody1-16medium {
   font-weight: medium;

@@ -8,18 +8,11 @@ export const useProductStore = defineStore({
       email: "email.value",
       password: "password.value",
       cfpassword: "cfpassword.value",
-      userLink: 'bubble.sh/bimbiim',
-    }],
-    design: [
-      {
-        username: 'EverythingShop', 
-        bio: 'hey',
-        profileImage: null,
-        themeTemplate: '0', 
-        
+      userLink: "bubble.sh/princess"
     }
-  ],
-    Link: [],
+    ],
+    design: [{username: 'PrincessShop', bio: 'hey', themeTemplate: '0', profileImage: 'src/assets/FirstScreen.png'},],
+    Link: [{title: 'no', url: 'nonono'},],
     countNumber: 1,
     products: [
       {

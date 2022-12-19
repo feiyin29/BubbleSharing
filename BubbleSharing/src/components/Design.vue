@@ -349,7 +349,6 @@
 
             <!-- right side -->
             <v-col cols="4">
-
                 <!-- make screen by myself -->
                 <!-- if chooseTheme = 0 -->
                 <v-row no-gutters
@@ -561,7 +560,6 @@
 
                 </v-row>
                 <!-- end of chooseTheme = 0 -->
-                <!-- end of iPhone screen -->
 
                 <!-- if chooseTheme = 1 -->
                 <v-row no-gutters
@@ -1335,8 +1333,8 @@
                       <span
                         v-if="item.title == null"
                         class="textBody1-16
-                          tw-bg-[#ffffff]
-                          tw-text-[#FF7A94]
+                          tw-bg-[#FF7A94]
+                          tw-text-[#ffffff]
                           tw-rounded-full
                           tw-w-full
                           d-flex justify-center align-center
@@ -1350,8 +1348,8 @@
                       <span
                         v-else 
                         class="textBody1-16
-                          tw-bg-[#ffffff]
-                          tw-text-[#FF7A94]
+                          tw-bg-[#FF7A94]
+                          tw-text-[#ffffff]
                           tw-rounded-full
                           tw-w-full
                           d-flex justify-center align-center
@@ -1387,11 +1385,8 @@
                   <v-col></v-col>
                 </v-row>
                 <!-- end of chooseTheme = 5 -->
-                
             </v-col>
             <!-- end of right side -->
-
-
           </v-row>
         </v-col>
       </v-row>

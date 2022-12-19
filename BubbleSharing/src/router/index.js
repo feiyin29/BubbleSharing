@@ -107,12 +107,6 @@ const router = createRouter({
       name: 'page',
       component: () => import('../views/pageView.vue')
     },
-    {
-      path: '/test',
-      name: 'test',
-      component: () => import('../views/test.vue')
-    },
-
   ],
 scrollBehavior(to, from, savedPosition) {
   return { top: 0 }
