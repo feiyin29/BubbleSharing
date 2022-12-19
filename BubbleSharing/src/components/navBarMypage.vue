@@ -252,7 +252,179 @@
               class="accountBtn"
             >
               K
-            </v-btn>
+            </v-btn> -->
+            <button
+              @click="myAccountBtnFunction()"
+              class="
+                innerShadow 
+                tw-w-[64px]
+                tw-h-[64px]
+                tw-bg-[#ffffff]
+                d-flex
+                justify-center
+                align-center
+                tw-rounded-full
+                tw-border
+              "
+            >
+              <v-img 
+                v-if="design[0].profileImage != null" 
+                :src="design[0].profileImage" 
+                width="64" 
+                height="64" 
+                cover
+                class="accountBtn tw-rounded-[200px] tw-h-[64px] tw-w-[64px]"
+              ></v-img>
+              <v-icon 
+                  v-else 
+                  size="42" 
+                  color="#e4e4e4" 
+                  class="accountBtn"
+              >
+                mdi-account
+              </v-icon>
+            </button>
+            
+            <!-- account dropdown content -->
+            <div id="myAccountBtnDropdown" 
+              class="accountBtnDropdown-content
+              "
+            >
+              <!-- row profile image, username and userLink -->
+              <v-row no-gutters
+                class="
+                  textBody3-24
+                  d-flex justify-center align-center
+                  tw-font-medium
+                  tw-px-[28px]
+                "
+              >
+                <!-- profile image -->
+                <v-col cols="3" 
+                  class="
+                    innerShadow 
+                    bg-white 
+                    tw-rounded-[200px]
+                    mr-4
+                    d-flex 
+                    justify-center 
+                    align-center"
+                    style="height: 70px"
+                >
+                  <v-img 
+                    v-if="design[0].profileImage != null" 
+                    :src="design[0].profileImage" 
+                    width="64" 
+                    height="64" 
+                    cover
+                    class="tw-rounded-[200px] tw-h-[64px] tw-w-[64px]"
+                  ></v-img>
+                  <v-icon 
+                      v-else 
+                      size="50" 
+                      color="#e4e4e4" 
+                  >
+                    mdi-account
+                  </v-icon>
+                </v-col>
+                <v-col>
+                  <v-row no-gutters 
+                    class="
+                      tw-font-semibold
+                      tw-text-[24px]
+                      tw-pl-[12px]
+                    "
+                  >
+                    @{{ account[0].username }}
+                  </v-row>
+                  <v-row no-gutters
+                    class="
+                      tw-font-semibold
+                      tw-text-[16px]
+                      tw-pl-[12px]
+                      tw-pt-[8px]
+                      tw-text-[#616161]
+                    "
+                  >
+                    {{ account[0].userLink }}
+                  </v-row>
+                </v-col>
+              </v-row>
+              <!-- text account -->
+              <v-row no-gutters
+                class="
+                  tw-px-[28px]
+                  tw-pt-[16px]
+                  tw-pb-[4px]
+                  tw-text-[16px]
+                  tw-font-bold
+                  tw-text-[#616161]
+                  tw-tracking-wider
+                "
+              >
+                Account
+              </v-row>
+              <!-- clickable dropdown -->
+              <a @click="this.$router.push('/account')"
+                class="
+                  d-flex align-center tw-cursor-pointer
+                "
+              >
+                <v-col cols="1"
+                  class="pa-0"
+                >
+                  <img src="../assets/accountNavBar.png" width="20" />
+                </v-col>
+                <v-col
+                  class="
+                    pa-0
+                    tw-ml-[24px]
+                  "
+                >
+                  My account
+                </v-col>
+              </a>
+              <a @click="this.$router.push('/feedback')"
+                class="
+                  d-flex align-center tw-cursor-pointer
+                "
+              >
+                <v-col cols="1"
+                  class="pa-0"
+                >
+                  <img src="../assets/submitNavBar.png" width="20" />
+                </v-col>
+                <v-col
+                  class="
+                    pa-0
+                    tw-ml-[24px]
+                  "
+                >
+                  Submit feedback
+                </v-col>
+              </a>
+              <a @click="this.$router.push('/')"
+                class="
+                  d-flex align-center
+                  tw-pb-[16px]
+                  tw-cursor-pointer
+                "
+              >
+                <v-col cols="1"
+                  class="pa-0"
+                >
+                  <img src="../assets/logoutNavBar.png" width="20" />
+                </v-col>
+                <v-col
+                  class="
+                    pa-0
+                    tw-ml-[24px]
+                  "
+                >
+                  Log out
+                </v-col>
+              </a>
+            </div>
           </v-col>
         </v-row>
       </v-col>
