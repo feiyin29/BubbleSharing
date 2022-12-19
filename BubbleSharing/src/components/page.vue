@@ -29,7 +29,7 @@
                     tw-border-2
                     px-4 py-2
                     "
-                
+                color="#f8f8f8"
                 rounded="xl"
                 height="550"
                 width="100%"
@@ -72,7 +72,7 @@
                         <v-card v-if=" item.editBtn != true"
                                 elevation="0"
                                 rounded="xl" 
-                                color="#ffffff" 
+                                color="#f8f8f8" 
                                 class="mx-auto"
                                 width="737" 
                                 height="160"
