@@ -321,8 +321,7 @@
                           tw-px-[32px]
                         "
                       >
-                        <!-- save btn old -->
-                        <!-- <button
+                        <button
                           @click="editProfile()"
                           class="
                             tw-w-full
@@ -338,60 +337,7 @@
                           "
                         >
                           Save
-                        </button> -->
-                        <!-- dialog & save btn -->
-                        <v-dialog
-                          v-model="dialog"
-                          width="600"
-                          >
-                          <template v-slot:activator="{ props }">
-                              <v-btn
-                                  class="
-                                    saveBtn
-                                    tw-w-full
-                                    d-flex
-                                    align-center
-                                    justify-center
-                                    tw-p-[8px]
-                                    tw-bg-[#FF4F7D]
-                                    tw-text-[#f6f6f6]
-                                    tw-rounded-full
-                                    tw-text-[20px]
-                                    hover:tw-bg-[#E03965]
-                                  "
-                                  @click="editProfile()"
-                                  v-bind="props"
-                              >
-                              Save
-                              </v-btn>
-                          </template>
-                          <!-- <v-col></v-col>
-                          <v-col cols="5"> -->
-                            <v-card rounded="xl" >
-                                <v-card-text class="text-center my-6">
-                                    <v-icon 
-                                        size="80"
-                                        color="#00C97B"
-                                        class="mt-8"
-                                    >
-                                        mdi-check-circle-outline
-                                    </v-icon>
-                                <div class="text-h5 px-12 pb-8 pt-4">Saved.</div>
-                                </v-card-text>
-                                <v-card-actions  class="justify-center mb-4">
-                                <v-btn 
-                                    color="#E93330" 
-                                    rounded
-                                    @click="submit(dialog)"
-                                    @click.stop="dialog = false"
-                                > 
-                                    Close
-                                </v-btn>
-                                </v-card-actions>
-                            </v-card>
-                        <!-- </v-col>
-                        <v-col></v-col> -->
-                      </v-dialog>
+                        </button>
                       </v-row>
                     </v-col>
                   </v-row>
@@ -1449,321 +1395,284 @@
   </body>
 </template>
   
-<script>
+<script setup>
 import { ref } from "vue";
 import { useProductStore } from "@/stores/products";
 
-export default {
-  setup:() => {
-    const  { store, account, theme, setTheme, updateProfile, products } = useProductStore();
-    console.log(account[0].username)
-    console.log("produxts[0].title", products[0].title)
 
-    const username = ref("")
-    const bio = ref("");
-    const profileImage = ref("");
-    let chooseTheme = ref(0);
-    // const useTheme = ref('')
+const  { store, account, theme, setTheme, updateProfile, products } = useProductStore();
+console.log(account[0].username)
+console.log("produxts[0].title", products[0].title)
 
-    let bgColor = ref('');
-    let ssBar = ref('');
-    let share = ref('');
-    let profileImg = ref('');
-    let usernameColor = ref('');
-    let bioColor = ref('');
-    let btnColor = ref('');
-    let textBtnColor = ref('');
-    let logo = ref('');
-    let bar = ref('');
+const username = ref("")
+const bio = ref("");
+const profileImage = ref("");
+let chooseTheme = ref(0);
+// const useTheme = ref('')
 
-
-    console.log(chooseTheme)
-    const sentTheme = () => {
-      console.log("click", chooseTheme)
-      console.log("chooseTheme.value", chooseTheme.value)
-      
-      const useTheme = setTheme(chooseTheme);
-      console.log(useTheme)
-      console.log("bgColor", useTheme.bgColor)
-      
-      bgColor = useTheme.bgColor
-      ssBar = useTheme.ssBar
-      share = useTheme.share
-      profileImg = useTheme.profileImg
-      usernameColor = useTheme.usernameColor
-      bioColor = useTheme.bioColor
-      btnColor = useTheme.btnColor
-      textBtnColor = useTheme.textBtnColor
-      logo = useTheme.logo
-      bar = useTheme.bar
-    }
-
-    function editProfile(){
-      console.log("chooseTheme", chooseTheme.value)
-          const editAccount = {  
-            username: account[0].username,
-            bio: bio.value,
-            profileImage: profileImage.value,
-            themeTemplate: chooseTheme.value,
-                            // username: username.value ,
-                            // email: email.value,
-                            // password: password.value,
-                            // userLink: "bubble.sh/"+username.value,
-                          }
-          console.log("account data", editAccount);
-          updateProfile(editAccount);
-          // store.addNewAccount(account);
-          // this.$router.push('/create');
-        }
+let bgColor = ref('');
+let ssBar = ref('');
+let share = ref('');
+let profileImg = ref('');
+let usernameColor = ref('');
+let bioColor = ref('');
+let btnColor = ref('');
+let textBtnColor = ref('');
+let logo = ref('');
+let bar = ref('');
 
 
-
-    // console.log(store.countNumber);
-
-    let addLinkBtn = ref(false);
-    let addUrlBtn = ref(false);
-    let url = ref('');
-    const titleBtn = ref(false);
-    let title = ref('');
-    let titleCheck = ref(false);
-
-    const urlEditBtn = ref(false);
-    const urlEditCheck = ref(false);
-
-    const file = ref("");
-    const countNumber = ref('1')
-
-    const inputImage = () => {
-      console.log(file)
-    }
-
-
-
-
-    const inputUrl = () => {
-      console.log(url.value);
-      console.log(url.value.length);
-      if (url.value.length == 0) {
-        urlEditCheck.value = false;
-        console.log(urlEditCheck.value);
-        console.log("false kaaa");
-      }
-      else {
-        urlEditCheck.value = true;
-        console.log(urlEditCheck.value);
-        console.log("true kaaa");
-      }
-    }
-    const inputTitle = () => {
-      console.log(title.value);
-      console.log(title.value.length);
-      if (title.value.length == 0) {
-        titleCheck.value = false;
-        console.log(titleCheck.value);
-        console.log("false kaaa");
-      }
-      else {
-        titleCheck.value = true;
-        console.log(titleCheck.value);
-        console.log("true kaaa");
-      }
-    }
-
-    // const dataUrl = ref({
-    //     show: false,
-    //     item: {
-    //       name: '', 
-    //       image: '',
-    //       index: null,
-    //     }
-    //   });
-    const addedProduct = () => {
-      console.log(title)
-      console.log(image)
-      console.log(url)
-      store.pushData({ title: title, image: image, url:url })
-    }
-
-    // const updateItem = async () => {
-    //     const item = {
-    //       title: editTitle, 
-    //       image: editImage,
-    //       url: editUrl,
-    //       index: editIndex,
-    //     }
-    //     updateByEdit(item)
-    //     // editDialog.value.show = false
-    //   }
-
-    // const callDialog = async (item, index) => {
-    //   editDialog.value.show = true
-    //   editDialog.value.item = item
-    //   editImage.value = editDialog.value.item.image
-    //   editName.value = editDialog.value.item.name
-    //   editPrice.value = editDialog.value.item.price
-    //   editEach.value = editDialog.value.item.each
-    //   editCategory.value = editDialog.value.item.category
-    //   editIndex.value = index
-    // }
-
-
-
-
-    const dataUrl = ref([]);
-
-    // const showData = () => {
-    //   console.log(dataUrl)
-    // }
-
-    const incrementNumber = () => {
-      countNumber.value++;
-      console.log(countNumber.value);
-    }
-
-    // onFileChange(e) {
-    //   let files = e.target.files || e.dataTransfer.files;
-    //   if (!files.length) {
-    //       return
-    //   }
-    //   this.fileName = files[0].name
-    //   this.createImage(files[0])
-    // },
-    // createImage(file) {
-    //   var image = new Image()
-    //   var reader = new FileReader()
-    //   reader.onload = (e) => {
-    //       this.file = e.target.result;
-    //       this.$emit('change', this.file)
-    //   }
-    //   reader.readAsDataURL(file)
-    // },
-    let imgSrc = ref('');
-    const onFile = (e) => {
-          const files = e.target.files
-          if (!files.length) return
-
-          const reader = new FileReader()
-          reader.readAsDataURL(files[0])
-          reader.onload = () => (imgSrc = reader.result)
-          console.log(imgSrc)
-        }
-    const onFileChange = (e) => {
-      let files = e.target.files || e.dataTransfer.files;
-      if (!files.length) {
-        return
-      }
-        // const fileName = files[0].name
-        createImage(files[0])
-    }
-
-    const createImage = (file) => {
-      var image = new Image()
-      var reader = new FileReader()
-      reader.onload = (e) => {
-        file = e.target.result;
-        this.$emit('change', file)
-      }
-      reader.readAsDataURL(file)
-    }
-
-    let preview = null
-    let image = null
-          // preview_list: [],
-          // image_list: []
-
-
-        const previewImage = (event) => {
-          var input = event.target;
-          if (input.files) {
-            var reader = new FileReader();
-            reader.onload = (e) => {
-              preview = e.target.result;
-            }
-            image=input.files[0];
-            reader.readAsDataURL(input.files[0]);
-          }
-        }
-        const previewMultiImage = (event) => {
-          var input = event.target;
-          var count = input.files.length;
-          var index = 0;
-          if (input.files) {
-            while(count --) {
-              var reader = new FileReader();
-              reader.onload = (e) => {
-                this.preview_list.push(e.target.result);
-              }
-              this.image_list.push(input.files[index]);
-              reader.readAsDataURL(input.files[index]);
-              index ++;
-            }
-          }
-        }
-        const reset = () => {
-          this.image = null;
-          this.preview = null;
-          this.image_list = [];
-          this.preview_list = [];
-        }
-
-    /* When the user clicks on the button, 
-    toggle between hiding and showing the dropdown content */
-    const myShareBtnFunction = () => {
-      document.getElementById("myShareBtnDropdown").classList.toggle("show");
-    }
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(event) {
-      if (!event.target.matches('.shareBtn')) {
-        var dropdowns = document.getElementsByClassName("shareBtnDropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    }
-
-    return { file,
-      store, account, theme, setTheme, updateProfile, Link,
-      username, bio, chooseTheme, bgColor, ssBar, share, usernameColor, 
-      bioColor, btnColor, textBtnColor, logo, bar, sentTheme, editProfile,
-      addLinkBtn, addUrlBtn, url, titleBtn, title, titleCheck, urlEditBtn,
-      urlEditCheck, countNumber, inputUrl, inputTitle, myShareBtnFunction,
-    }
-  },
-  data: () => ({  
-    dialog: false,
-  }),
-  methods: {
-    onFileChange(e) {
-        let files = e.target.files || e.dataTransfer.files;
-        if (!files.length) {
-            return
-        }
-        this.fileName = files[0].name
-        this.createImage(files[0])
-        console.log("onFile",files);
-    },
-    createImage(file) {
-        var image = new Image()
-        var reader = new FileReader()
-
-        reader.onload = (e) => {
-            this.file = e.target.result;
-            this.$emit('change', this.file)
-        }
-        reader.readAsDataURL(file)
-        console.log("creatFile",file);
-    },
-    submit(dialog) {
-      dialog = false;
-      console.log("dialog",dialog);
-      // this.$router.push('/');
-    },
-  },
+console.log(chooseTheme)
+const sentTheme = () => {
+  console.log("click", chooseTheme)
+  console.log("chooseTheme.value", chooseTheme.value)
+  
+  const useTheme = setTheme(chooseTheme);
+  console.log(useTheme)
+  console.log("bgColor", useTheme.bgColor)
+  
+  bgColor = useTheme.bgColor
+  ssBar = useTheme.ssBar
+  share = useTheme.share
+  profileImg = useTheme.profileImg
+  usernameColor = useTheme.usernameColor
+  bioColor = useTheme.bioColor
+  btnColor = useTheme.btnColor
+  textBtnColor = useTheme.textBtnColor
+  logo = useTheme.logo
+  bar = useTheme.bar
 }
+
+function editProfile(){
+  console.log("chooseTheme", chooseTheme.value)
+      const editAccount = {  
+        username: account[0].username,
+        bio: bio.value,
+        profileImage: profileImage.value,
+        themeTemplate: chooseTheme.value,
+                        // username: username.value ,
+                        // email: email.value,
+                        // password: password.value,
+                        // userLink: "bubble.sh/"+username.value,
+                      }
+      console.log("account data", editAccount);
+      updateProfile(editAccount);
+      // store.addNewAccount(account);
+      // this.$router.push('/create');
+    }
+
+
+
+// console.log(store.countNumber);
+
+let addLinkBtn = ref(false);
+let addUrlBtn = ref(false);
+let url = ref('');
+const titleBtn = ref(false);
+let title = ref('');
+let titleCheck = ref(false);
+
+const urlEditBtn = ref(false);
+const urlEditCheck = ref(false);
+
+const file = ref("");
+const countNumber = ref('1')
+
+const inputImage = () => {
+  console.log(file)
+}
+
+
+
+
+const inputUrl = () => {
+  console.log(url.value);
+  console.log(url.value.length);
+  if (url.value.length == 0) {
+    urlEditCheck.value = false;
+    console.log(urlEditCheck.value);
+    console.log("false kaaa");
+  }
+  else {
+    urlEditCheck.value = true;
+    console.log(urlEditCheck.value);
+    console.log("true kaaa");
+  }
+}
+const inputTitle = () => {
+  console.log(title.value);
+  console.log(title.value.length);
+  if (title.value.length == 0) {
+    titleCheck.value = false;
+    console.log(titleCheck.value);
+    console.log("false kaaa");
+  }
+  else {
+    titleCheck.value = true;
+    console.log(titleCheck.value);
+    console.log("true kaaa");
+  }
+}
+
+// const dataUrl = ref({
+//     show: false,
+//     item: {
+//       name: '', 
+//       image: '',
+//       index: null,
+//     }
+//   });
+const addedProduct = () => {
+  console.log(title)
+  console.log(image)
+  console.log(url)
+  store.pushData({ title: title, image: image, url:url })
+}
+
+// const updateItem = async () => {
+//     const item = {
+//       title: editTitle, 
+//       image: editImage,
+//       url: editUrl,
+//       index: editIndex,
+//     }
+//     updateByEdit(item)
+//     // editDialog.value.show = false
+//   }
+
+// const callDialog = async (item, index) => {
+//   editDialog.value.show = true
+//   editDialog.value.item = item
+//   editImage.value = editDialog.value.item.image
+//   editName.value = editDialog.value.item.name
+//   editPrice.value = editDialog.value.item.price
+//   editEach.value = editDialog.value.item.each
+//   editCategory.value = editDialog.value.item.category
+//   editIndex.value = index
+// }
+
+
+
+
+const dataUrl = ref([]);
+
+// const showData = () => {
+//   console.log(dataUrl)
+// }
+
+const incrementNumber = () => {
+  countNumber.value++;
+  console.log(countNumber.value);
+}
+
+// onFileChange(e) {
+//   let files = e.target.files || e.dataTransfer.files;
+//   if (!files.length) {
+//       return
+//   }
+//   this.fileName = files[0].name
+//   this.createImage(files[0])
+// },
+// createImage(file) {
+//   var image = new Image()
+//   var reader = new FileReader()
+//   reader.onload = (e) => {
+//       this.file = e.target.result;
+//       this.$emit('change', this.file)
+//   }
+//   reader.readAsDataURL(file)
+// },
+let imgSrc = ref('');
+const onFile = (e) => {
+      const files = e.target.files
+      if (!files.length) return
+
+      const reader = new FileReader()
+      reader.readAsDataURL(files[0])
+      reader.onload = () => (imgSrc = reader.result)
+      console.log(imgSrc)
+    }
+const onFileChange = (e) => {
+  let files = e.target.files || e.dataTransfer.files;
+  if (!files.length) {
+    return
+  }
+    // const fileName = files[0].name
+    createImage(files[0])
+}
+
+const createImage = (file) => {
+  var image = new Image()
+  var reader = new FileReader()
+  reader.onload = (e) => {
+    file = e.target.result;
+    this.$emit('change', file)
+  }
+  reader.readAsDataURL(file)
+}
+
+let preview = null
+let image = null
+      // preview_list: [],
+      // image_list: []
+
+
+    const previewImage = (event) => {
+      var input = event.target;
+      if (input.files) {
+        var reader = new FileReader();
+        reader.onload = (e) => {
+          preview = e.target.result;
+        }
+        image=input.files[0];
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    const previewMultiImage = (event) => {
+      var input = event.target;
+      var count = input.files.length;
+      var index = 0;
+      if (input.files) {
+        while(count --) {
+          var reader = new FileReader();
+          reader.onload = (e) => {
+            this.preview_list.push(e.target.result);
+          }
+          this.image_list.push(input.files[index]);
+          reader.readAsDataURL(input.files[index]);
+          index ++;
+        }
+      }
+    }
+    const reset = () => {
+      this.image = null;
+      this.preview = null;
+      this.image_list = [];
+      this.preview_list = [];
+    }
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+const myShareBtnFunction = () => {
+  document.getElementById("myShareBtnDropdown").classList.toggle("show");
+}
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.shareBtn')) {
+    var dropdowns = document.getElementsByClassName("shareBtnDropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+
+
 
 </script>
   
@@ -2085,21 +1994,6 @@ input[type=textUrl]:focus {
 .removeBtn:hover {
   background-color: #616161;
   color: #f8f8f8;
-}
-.saveBtn {
-  background-color: #FF4F7D;
-  border-radius: 25px;
-  color: #f8f8f8;
-  text-transform: capitalize;
-  font-weight:medium;
-  font-size: 20px;
-  line-height: 26px;
-  letter-spacing: 0px;
-  height: 42px;
-  box-shadow: 0px 0px;
-}
-.saveBtn:hover {
-  background-color: #E0396A;
 }
   
 </style>
