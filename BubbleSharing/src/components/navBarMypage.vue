@@ -343,6 +343,13 @@
                   >
                     mdi-account
                   </v-icon>
+                  <!-- <v-img 
+                    :src="design[0].profileImage"
+                    width="64" 
+                    height="64" 
+                    cover
+                    class="tw-rounded-[200px] tw-h-[64px] tw-w-[64px]"
+                  ></v-img> -->
                 </v-col>
                 <v-col>
                   <v-row no-gutters 
