@@ -22,6 +22,7 @@
               <v-responsive class="mx-auto mt-3 mb-2">
                 <v-text-field
                   v-model="email"
+                  :rules="emailRules"
                   hide-details="auto"
                   label="Email"
                   variant="underlined"
@@ -56,6 +57,7 @@ export default {
       const editAccount = {
         username: username.value,
         email: email.value,
+        userLink: "bubble.sh/" + username.value,
         // username: username.value ,
         // email: email.value,
         // password: password.value,
@@ -67,7 +69,13 @@ export default {
     return { store, update, username, email };
   },
 
-  data: () => ({}),
+  data: () => ({
+    email: "",
+    emailRules: [
+      (v) => !!v || "E-mail is required",
+      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+    ],
+  }),
 };
 </script>
 

@@ -224,6 +224,7 @@ export const useProductStore = defineStore({
       console.log("find", find)
       find.username = item.username
       find.email = item.email
+      find.userLink = item.userLink
       console.log("find af", find)
       // this.account[0].push(themeTemplate: item.themeTemplate);
       // this.account.push('jojo');
