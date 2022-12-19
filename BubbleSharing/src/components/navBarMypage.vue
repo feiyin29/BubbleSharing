@@ -101,7 +101,7 @@
               >
                 Get more visitors by sharing your BubbleSharing everywhere.
               </v-row>
-              <a href="#home"
+              <a 
                 class="
                   d-flex align-center
                 "
@@ -128,7 +128,7 @@
                   <img src="../assets/arrowForwardIcon.png" width="24" />
                 </v-col>
               </a>
-              <a href="#about"
+              <a 
                 class="
                   d-flex align-center
                 "
