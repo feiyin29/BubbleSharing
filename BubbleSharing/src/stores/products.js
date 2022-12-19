@@ -190,10 +190,18 @@ export const useProductStore = defineStore({
 
       find.title = item.title
       find.url = item.url
+      find.click = item.click
 
       this.Link.splice(seq, 1, find)
       console.log("udE find",find);
       console.log("udE Link",this.Link);
+    },
+    updateClick(click,seq){
+      const find = this.Link.find((each, index) => {
+        if (index == seq) return each
+      })
+        find.click = click
+        this.Link.splice(seq, 1, find)
     },
     pushData(param) {
       this.products.push(param);
