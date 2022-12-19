@@ -1,26 +1,23 @@
 <template>
   <v-app>
-    <v-main >
-      
+    <v-main>
+      <myNav></myNav>
       <Home />
-      
     </v-main>
   </v-app>
-  
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
 // Components
-import Home from '@/components/account.vue';
-import myNav from '@/components/navBar.vue';
-import myfooter from '@/components/footer.vue';
-
+import Home from "@/components/account.vue";
+import myNav from "@/components/navBarMypage.vue";
 export default defineComponent({
-  name: 'HomeView', 
+  name: "HomeView",
   components: {
     Home,
+    myNav,
   },
 });
 </script>
