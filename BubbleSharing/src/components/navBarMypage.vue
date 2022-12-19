@@ -102,7 +102,7 @@
               >
                 Get more visitors by sharing your BubbleSharing everywhere.
               </v-row>
-              <a 
+              <!-- <a 
                 class="
                   d-flex align-center tw-cursor-pointer
                 "
@@ -128,8 +128,8 @@
                 >
                   <img src="../assets/arrowForwardIcon.png" width="24" />
                 </v-col>
-              </a>
-              <a 
+              </a> -->
+              <!-- <a 
                 class="
                   d-flex align-center tw-cursor-pointer
                 "
@@ -155,7 +155,7 @@
                 >
                   <img src="../assets/arrowForwardIcon.png" width="24" />
                 </v-col>
-              </a>
+              </a> -->
               <a
                 class="
                   d-flex align-center
