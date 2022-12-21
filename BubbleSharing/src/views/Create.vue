@@ -109,6 +109,7 @@
 <script>
 import { ref } from "vue";
 import { useProductStore } from "@/stores/products";
+import MyBubbleSharing from "../components/MyBubbleSharing.vue";
 
 export default {
   setup: () => {
@@ -122,7 +123,7 @@ export default {
 
     if (store.account.length != 0) username.value = store.account[0].userLink;
 
-    console.log("test", store.account[0].userLink);
+    // console.log("test", store.account[0].userLink);
 
     /*function addLink() {
       const account = {
@@ -144,6 +145,7 @@ export default {
         email: email.value,
         password: password.value,
         cfpassword: cfpassword.value,
+        userLink: "Bubble.Sh/"+username.value,
       };
 
       console.log("account data", account);

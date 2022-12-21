@@ -270,13 +270,40 @@
                   height="24" 
                 />
               </v-row>
+              <!-- feifeifei -->
               <!-- profile image -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/greyProfile.png" 
-                  height="100" 
-                ></v-img>
-              </v-row>
+              <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+              </v-col>
               <!-- username -->
               <v-row no-gutters
                 class="
@@ -408,12 +435,38 @@
                 />
               </v-row>
               <!-- profile image -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/greyProfile.png" 
-                  height="100" 
-                ></v-img>
-              </v-row>
+              <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+              </v-col>
               <!-- username -->
               <v-row no-gutters
                 class="
@@ -545,12 +598,38 @@
                 />
               </v-row>
               <!-- profile image -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/greyProfile.png" 
-                  height="100" 
-                ></v-img>
-              </v-row>
+              <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+              </v-col>
               <!-- username -->
               <v-row no-gutters
                 class="
@@ -682,12 +761,38 @@
                 />
               </v-row>
               <!-- profile image -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/greyProfile.png" 
-                  height="100" 
-                ></v-img>
-              </v-row>
+              <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+              </v-col>
               <!-- username -->
               <v-row no-gutters
                 class="
@@ -819,12 +924,38 @@
                 />
               </v-row>
               <!-- profile image -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/greyProfile.png" 
-                  height="100" 
-                ></v-img>
-              </v-row>
+              <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+              </v-col>
               <!-- username -->
               <v-row no-gutters
                 class="
@@ -956,12 +1087,38 @@
                 />
               </v-row>
               <!-- profile image -->
-              <v-row no-gutters>
-                <v-img 
-                  src="../src/assets/greyProfile.png" 
-                  height="100" 
-                ></v-img>
-              </v-row>
+              <v-col cols="12">
+                      <v-row no-gutters class="ml-10  d-flex justify-center">
+                        <v-col cols="4" 
+                            class="
+                                innerShadow 
+                                bg-white 
+                                tw-rounded-[200px]
+                                mr-10 
+                                d-flex 
+                                justify-center 
+                                align-center"
+                                style="height: 119px"
+                                >
+                            <v-img 
+                                v-if="file != null" 
+                                :src="file" 
+                                width="123" 
+                                height="123" 
+                                cover
+                                class="tw-rounded-[200px]"
+                            ></v-img>
+                            <v-icon 
+                                v-else 
+                                size="60" 
+                                color="#e4e4e4" 
+                                class="ma-13"
+                            >
+                              mdi-account
+                            </v-icon>
+                        </v-col>
+                      </v-row>
+              </v-col>
               <!-- username -->
               <v-row no-gutters
                 class="
@@ -1052,6 +1209,7 @@
           <!-- end of chooseTheme = 5 -->
         </v-col>
         
+        
       </v-row>
     </v-container>
   </body>
@@ -1065,22 +1223,12 @@ export default {
     const store = useProductStore();
     const title = ref("Title");
     const url = ref("Url");
+    const file = ref(store.design[0].profileImage);
     const editBtn = false;
-
+    // console.log("hellooooo",store.design[0].themeTemplate);
     let chooseTheme = 0;
     const themeTemplate = store.design[0].themeTemplate
     chooseTheme = themeTemplate
-
-    const dataInput = async (item, index) => {
-      const Link = {  
-        seq: item.index,
-        title: titleInput.value ,
-        url: urlInput.value,
-        img: item.img,
-        click: click.value,
-      }
-    
-    }
 
     const dt = {
       title: title.value,
@@ -1093,11 +1241,11 @@ export default {
       item.editBtn = !item.editBtn;
       this.title = item.title; 
       this.url = item.url; 
-      console.log("edit func",item.editBtn);
-      console.log("edit func item", item);
-      console.log("edit func item tt", item.title);
-      console.log("edit func tt", this.title);
-      console.log("edit func url", this.url);
+      // console.log("edit func",item.editBtn);
+      // console.log("edit func item", item);
+      // console.log("edit func item tt", item.title);
+      // console.log("edit func tt", this.title);
+      // console.log("edit func url", this.url);
     }
 
     function save(item, index){
@@ -1120,8 +1268,8 @@ export default {
       // console.log("add Link",dt);
       // console.log("add Link",dt.title);
     }
-
-    return { store, dt, addLink, edit, save, chooseTheme }
+    
+    return { store, dt, addLink, edit, save, chooseTheme, file}
   },
   methods:{
 
@@ -1135,6 +1283,10 @@ export default {
 @import url("http://fonts.googleapis.com/css?family=Roboto");
 body {
   font-family: "Roboto";
+}
+.innerShadow{
+    border: 2px solid #e4e4e4;
+    box-shadow: inset 0px 0px 15px 0.5px rgba(231, 231, 231, 0.9);
 }
 
 .v-text-field >>> input{

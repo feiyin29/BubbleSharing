@@ -79,7 +79,7 @@
                                             class="form-control-file">
                                     </v-row>
                                 </v-col>
-                          </v-row>
+                              </v-row>
                               <!-- display image -->
                               
                               <!-- Pick an image -->
@@ -321,7 +321,8 @@
                           tw-px-[32px]
                         "
                       >
-                        <button
+                        <!-- old save btn -->
+                        <!-- <button
                           @click="editProfile()"
                           class="
                             tw-w-full
@@ -337,7 +338,60 @@
                           "
                         >
                           Save
-                        </button>
+                        </button> -->
+<!-- dialog & save btn -->
+                        <v-dialog
+                          v-model="dialog"
+                          width="600"
+                          >
+                          <template v-slot:activator="{ props }">
+                              <v-btn
+                                  class="
+                                    saveBtn
+                                    tw-w-full
+                                    d-flex
+                                    align-center
+                                    justify-center
+                                    tw-p-[8px]
+                                    tw-bg-[#FF4F7D]
+                                    tw-text-[#f6f6f6]
+                                    tw-rounded-full
+                                    tw-text-[20px]
+                                    hover:tw-bg-[#E03965]
+                                  "
+                                  @click="editProfile()"
+                                  v-bind="props"
+                              >
+                              Save
+                              </v-btn>
+                          </template>
+                          <!-- <v-col></v-col>
+                          <v-col cols="5"> -->
+                            <v-card rounded="xl" >
+                                <v-card-text class="text-center my-6">
+                                    <v-icon 
+                                        size="80"
+                                        color="#00C97B"
+                                        class="mt-8"
+                                    >
+                                        mdi-check-circle-outline
+                                    </v-icon>
+                                <div class="text-h5 px-12 pb-8 pt-4">Saved.</div>
+                                </v-card-text>
+                                <v-card-actions  class="justify-center mb-4">
+                                <v-btn 
+                                    color="#E93330" 
+                                    rounded
+                                    @click="submit(dialog)"
+                                    @click.stop="dialog = false"
+> 
+                                    Close
+                                </v-btn>
+                                </v-card-actions>
+                            </v-card>
+                        <!-- </v-col>
+                        <v-col></v-col> -->
+                      </v-dialog>
                       </v-row>
                     </v-col>
                   </v-row>
@@ -1400,119 +1454,126 @@ import { ref } from "vue";
 import { useProductStore } from "@/stores/products";
 
 export default {
-    setup:() => {
-const  { store, account, theme, setTheme, updateProfile, Link } = useProductStore();
-const username = ref("");
-const file = ref();
-const bio = ref("");
-let chooseTheme = ref(0);
-let bgColor = ref('');
-let ssBar = ref('');
-let share = ref('');
-let usernameColor = ref('');
-let bioColor = ref('');
-let btnColor = ref('');
-let textBtnColor = ref('');
-let logo = ref('');
-let bar = ref('');
+  setup:() => {
+      const  { store, account, theme, setTheme, updateProfile, Link, design } = useProductStore();
+      const username = ref("");
+      const file = ref(design[0].profileImage);
+      const bio = ref(design[0].bio);
+      let chooseTheme = ref(design[0].themeTemplate);
+      let bgColor = ref('');
+      let ssBar = ref('');
+      let share = ref('');
+      let usernameColor = ref('');
+      let bioColor = ref('');
+      let btnColor = ref('');
+      let textBtnColor = ref('');
+      let logo = ref('');
+      let bar = ref('');
 
-const sentTheme = () => {
-  console.log("click", chooseTheme)
-  console.log("chooseTheme.value", chooseTheme.value)
-  
-  const useTheme = setTheme(chooseTheme);
-  console.log(useTheme)
-  console.log("bgColor", useTheme.bgColor)
-  
-  bgColor = useTheme.bgColor
-  ssBar = useTheme.ssBar
-  share = useTheme.share
-  profileImg = useTheme.profileImg
-  usernameColor = useTheme.usernameColor
-  bioColor = useTheme.bioColor
-  btnColor = useTheme.btnColor
-  textBtnColor = useTheme.textBtnColor
-  logo = useTheme.logo
-  bar = useTheme.bar
-}
-function editProfile(){
-  console.log("chooseTheme", chooseTheme.value)
-      const editAccount = {  
-        username: account[0].username,
-        bio: bio.value,
-        profileImage: file,
-        themeTemplate: chooseTheme.value,
-                      }
-      console.log("account data", editAccount);
-      updateProfile(editAccount);
-    }
-
-let addLinkBtn = ref(false);
-let addUrlBtn = ref(false);
-let url = ref('');
-const titleBtn = ref(false);
-let title = ref('');
-let titleCheck = ref(false);
-const urlEditBtn = ref(false);
-const urlEditCheck = ref(false);
-const countNumber = ref('1')
-const inputUrl = () => {
-  console.log(url.value);
-  console.log(url.value.length);
-  if (url.value.length == 0) {
-    urlEditCheck.value = false;
-    console.log(urlEditCheck.value);
-    console.log("false kaaa");
-  }
-  else {
-    urlEditCheck.value = true;
-    console.log(urlEditCheck.value);
-    console.log("true kaaa");
-  }
-}
-const inputTitle = () => {
-  console.log(title.value);
-  console.log(title.value.length);
-  if (title.value.length == 0) {
-    titleCheck.value = false;
-    console.log(titleCheck.value);
-    console.log("false kaaa");
-  }
-  else {
-    titleCheck.value = true;
-    console.log(titleCheck.value);
-    console.log("true kaaa");
-  }
-}
-
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-const myShareBtnFunction = () => {
-  document.getElementById("myShareBtnDropdown").classList.toggle("show");
-}
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.shareBtn')) {
-    var dropdowns = document.getElementsByClassName("shareBtnDropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+      const sentTheme = () => {
+        console.log("click", chooseTheme)
+        console.log("chooseTheme.value", chooseTheme.value)
+        
+        const useTheme = setTheme(chooseTheme);
+        console.log(useTheme)
+        console.log("bgColor", useTheme.bgColor)
+        
+        bgColor = useTheme.bgColor
+        ssBar = useTheme.ssBar
+        share = useTheme.share
+        // profileImg = useTheme.profileImg
+        usernameColor = useTheme.usernameColor
+        bioColor = useTheme.bioColor
+        btnColor = useTheme.btnColor
+        textBtnColor = useTheme.textBtnColor
+        logo = useTheme.logo
+        bar = useTheme.bar
       }
-    }
-  }
-}
+      function editProfile(){
+        console.log("chooseTheme", chooseTheme.value)
+            const editAccount = {  
+              username: account[0].username,
+              bio: bio.value,
+              profileImage: file,
+              themeTemplate: chooseTheme.value,
+                            }
+            console.log("account data", editAccount);
+            updateProfile(editAccount);
+          }
 
-  return { file,
-    store, account, theme, setTheme, updateProfile, Link,
-    username, bio, chooseTheme, bgColor, ssBar, share, usernameColor, 
-    bioColor, btnColor, textBtnColor, logo, bar, sentTheme, editProfile,
-    addLinkBtn, addUrlBtn, url, titleBtn, title, titleCheck, urlEditBtn,
-    urlEditCheck, countNumber, inputUrl, inputTitle, myShareBtnFunction,
-  }
-},
+      let addLinkBtn = ref(false);
+      let addUrlBtn = ref(false);
+      let url = ref('');
+      const titleBtn = ref(false);
+      let title = ref('');
+      let titleCheck = ref(false);
+      const urlEditBtn = ref(false);
+      const urlEditCheck = ref(false);
+      const countNumber = ref('1')
+      const inputUrl = () => {
+        console.log(url.value);
+        console.log(url.value.length);
+        if (url.value.length == 0) {
+          urlEditCheck.value = false;
+          console.log(urlEditCheck.value);
+          console.log("false kaaa");
+        }
+        else {
+          urlEditCheck.value = true;
+          console.log(urlEditCheck.value);
+          console.log("true kaaa");
+        }
+      }
+      const inputTitle = () => {
+        console.log(title.value);
+        console.log(title.value.length);
+        if (title.value.length == 0) {
+          titleCheck.value = false;
+          console.log(titleCheck.value);
+          console.log("false kaaa");
+        }
+        else {
+          titleCheck.value = true;
+          console.log(titleCheck.value);
+          console.log("true kaaa");
+        }
+      }
+
+      /* When the user clicks on the button, 
+      toggle between hiding and showing the dropdown content */
+      const myShareBtnFunction = () => {
+        document.getElementById("myShareBtnDropdown").classList.toggle("show");
+      }
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.shareBtn')) {
+          var dropdowns = document.getElementsByClassName("shareBtnDropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+
+    return { file,
+      store, account, theme, setTheme, updateProfile, Link,
+      username, bio, chooseTheme, bgColor, ssBar, share, usernameColor, 
+      bioColor, btnColor, textBtnColor, logo, bar, sentTheme, editProfile,
+      addLinkBtn, addUrlBtn, url, titleBtn, title, titleCheck, urlEditBtn,
+      urlEditCheck, countNumber, inputUrl, inputTitle, myShareBtnFunction,
+    }
+  },
+  data: () => ({  
+    dialog: false,
+  }),
 methods: {
+  submit(dialog) {
+      dialog = false;
+      console.log("dialog",dialog);
+    },
         onFileChange(e) {
             let files = e.target.files || e.dataTransfer.files;
             if (!files.length) {
@@ -1856,6 +1917,21 @@ input[type=textUrl]:focus {
 .removeBtn:hover {
   background-color: #616161;
   color: #f8f8f8;
+}
+.saveBtn {
+  background-color: #FF4F7D;
+  border-radius: 25px;
+  color: #f8f8f8;
+  text-transform: capitalize;
+  font-weight:medium;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0px;
+  height: 42px;
+  box-shadow: 0px 0px;
+}
+.saveBtn:hover {
+  background-color: #E0396A;
 }
   
 </style>

@@ -4,14 +4,14 @@ export const useProductStore = defineStore({
   id: 'products',
   state: () => ({
     account: [{
-      username: "princess",
+      username: "username",
       email: "email.value",
       password: "password.value",
       cfpassword: "cfpassword.value",
-      userLink: "bubble.sh/princess"
+      userLink: ""
     }
     ],
-    design: [{username: 'PrincessShop', bio: 'hey', themeTemplate: '0', 
+    design: [{username: 'PrincessShop', bio: '', themeTemplate: '0', 
       // profileImage: 'src/assets/FirstScreen.png'
     },],
     Link: [{title: 'no', url: 'nonono'},],
@@ -207,6 +207,31 @@ export const useProductStore = defineStore({
       console.log(this.countNumber);
     },
     
+    updateAccount(item) {
+      console.log("item",item)
+      const find = this.account.find((each, index) => {
+        console.log("index", index)
+        console.log("item.username", item.username)
+        console.log("item.bio", item.email)
     
+        if (true) return each
+
+        // if (index == item.index.value) return each
+
+        // if (username == item.username.value) return each
+        // console.log(each)
+      })
+      console.log("find", find)
+      find.username = item.username
+      find.email = item.email
+      find.userLink = item.userLink
+      console.log("find af", find)
+      // this.account[0].push(themeTemplate: item.themeTemplate);
+      // this.account.push('jojo');
+      //console.log("this.account", this.design)
+
+      // this.account.push(item);
+      // console.log("this.account + item", this.account)
+    },
   },
 });
