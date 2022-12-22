@@ -91,7 +91,7 @@
             </button>
           </v-row> -->
           <v-col cols="12" class="d-flex justif-start mt-n3 ml-n6">
-            
+
                     <v-dialog
                         v-model="dialog"
                         width="600"
@@ -103,7 +103,7 @@
                                 @click="add()"
                                 v-bind="props"
                             >
-                            Submit
+                              Submit
                             </v-btn>
                         </template>
                         <!-- <v-col></v-col>

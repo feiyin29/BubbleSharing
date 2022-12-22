@@ -9,20 +9,19 @@
     <template #fallback> Loading... </template>
   </Suspense>
 </template>
-  
+
 <script>
-  import { defineComponent } from 'vue';
-  
-  // Components
-  import mypage from '@/components/page.vue';
-  import myNav from '@/components/navBarMypage.vue';
-  
-  export default defineComponent({
-    name: 'HomeView', 
-    components: {
-      mypage,
-      myNav,
-    },
-  });
-  </script>
-  
+import { defineComponent } from "vue";
+
+// Components
+import mypage from "@/components/page.vue";
+import myNav from "@/components/navBarMypage.vue";
+
+export default defineComponent({
+  name: "HomeView",
+  components: {
+    mypage,
+    myNav,
+  },
+});
+</script>

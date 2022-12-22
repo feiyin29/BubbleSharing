@@ -25,7 +25,8 @@
               <v-text-field
                 placeholder="bubble.sh/Username"
                 v-model="username"
-                :rules="nameRules"
+                :rules="nameRules" 
+                :counter="6"
                 variant="outlined"
                 required
               ></v-text-field>
@@ -33,9 +34,9 @@
 
             <v-col cols="12" class="pa-0">
               <v-text-field
-                placeholder="Email"
+                placeholder="E-mail"
                 v-model="email"
-                :rules="emailRules"
+                :rules="emailRules" 
                 variant="outlined"
                 required
               ></v-text-field>
@@ -49,7 +50,7 @@
               <v-text-field
                 placeholder="Password"
                 v-model="password"
-                :rules="passwordRules"
+                :rules="passwordRules" 
                 variant="outlined"
                 required
                 :type="show ? 'text' : 'password'"
@@ -62,7 +63,7 @@
               <v-text-field
                 placeholder="Confirm Password"
                 v-model="cfpassword"
-                :rules="[cfpasswordRules, passwordMatch]"
+                :rules="confirmPasswordRules.concat(passwordConfirmationRule)" 
                 variant="outlined"
                 required
                 :type="showcf ? 'text' : 'password'"
@@ -87,7 +88,13 @@
             </v-col>
 
             <v-col cols="12" class="mt-10 pa-0">
-              <button class="button" @click="create(store)">Create account</button>
+              <v-btn 
+                :disabled="!valid"
+                class="button" 
+                @click="validate"
+              >
+                Create account
+              </v-btn>
             </v-col>
           </v-from>
           <v-col
@@ -107,7 +114,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useProductStore } from "@/stores/products";
 import MyBubbleSharing from "../components/MyBubbleSharing.vue";
 
@@ -119,25 +126,7 @@ export default {
     const password = ref("");
     const cfpassword = ref("");
 
-    //console.log("test", account.length);
-
     if (store.account.length != 0) username.value = store.account[0].userLink;
-
-    // console.log("test", store.account[0].userLink);
-
-    /*function addLink() {
-      const account = {
-        username: username.value,
-        email: email.value,
-        password: password.value,
-        userLink: "bubble.sh/" + username.value,
-      };
-      console.log("account data", account);
-      account.addNewAccount(account);
-      this.$router.push("/create");
-    }
-
-    // return { store, username, addLink }; */
 
     function create(store) {
       const account = {
@@ -145,58 +134,60 @@ export default {
         email: email.value,
         password: password.value,
         cfpassword: cfpassword.value,
-        userLink: "Bubble.Sh/"+username.value,
+        userLink: "http://localhost:5173/"+username.value,
       };
 
       console.log("account data", account);
-      // this.$refs.form.validate();
       store.addNewAccount(account);
-      for (var v = 0; v < this.$refs.form.length; v++) {
-        this.$refs.form[v].validate();
-      }
-      console.log(account.username);
+      console.log("account pinia", store.account[0]);
       this.$router.push("/welcome");
     }
     return { store, username, email, password, cfpassword, create };
   },
-
   data: () => ({
     show: false,
     showcf: false,
     valid: true,
-    model: "",
     nameRules: [
-      (v) => !!v || "",
-      (v) => (v && v.length <= 5) || "Name must be less than 5 characters",
+      v => !!v || "Username is required",
+      v => (v && v.length <= 6) || "Name must be less than 6 characters"
     ],
-    email: "",
     emailRules: [
-      (v) => !!v || "E-mail is required",
-      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+      v => !!v || "E-mail is required",
+      v => /.+@.+/.test(v) || "E-mail must be valid"
     ],
-    password: "",
-    cfpassword: "",
     passwordRules: [
-      (v) => !!v || "Password is required",
-      (v) => (v && v.length >= 5) || "Please enter at least 5 characters",
-      (v) => /(?=.*\d)/.test(v) || "Must have one number",
+        v => !!v || "Password is required",
+        v => (v && v.length >= 5) || "Please enter at least 5 characters",
+        v => /(?=.*\d)/.test(v) || "Must have one number",
     ],
-    cfpasswordRules: [(v) => !!v || "Confirm password"],
+    confirmPasswordRules: [v => !!v || "Password is required"]
   }),
-
-  computed: {
-    passwordMatch() {
-      return () => this.password === this.cfpassword || "Password must match";
-    },
-  },
-
   methods: {
-    async validate(store) {
-      const { valid } = await this.$refs.form.validate();
+    validate() {
 
-      if (valid) alert("Form is valid");
+    //   console.log("ref",this.$refs.form.validate);
+
+    //   for (var v = 0; v < this.$refs.form.length; v++) {
+    //     console.log("ref ",this.$refs.form[v].validate());
+    // }
+    console.log("vali pinia",this.store.account[0]);
+    // console.log("vali ",this.$refs.form[0].validate());
+
+      if ( this.$refs.form.validate ) {
+        this.snackbar = true;
+        create(this.store);
+        this.$router.push("/welcome");
+        console.log("vali pinia",this.store.account[0]);
+      }
     },
   },
+  computed: {
+    passwordConfirmationRule() {
+      return () =>
+        this.password === this.cfpassword || "Password must match";
+    }
+  }
 };
 </script>
 

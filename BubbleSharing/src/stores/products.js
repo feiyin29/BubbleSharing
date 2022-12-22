@@ -3,31 +3,12 @@ import { ref } from 'vue'
 export const useProductStore = defineStore({
   id: 'products',
   state: () => ({
-    account: [{
-      username: "username",
-      email: "email.value",
-      password: "password.value",
-      cfpassword: "cfpassword.value",
-      userLink: ""
-    }
-    ],
+    account: [],
     design: [{username: 'PrincessShop', bio: '', themeTemplate: '0', 
       // profileImage: 'src/assets/FirstScreen.png'
     },],
     Link: [],
     countNumber: 1,
-    products: [
-      {
-        title: "Pencil",
-        image: 'src/assets/greyProfile.png',
-        url: 'https://policies.google.com/privacy?hl=en',
-      },
-      {
-        title: "Eraser",
-        image: 'src/assets/eraser.png',
-        url: 'https://www.youtube.com/',
-      },
-    ],
     theme: [
       {
         themeNo: '1',
@@ -117,10 +98,6 @@ export const useProductStore = defineStore({
     addNewLink(Link){
       this.Link.push(Link);
       console.log("Link pinia ", this.Link);
-    },
-    addNewAccount(data) {
-      this.account.push(data);
-      console.log("out ", this.account);
     },
     deleteUsername(){
       this.account.splice(0, 1);  
