@@ -176,7 +176,7 @@
                               <v-col cols="7"></v-col>
                               <v-col cols="5" style="height: 50px" class="d-flex align-center  pa-0">
                                 <v-row no-gutters>
-                                  <v-text-field 
+                                  <v-text-field
                                     variant="underlined"
                                     v-model="url" 
                                   >

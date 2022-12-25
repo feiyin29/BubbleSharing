@@ -40,17 +40,17 @@
             </v-col>
 
             <v-col cols="12" class="mt-10 pa-0">
-              <button class="button" @click="create()">Login</button>
+              <button class="button" @click="check()">Login</button>
             </v-col>
           </v-from>
 
           <v-col cols="12" class="mt-10 explain pa-0" style="margin-left: 258px">
             Forgot Password?
           </v-col>
-          <v-col cols="12" class="mt-5 explain pa-0" style="margin-left: 149px">
-            <router-link to="/create">
+          <v-col cols="12" class="mt-5 pa-0" style="margin-left: 149px">
+            <button class="explain hover:tw-underline" @click="$router.push('/create')">
               don't have a bubble sharing account? Create one
-            </router-link>
+            </button>
           </v-col>
           <v-col cols="12" class="mt-16 explainBold pa-0">
             <p>
@@ -80,47 +80,19 @@ import { useProductStore } from "@/stores/products";
 export default {
   setup: () => {
     const store = useProductStore();
-    const username = ref("");
-    const password = ref("");
-    /*console.log("test", account.length);
-
-    if (account.length != 0) username.value = account[0].userLink;
-
-    // console.log("test",account[0].userLink);
-
-    function addLink() {
-      const account = {
-        username: username.value,
-        email: email.value,
-        password: password.value,
-        userLink: "bubble.sh/" + username.value,
-      };
-      console.log("account data", account);
-      store.addNewAccount(account);
-      this.$router.push("/create");
+    const username = ref();
+    const password = ref();
+    function check() {
+      console.log("check",store.account[0]);
+      console.log("check",username.value);
+      console.log("check",password.value);
+      if (store.account.length == 0) alert("The login information was not found in our system.");
+      if (username.value == store.account[0].username && password.value == store.account[0].password)
+        this.$router.push("/page");
+      else alert("The login information was not found in our system.");
     }
-
-    return { store, username, addLink }; */
-
-    function create() {
-      const account = {
-        username: username.value,
-        password: password.value,
-      };
-
-      console.log("account data", account);
-      // this.$refs.form.validate();
-      store.addNewAccount(account);
-      for (var v = 0; v < this.$refs.form.length; v++) {
-        this.$refs.form[v].validate();
-      }
-      /*this.$router.push("/create");*/
-      console.log(account.username);
-      this.$router.push("/page");
-    }
-    return { store, username, password, create };
+    return { store, username, password, check };
   },
-
   data: () => ({
     show: false,
     showcf: false,
@@ -128,7 +100,7 @@ export default {
     model: "",
     nameRules: [
       (v) => !!v || "Username is required",
-      //  (v) => (v && v.length <= 5) || "Name must be less than 5 characters",
+      (v) => (v && v.length <= 6) || "Name must be less than 6 characters",
     ],
     password: "",
     cfpassword: "",
@@ -138,16 +110,11 @@ export default {
       (v) => /(?=.*\d)/.test(v) || "Must have one number",
     ],
   }),
-  /* methods: {
-    async validate() {
-      const { valid } = await this.$refs.form.validate();
-
-      /*if (valid) {
-        this.addLink();
-        console.log("pass");
-      } else this.$router.push("/create");
+  computed: {
+    passwordConfirmationRule() {
+      return () => this.password === this.cfpassword || "Password must match";
     },
-  },*/
+  },
 };
 </script>
 
