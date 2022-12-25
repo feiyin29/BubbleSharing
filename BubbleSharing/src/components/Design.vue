@@ -321,25 +321,7 @@
                           tw-px-[32px]
                         "
                       >
-                        <!-- old save btn -->
-                        <!-- <button
-                          @click="editProfile()"
-                          class="
-                            tw-w-full
-                            d-flex
-                            align-center
-                            justify-center
-                            tw-p-[8px]
-                            tw-bg-[#FF4F7D]
-                            tw-text-[#f6f6f6]
-                            tw-rounded-full
-                            tw-text-[20px]
-                            hover:tw-bg-[#E03965]
-                          "
-                        >
-                          Save
-                        </button> -->
-<!-- dialog & save btn -->
+                        <!-- dialog & save btn -->
                         <v-dialog
                           v-model="dialog"
                           width="600"
@@ -365,33 +347,29 @@
                               Save
                               </v-btn>
                           </template>
-                          <!-- <v-col></v-col>
-                          <v-col cols="5"> -->
-                            <v-card rounded="xl" >
-                                <v-card-text class="text-center my-6">
-                                    <v-icon 
-                                        size="80"
-                                        color="#00C97B"
-                                        class="mt-8"
-                                    >
-                                        mdi-check-circle-outline
-                                    </v-icon>
-                                <div class="text-h5 px-12 pb-8 pt-4">Saved.</div>
-                                </v-card-text>
-                                <v-card-actions  class="justify-center mb-4">
-                                <v-btn 
-                                    color="#E93330" 
-                                    rounded
-                                    @click="submit(dialog)"
-                                    @click.stop="dialog = false"
-> 
-                                    Close
-                                </v-btn>
-                                </v-card-actions>
-                            </v-card>
-                        <!-- </v-col>
-                        <v-col></v-col> -->
-                      </v-dialog>
+                          <v-card rounded="xl" >
+                              <v-card-text class="text-center my-6">
+                                  <v-icon 
+                                      size="80"
+                                      color="#00C97B"
+                                      class="mt-8"
+                                  >
+                                      mdi-check-circle-outline
+                                  </v-icon>
+                              <div class="text-h5 px-12 pb-8 pt-4">Saved.</div>
+                              </v-card-text>
+                              <v-card-actions  class="justify-center mb-4">
+                              <v-btn 
+                                  color="#E93330" 
+                                  rounded
+                                  @click="submit(dialog)"
+                                  @click.stop="dialog = false"
+                              > 
+                                  Close
+                              </v-btn>
+                              </v-card-actions>
+                          </v-card>
+                        </v-dialog>
                       </v-row>
                     </v-col>
                   </v-row>
@@ -1573,7 +1551,7 @@ methods: {
   submit(dialog) {
       dialog = false;
       console.log("dialog",dialog);
-    },
+  },
         onFileChange(e) {
             let files = e.target.files || e.dataTransfer.files;
             if (!files.length) {

@@ -10,6 +10,7 @@ export const useProductStore = defineStore({
     Link: [
       // {title: 'no', url: 'nonono'},
     ],
+    feedback: [],
     countNumber: 1,
     theme: [
       {
@@ -100,6 +101,10 @@ export const useProductStore = defineStore({
     addNewLink(Link){
       this.Link.push(Link);
       console.log("Link pinia ", this.Link);
+    },
+    addNewFeedback(feedback){
+      this.feedback.push(feedback);
+      console.log("feedback pinia ", this.feedback);
     },
     deleteUsername(){
       this.account.splice(0, 1);  

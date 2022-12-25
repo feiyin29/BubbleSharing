@@ -12,11 +12,53 @@
           ></v-textarea> -->
         </v-col>
 
-        <v-col cols="12 mt-16">
-          <button class="button" @click="dialog = true">Submit</button>
+        <v-col cols="12 mt-4" class="d-flex justify-end">
+          <!-- <button class="button" @click="dialog = true">Submit</button> -->
+          <!-- dialog & save btn -->
+
+          <!-- submit btn & modal dialog -->
+          <v-dialog
+                        v-model="dialog"
+                        width="600"
+                        >
+                        <template v-slot:activator="{ props }">
+                            <v-btn
+                                :disabled="!valid"
+                                class="submitBtn"
+                                @click="sentFeedback()"
+                                v-bind="props"
+                            >
+                              Submit
+                            </v-btn>
+                        </template>
+                        <!-- <v-col></v-col>
+                        <v-col cols="5"> -->
+                          <v-card rounded="xl" >
+                              <v-card-text class="text-center my-6">
+                                  <v-icon 
+                                      size="80"
+                                      color="#00C97B"
+                                      class="mt-8"
+                                  >
+                                      mdi-check-circle-outline
+                                  </v-icon>
+                              <div class="text-h5 px-12 pb-8 pt-4">Send feedback success!</div>
+                              </v-card-text>
+                              <v-card-actions  class="justify-center mb-4">
+                              <v-btn 
+                                  color="#E93330" 
+                                  rounded
+                                  @click="submit(dialog)"
+                                  @click.stop="dialog = false"
+                              > 
+                                  Close
+                              </v-btn>
+                              </v-card-actions>
+                          </v-card>
+                    </v-dialog>
         </v-col>
       </v-from>
-      <v-dialog v-model="dialog" width="357">
+      <!-- <v-dialog v-model="dialog" width="357">
         <v-card>
           <v-card-actions class="pa-0">
             <v-spacer class="pa-0"></v-spacer>
@@ -35,7 +77,7 @@
             Send Feedbck Success!
           </v-card-text>
         </v-card>
-      </v-dialog>
+      </v-dialog> -->
     </v-row>
   </v-container>
 </template>
@@ -47,32 +89,51 @@ import { useProductStore } from "@/stores/products";
 export default {
   setup: () => {
     const store = useProductStore();
-    const feedback = ref("");
+    const feedback = ref('');
 
-    function add() {
-      const feedback = {
+    // function add() {
+    //   const feedback = {
+    //     feedback: feedback.value,
+    //   };
+
+    //   console.log("account data", feedback);
+    //   // this.$refs.form.validate();
+    //   store.addFeedback(feedback);
+    //   for (var v = 0; v < this.$refs.form.length; v++) {
+    //     this.$refs.form[v].validate();
+    //   }
+    //   /*this.$router.push("/create");*/
+    //   //  console.log(account.username);
+    //   this.$router.push("/page");
+    // }
+    function sentFeedback() {
+      const feedbackData = {
         feedback: feedback.value,
       };
-
-      console.log("account data", feedback);
       // this.$refs.form.validate();
-      store.addFeedback(feedback);
-      for (var v = 0; v < this.$refs.form.length; v++) {
-        this.$refs.form[v].validate();
-      }
-      /*this.$router.push("/create");*/
-      //  console.log(account.username);
-      this.$router.push("/page");
+      console.log("feedback data", feedbackData);
+      // store.addNewFeedback(feedback);
+      // if (store.account.length > 1) store.deleteUsername();
+      // console.log("account pinia", store.account[0]);
+      // this.$router.push("/welcome");
     }
 
-    return { store, feedback, add };
+    return { store, feedback, sentFeedback};
   },
 
   data: () => ({
     dialog: false,
-    valid: true,
-    feedback: "",
+    valid: true, 
+    // dialog: false,
+    // valid: true,
+    // feedback: "",
   }),
+  methods: {
+    submit(dialog) {
+      dialog = false;
+      console.log("dialog",dialog);
+    },
+  },
 };
 </script>
 
@@ -135,5 +196,22 @@ textarea {
   font-size: 20px;
   resize: none;
   caret-color: #c9d7fc;
+}
+.submitBtn {
+  background-color: #04B8AD;
+  border-radius: 25px;
+  color: #f8f8f8;
+  text-transform: capitalize;
+  font-weight:bold;
+  font-size: 20px;
+  line-height: 40px;
+  letter-spacing: 0px;
+  height: 60px;
+  width: 200px;
+  box-shadow: 0px 0px;
+  border-radius: 50px;
+}
+.submitBtn:hover {
+  background-color: #07A49A;
 }
 </style>
