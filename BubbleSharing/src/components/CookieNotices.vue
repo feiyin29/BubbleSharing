@@ -42,7 +42,7 @@
             <v-row no-gutter class="Heading2 mt-8">‍Other technologies</v-row>
             <v-row no-gutter class="Body1 tw-break-words pt-2">
               In addition to cookies, our Sites and emails may use other technologies to collect information. For example, 
-              we may use web beacons (which are also known as pixel tags and clear GIFs) on our Sites and in our HTML formatted emails to track the actions of users on our Sites and whether recipients of our marketing emails open or click links within them. Unlike cookies, which are stored on the hard drive of your computer or mobile device by a website, pixel tags are embedded invisibly on webpages or within HTML formatted emails. 
+              we may use web bubble sharing (which are also known as pixel tags and clear GIFs) on our Sites and in our HTML formatted emails to track the actions of users on our Sites and whether recipients of our marketing emails open or click links within them. Unlike cookies, which are stored on the hard drive of your computer or mobile device by a website, pixel tags are embedded invisibly on webpages or within HTML formatted emails. 
               Pixel tags are used to demonstrate that a webpage was accessed or that certain content was viewed, typically to measure the success of our marketing campaigns or engagement with our emails (e.g., they may tell us whether you have opened an email, and/or forwarded it on to someone else) and to compile statistics about usage of the Sites, so that we can manage our content more effectively.‍
             </v-row>
           </v-col>

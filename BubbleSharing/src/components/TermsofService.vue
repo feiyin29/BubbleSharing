@@ -36,7 +36,7 @@
           <v-row no-guter class="Body1 tw-break-words pt-2">
             <v-col cols="12" class="pa-0">
               To continue ensuring Bubble Sharing remains a trusted platform for all users, 
-              we have created these standards outlining what is and what isn't permitted on Beacons. 
+              we have created these standards outlining what is and what isn't permitted on Bubble Sharing. 
               Our priority is to ensure the safety of our users and their audiences. We ask all users to review these standards thoroughly. 
               By using Bubble Sharing, all users agree to abide by these standards.
               <button class="btn">Bubble Sharing Community Standard.</button> 

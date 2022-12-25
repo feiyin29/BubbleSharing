@@ -7,7 +7,9 @@ export const useProductStore = defineStore({
     design: [{username: 'PrincessShop', bio: '', themeTemplate: '0', 
       // profileImage: 'src/assets/FirstScreen.png'
     },],
-    Link: [{title: 'no', url: 'nonono'},],
+    Link: [
+      // {title: 'no', url: 'nonono'},
+    ],
     countNumber: 1,
     theme: [
       {

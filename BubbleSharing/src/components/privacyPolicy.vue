@@ -92,7 +92,7 @@
               </p>
             </v-row>
             <v-row no-gutter class="Body1 tw-break-words tw-text-[#616161]">
-              <p><b>Marketing</b>. We may send you Beacons-related or other direct marketing communications as permitted by law. You may opt-out of our marketing communications as described in the Opt-out of marketing section below.</p>
+              <p><b>Marketing</b>. We may send you Bubble Sharing-related or other direct marketing communications as permitted by law. You may opt-out of our marketing communications as described in the Opt-out of marketing section below.</p>
             </v-row>
             <v-row no-gutter class="Body1 tw-break-words tw-text-[#616161]">
               <p><b>Compliance and protection</b>. We may use your personal information to:</p>
