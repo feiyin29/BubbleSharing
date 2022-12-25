@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="pa-0">
     <v-col col="12" class="sheetStyle">
-      <v-row no-gutter class="Heading1 mt-16 mx-16 tw-text-[#ffffff]">Report a violation on Beacons</v-row>
+      <v-row no-gutter class="Heading1 mt-16 mx-16 tw-text-[#ffffff]">Report a violation on Bubble Sharing</v-row>
       <v-row no-gutter class="Heading3 pt-2 mx-16 mb-10 tw-text-[#ffffff]">
         Please use the following form to report a violation or inappropriate content 
         from an account that does not follow our Terms of Service or Community Standards.
@@ -11,7 +11,7 @@
           <v-row no-gutter class="Heading1">Report Violation</v-row>
           <v-row no-gutter class="Body1 mt-6">
             Please note that this form is for reporting a violation and not for general support. 
-            If you have a general support matter, please contact us on support@beacons.ai. 
+            If you have a general support matter, please contact us on support@bubbulesh.com. 
           </v-row>
           <v-row no-gutter class="Body1 mt-6">
             We take violations seriously and review all reports. Thank you for taking the time to filling out this form. 
@@ -20,7 +20,7 @@
             Terms of Service: <router-link to="/termsofservice"> https://bubble.sh/terms-of-service</router-link>
           </v-row>
           <v-row no-gutter class="Body1">
-            Community Standards: <router-link to="/commustandards"> https://beacons.ai/i/community-standards</router-link>
+            Community Standards: <router-link to="/commustandards"> https://bubble.sh/i/community-standards</router-link>
           </v-row>
           <v-form
             ref="form"
@@ -28,12 +28,12 @@
             lazy-validation
           >
           <v-row no-gutter class="Body1 mt-6">
-            Link to Beacons account with the identified violation <p class="tw-text-[#E93330] pl-1">*</p>
+            Link to Bubble Sharing account with the identified violation <p class="tw-text-[#E93330] pl-1">*</p>
           </v-row>
           <v-row no-gutter class="mt-6">
             <v-text-field
               v-model="link"
-              :rules="[v => !!v || 'Link to Beacons account is required.']"
+              :rules="[v => !!v || 'Link to Bubble Sharing account is required.']"
               required
               variant="outlined"
             ></v-text-field>

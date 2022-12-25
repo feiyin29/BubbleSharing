@@ -28,7 +28,7 @@
           <v-col cols="12" claas="pa-0">
             <v-row no-gutter class="Heading1 mt-8">Hate speech</v-row>
             <v-row no-gutter class="Body1 tw-break-words pt-2">
-              Diversity of thought is important to us at Beacons, but we do not permit content that discriminates against people, 
+              Diversity of thought is important to us at Bubble Sharing, but we do not permit content that discriminates against people, 
               incites hate or violence, or inflicts harm.
             </v-row>
           </v-col>
@@ -36,7 +36,7 @@
           <v-col cols="12" claas="pa-0">
             <v-row no-gutter class="Heading1 mt-8">Prohibited or illegal goods and services</v-row>
             <v-row no-gutter class="Body1 tw-break-words pt-2">
-              Beacons does not permit the exchange of or the incitement of exchange of prohibited or illegal goods or services 
+              Bubble Sharing does not permit the exchange of or the incitement of exchange of prohibited or illegal goods or services 
               through the platform. These prohibited or illegal goods and services include:
             </v-row>
             <v-row no-gutter class="Body1 tw-break-words pt-4">
@@ -118,7 +118,7 @@
           <v-col cols="12" claas="pa-0">
             <v-row no-gutter class="Heading1 mt-8">Privacy</v-row>
             <v-row no-gutter class="Body1 tw-break-words pt-2">
-              Individual privacy is critically important to us at Beacons, so we do not permit the sharing of any personal identifying information.
+              Individual privacy is critically important to us at Bubble Sharing, so we do not permit the sharing of any personal identifying information.
             </v-row>
           </v-col>
           <!-- Section 12 -->
@@ -132,7 +132,7 @@
           <v-col cols="12" claas="pa-0">
             <v-row no-gutter class="Heading1 mt-8">Usernames</v-row>
             <v-row no-gutter class="Body1 tw-break-words pt-2">
-              We do not allow creators to exchange Beacons usernames for money. If you pick a username, you must do so with the intention of using it.
+              We do not allow creators to exchange Bubble Sharing usernames for money. If you pick a username, you must do so with the intention of using it.
             </v-row>
           </v-col>
         </v-col>
